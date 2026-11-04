@@ -1,69 +1,167 @@
-import Image from "next/image";
+const highlights = [
+  {
+    title: "Signature Sweets",
+    text: "Handcrafted treats that bring color, comfort, and celebration into every bite.",
+  },
+  {
+    title: "Custom Celebrations",
+    text: "Weddings, birthdays, and gifting moments designed with a joyful, personal touch.",
+  },
+  {
+    title: "Freshly Made",
+    text: "Every batch is prepared with care and premium ingredients for a richer taste.",
+  },
+];
+
+const categories = [
+  "Cakes",
+  "Desserts",
+  "Gift Boxes",
+  "Seasonal Specials",
+];
+
+const stats = [
+  { value: "300+", label: "happy events" },
+  { value: "12k", label: "delights served" },
+  { value: "4.9/5", label: "customer love" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="page-shell">
+      <section className="hero-section">
+        <header className="topbar">
+          <div className="brandmark">RAINBOW</div>
+          <nav className="nav-links" aria-label="Main navigation">
+            <a href="#story">Story</a>
+            <a href="#collections">Collections</a>
+            <a href="#craft">Craft</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <button className="primary-button">Order now</button>
+        </header>
+
+        <div className="hero-content">
+          <div className="hero-copy">
+            <p className="eyebrow">Crafted with joy</p>
+            <h1>Bright flavors for every celebration.</h1>
+            <p className="lead">
+              From elegant cakes to playful desserts, Rainbow brings rich textures,
+              thoughtful details, and colorful warmth to the moments people cherish most.
+            </p>
+            <div className="cta-row">
+              <a className="primary-button" href="#collections">Explore collection</a>
+              <a className="secondary-button" href="#story">Our story</a>
+            </div>
+            <div className="stats-row" aria-label="Brand highlights">
+              {stats.map((item) => (
+                <div key={item.label} className="stat-box">
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hero-visual" aria-label="Rainbow dessert showcase">
+            <div className="visual-card main-card">
+              <div className="cake-plate">
+                <div className="cake-tier tier-top" />
+                <div className="cake-tier tier-middle" />
+                <div className="cake-tier tier-bottom" />
+              </div>
+            </div>
+            <div className="floating-tag badge-top">Freshly baked</div>
+            <div className="floating-tag badge-bottom">Made for moments</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" className="story-section">
+        <div className="story-text">
+          <p className="eyebrow accent">Why Rainbow</p>
+          <h2>Joyful design. Honest ingredients. Memorable taste.</h2>
+        </div>
+        <div className="story-grid">
+          {highlights.map((item) => (
+            <article key={item.title} className="info-card">
+              <span className="card-dot" aria-hidden="true" />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="collections" className="collection-section">
+        <div className="section-heading">
+          <p className="eyebrow accent">Curated collection</p>
+          <h2>Sweet ideas for every mood and moment.</h2>
+        </div>
+
+        <div className="collection-tags" aria-label="Collection categories">
+          {categories.map((text) => (
+            <span key={text} className="tag-pill">
+              {text}
+            </span>
+          ))}
+        </div>
+
+        <div className="product-grid">
+          <article className="product-card product-card-orange">
+            <div className="mini-visual mini-cake" aria-hidden="true" />
+            <div>
+              <h3>Sunset Celebration</h3>
+              <p>Rich, vibrant layers made for unforgettable birthdays and joyful dinners.</p>
+            </div>
+          </article>
+
+          <article className="product-card product-card-purple">
+            <div className="mini-visual mini-dessert" aria-hidden="true" />
+            <div>
+              <h3>Velvet Treat Box</h3>
+              <p>Delicate sweets and elegant bites for gifting, sharing, and slow evenings.</p>
+            </div>
+          </article>
+
+          <article className="product-card product-card-cream">
+            <div className="mini-visual mini-gift" aria-hidden="true" />
+            <div>
+              <h3>Signature Gift Sets</h3>
+              <p>Thoughtfully packed, beautifully styled, and designed to feel personal.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="craft" className="craft-section">
+        <div className="craft-copy">
+          <p className="eyebrow accent">The craft behind it</p>
+          <h2>Made to feel as beautiful as it tastes.</h2>
+          <p>
+            Every creation is built with intention, layering color, texture, and flavor so the final piece feels joyful, premium, and personal. We blend artistry with comfort to make every dessert feel special.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="craft-panel">
+          <div className="panel-badge">Hand-finished</div>
+          <ul>
+            <li>Small-batch baking</li>
+            <li>Premium ingredients</li>
+            <li>Custom color palettes</li>
+            <li>Thoughtful presentation</li>
+          </ul>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section id="contact" className="cta-section">
+        <div>
+          <p className="eyebrow accent">Let’s create something sweet</p>
+          <h2>Bring color to your next celebration.</h2>
+        </div>
+        <a className="primary-button" href="mailto:hello@rainbowstudio.com">
+          hello@rainbowstudio.com
+        </a>
+      </section>
+    </main>
   );
 }
