@@ -1,0 +1,824 @@
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+  width: 100%;
+  max-width: none;
+  height: calc(100svh - 130px);
+  min-height: 600px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  background: #fffcee;
+}
+
+.heroCollection {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  margin: 0;
+  overflow: hidden;
+
+  background: #fffcee;
+}
+
+
+/* =========================================
+   DESSERT SLIDES
+========================================= */
+
+.dessertHero {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  padding: 55px 6%;
+
+  isolation: isolate;
+  overflow: hidden;
+
+  background: #fffcee;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateX(35px);
+
+  transition:
+    opacity 900ms ease,
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 1000ms;
+}
+
+.dessertHeroActive {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(0);
+
+  transition:
+    opacity 900ms ease,
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s;
+}
+
+/* =========================================
+   BACKGROUND TYPOGRAPHY
+========================================= */
+
+.heroTypography {
+  position: absolute;
+  z-index: -1;
+
+  width: 100%;
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-heading), serif;
+
+  white-space: nowrap;
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translate(-50%, -46%) scale(0.96);
+
+  transition:
+    opacity 1000ms ease,
+    transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dessertHeroActive .heroTypography {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.heroTitlePrimary,
+.heroTitleSecondary,
+.heroTitleTertiary {
+  display: block;
+
+  font-family: var(--font-heading), serif;
+  font-weight: 400;
+
+  text-align: center;
+  max-width: 100%;
+}
+
+.heroTitlePrimary {
+  font-size: clamp(4.5rem, 10vw, 10rem);
+  color: #6d5686;
+  transform: translateX(-2%);
+}
+
+.heroTitleSecondary {
+  font-size: clamp(4.5rem, 10vw, 10rem);
+  color: #d9431c;
+  opacity: 0.65;
+  transform: translateX(3%);
+}
+
+.heroTitleTertiary {
+  font-size: clamp(4.5rem, 10vw, 10rem);
+  color: #6d5686;
+  opacity: 0.55;
+  transform: translateX(-1%);
+}
+
+/* =========================================
+   CENTER PRODUCT IMAGE
+========================================= */
+
+.heroProduct {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.productGlow {
+  position: absolute;
+  z-index: -1;
+
+  width: 75%;
+  aspect-ratio: 1;
+  display: none;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(241, 89, 43, 0.12),
+    rgba(109, 86, 134, 0.06) 45%,
+    transparent 72%
+  );
+
+  filter: blur(20px);
+}
+
+.dessertImage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: 650px;
+  max-height: 500px;
+
+  object-fit: contain;
+  object-position: center;
+
+  filter: drop-shadow(0 25px 25px rgba(40, 25, 20, 0.15));
+
+  opacity: 0;
+  transform: translateY(30px) scale(0.94);
+
+  transition:
+    opacity 900ms ease,
+    transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dessertHeroActive .dessertImage {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  transition-delay: 150ms;
+}
+
+.dessertHeroActive:hover .dessertImage {
+  transform: translateY(-10px) scale(1.035);
+}
+
+.heroInfo {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 5%;
+  width: min(24%, 290px);
+
+  transform: translateY(-50%);
+}
+
+.heroEyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+
+  color: #f1592b;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  margin: 0 0 12px;
+  color: #6d5686;
+  font-size: clamp(24px, 2.4vw, 36px);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+
+.heroDescription {
+  margin: 0;
+  color: #392746;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.6;
+}
+
+.orderButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  min-height: 52px;
+  padding: 14px 20px;
+
+  border: 0;
+  border-radius: 999px;
+  background: #f1592b;
+  box-shadow: 0 7px 18px rgba(109, 86, 134, 0.2);
+  color: #fffcee;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.orderButton:hover {
+  transform: translateY(-3px);
+  background: #f1592b;
+  box-shadow: 5px 5px 0 #6d5686;
+}
+
+.orderButton span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.heroIngredients {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 5%;
+  width: min(19%, 245px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transform: translateY(-50%);
+}
+
+.ingredientPill {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 8px;
+
+  border-radius: 999px;
+  background: #6d5686;
+  box-shadow: 0 6px 15px rgba(109, 86, 134, 0.18);
+  color: #fffcee;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ingredientPillOrange {
+  background: #f1592b;
+  box-shadow: 0 6px 15px rgba(241, 89, 43, 0.18);
+}
+
+.ingredientImage {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fffcee;
+}
+
+/* =========================================
+   DECORATIVE ELEMENTS
+========================================= */
+
+.garnish {
+  position: absolute;
+  z-index: 1;
+
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+
+  opacity: 0;
+  filter: drop-shadow(0 5px 7px rgba(44, 24, 20, 0.16));
+
+  transition:
+    opacity 700ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.garnish {
+  transform: translateY(12px) scale(0.8) rotate(var(--element-rotation));
+}
+
+.dessertHeroActive .garnish {
+  opacity: 0.96;
+  transform: translateY(0) scale(1) rotate(var(--element-rotation));
+}
+
+.elementOne {
+  top: 23%;
+  left: 4%;
+  width: clamp(50px, 6vw, 82px);
+  --element-rotation: -28deg;
+}
+
+.elementTwo {
+  top: 18%;
+  right: 4%;
+  width: clamp(48px, 5.6vw, 78px);
+  --element-rotation: 24deg;
+}
+
+.elementThree {
+  top: 48%;
+  left: 1%;
+  width: clamp(52px, 6.4vw, 88px);
+  --element-rotation: 38deg;
+}
+
+.elementFour {
+  top: 60%;
+  right: 2%;
+  width: clamp(46px, 5.8vw, 80px);
+  --element-rotation: -22deg;
+}
+
+.elementFive {
+  top: 7%;
+  right: 23%;
+  width: clamp(32px, 3.8vw, 52px);
+  --element-rotation: 42deg;
+}
+
+.elementSix {
+  top: 72%;
+  left: 18%;
+  width: clamp(38px, 4.8vw, 66px);
+  --element-rotation: -36deg;
+}
+
+.elementSeven {
+  top: 12%;
+  left: 27%;
+  width: clamp(28px, 3.4vw, 46px);
+  --element-rotation: 16deg;
+}
+
+.elementEight {
+  top: 76%;
+  right: 17%;
+  width: clamp(40px, 5vw, 68px);
+  --element-rotation: 31deg;
+}
+
+.elementNine {
+  top: 38%;
+  right: 10%;
+  width: clamp(34px, 4.2vw, 58px);
+  --element-rotation: -14deg;
+}
+
+.heroDecoration {
+  position: absolute;
+  z-index: 1;
+
+  color: #6d5686;
+  opacity: 0.35;
+
+  pointer-events: none;
+
+  transition: opacity 700ms ease;
+}
+
+.dessertHero:not(.dessertHeroActive) .heroDecoration {
+  opacity: 0;
+}
+
+.decorationOne {
+  top: 27%;
+  left: 6%;
+
+  font-size: 22px;
+}
+
+.decorationTwo {
+  top: 8%;
+  right: 8%;
+
+  font-size: 21px;
+}
+
+.decorationThree {
+  bottom: 12%;
+  left: 31%;
+
+  font-size: 19px;
+  color: #f1592b;
+}
+
+/* =========================================
+   SLIDE NUMBER
+========================================= */
+
+.heroIndex {
+  position: absolute;
+
+  right: 6%;
+  bottom: 25px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+
+  color: #6d5686;
+}
+
+.heroIndex span {
+  opacity: 0.45;
+}
+
+/* =========================================
+   SLIDE INDICATORS
+========================================= */
+
+.heroDots {
+  position: absolute;
+  z-index: 10;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.heroDot {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: #6d5686;
+  opacity: 0.3;
+
+  cursor: pointer;
+
+  transition:
+    width 350ms ease,
+    opacity 350ms ease,
+    background 350ms ease;
+}
+
+.heroDotActive {
+  width: 28px;
+
+  border-radius: 20px;
+
+  background: #f1592b;
+  opacity: 1;
+}
+
+/* =========================================
+   TABLET AND MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .heroCollection {
+    height: auto;
+    min-height: 0;
+  }
+
+  .dessertHero {
+    position: relative;
+    inset: auto;
+    display: none;
+    height: auto;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto clamp(220px, 30vw, 340px) auto;
+    align-content: start;
+    gap: clamp(18px, 3vw, 30px);
+    padding: clamp(28px, 4vw, 44px) 5% 88px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+  }
+
+  .dessertHeroActive {
+    display: grid;
+  }
+
+  .heroTypography {
+    top: 58%;
+  }
+
+  .heroTitlePrimary {
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+  }
+
+  .heroTitleSecondary {
+    font-size: clamp(2.6rem, 7.5vw, 6rem);
+  }
+
+  .heroTitleTertiary {
+    font-size: clamp(2.4rem, 7vw, 5.5rem);
+  }
+
+  .heroInfo {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-row: 1;
+    width: min(100%, 680px);
+    margin: 0 auto;
+    text-align: center;
+    transform: none;
+  }
+
+  .heroHeading {
+    font-size: clamp(25px, 3.5vw, 36px);
+  }
+
+  .heroDescription {
+    font-size: clamp(14px, 1.7vw, 17px);
+  }
+
+  .heroProduct {
+    grid-row: 2;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .dessertImage {
+    width: min(72vw, 430px);
+    max-width: 430px;
+    max-height: 100%;
+  }
+
+  .heroIngredients {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 850px);
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .ingredientPill {
+    min-height: 62px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 10px 8px 8px;
+    border-radius: 999px;
+    background: #6d5686;
+    box-shadow: 0 6px 15px rgba(109, 86, 134, 0.18);
+    color: #fffcee;
+    text-align: left;
+    font-size: clamp(10px, 1.3vw, 12px);
+  }
+
+  .ingredientPillOrange {
+    background: #f1592b;
+    box-shadow: 0 6px 15px rgba(241, 89, 43, 0.18);
+  }
+
+  .ingredientImage {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    background: #fffcee;
+  }
+
+  .heroIndex {
+    right: 5%;
+    bottom: 24px;
+  }
+
+  .heroDots {
+    bottom: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dessertHero {
+    grid-template-rows: auto clamp(190px, 58vw, 260px) auto;
+    gap: 18px;
+    padding: 26px 20px 78px;
+  }
+
+  .heroTypography {
+    top: 59%;
+    letter-spacing: -0.07em;
+  }
+
+  .heroTitlePrimary {
+    font-size: clamp(2.2rem, 9.5vw, 3.8rem);
+  }
+
+  .heroTitleSecondary {
+    font-size: clamp(2.1rem, 9vw, 3.5rem);
+  }
+
+  .heroTitleTertiary {
+    font-size: clamp(2rem, 8.5vw, 3.3rem);
+  }
+
+  .heroEyebrow {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .heroHeading {
+    margin-bottom: 8px;
+    font-size: clamp(22px, 6vw, 29px);
+  }
+
+  .heroDescription {
+    max-width: 380px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .orderButton {
+    min-height: 44px;
+    margin-top: 12px;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .dessertImage {
+    width: min(72vw, 290px);
+    max-width: 290px;
+  }
+
+  .ingredientPill {
+    min-height: 62px;
+    gap: 5px;
+    padding: 6px;
+    font-size: 9px;
+  }
+
+  .ingredientImage {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .elementOne {
+    top: 23%;
+    left: 1%;
+    width: clamp(36px, 10vw, 46px);
+  }
+
+  .elementTwo {
+    top: 17%;
+    right: 1%;
+    width: clamp(34px, 9vw, 42px);
+  }
+
+  .elementThree {
+    top: 49%;
+    left: 0;
+    width: clamp(38px, 11vw, 50px);
+  }
+
+  .elementFour {
+    top: 60%;
+    right: 0;
+    width: clamp(36px, 10vw, 46px);
+  }
+
+  .elementFive {
+    top: 7%;
+    right: 20%;
+    width: clamp(25px, 7vw, 32px);
+  }
+
+  .elementSix {
+    top: 72%;
+    left: 8%;
+    width: clamp(28px, 8vw, 38px);
+  }
+
+  .elementSeven {
+    top: 12%;
+    left: 24%;
+    width: clamp(23px, 6vw, 30px);
+  }
+
+  .elementEight {
+    top: 76%;
+    right: 9%;
+    width: clamp(30px, 8.5vw, 40px);
+  }
+
+  .elementNine {
+    top: 38%;
+    right: 5%;
+    width: clamp(26px, 7.2vw, 34px);
+  }
+
+  .ingredientImage {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .heroIndex {
+    right: 20px;
+    bottom: 18px;
+  }
+
+  .heroDots {
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .dessertHero {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .dessertHero,
+  .dessertImage,
+  .heroInfo,
+  .heroIngredients,
+  .heroTypography,
+  .heroDecoration,
+  .garnish,
+  .heroDot {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
