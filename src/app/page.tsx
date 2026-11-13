@@ -1,4 +1,5 @@
-import { HeroSection, StorySection, ProductSection } from '@/app/components';
+import HeroSection from '@/app/components/home/HeroSection';
+import StorySection from '@/app/components/home/StorySection';
 import styles from './page.module.css';
 
 export default function Page() {
@@ -6,7 +7,7 @@ export default function Page() {
     <div className={styles.page}>
       <main>
         <HeroSection />
-        {/* <StorySection /> */}
+        <StorySection />
         {/* <ProductSection /> */}
       </main>
     </div>
