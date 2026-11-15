@@ -1,0 +1,197 @@
+.footer {
+  width: 100%;
+  background: #fffcee;
+  color: #281e19;
+}
+
+.brandStage {
+  position: relative;
+  display: flex;
+  height: clamp(230px, 24vw, 300px);
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(52px, 6vw, 72px) 12px 0;
+  isolation: isolate;
+}
+
+.brandLockup {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.brandName {
+  position: relative;
+  display: inline-block;
+  color: var(--brand-orange);
+  font-family: var(--font-shrikhand), serif;
+  font-size: clamp(3rem, 18vw, 13.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brandName sup {
+  position: absolute;
+  top: 0.08em;
+  right: -0.38em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.16em;
+  letter-spacing: 0;
+}
+
+.brandTagline {
+  margin: clamp(9px, 1.4vw, 15px) 0 0;
+  color: var(--brand-orange);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.7rem, 2.7vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.3em, 0.75vw, 0.58em);
+  line-height: 1;
+  padding-left: 0.58em;
+}
+
+.person {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.personLeft {
+  top: 68px;
+  left: 9.5%;
+  width: clamp(52px, 6.7vw, 82px);
+}
+
+.personMiddle {
+  top: 5px;
+  left: 41%;
+  width: clamp(65px, 6.2vw, 90px);
+}
+
+.personCouple {
+  top: clamp(55px, 6vw, 10px);
+  left: 60%;
+  width: clamp(78px, 10.4vw, 126px);
+}
+
+.personRight {
+  top: clamp(100px, 7vw, 200px);
+  right: 12%;
+  width: clamp(42px, 5.2vw, 70px);
+}
+
+.footerNav {
+  display: flex;
+  min-height: 82px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px clamp(18px, 3vw, 34px);
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(40, 30, 25, 0.12);
+}
+
+.footerLink {
+  color: #281e19;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footerLink:hover {
+  color: var(--brand-orange);
+}
+
+.footerLink:focus-visible,
+.brandName:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 4px;
+}
+
+.legalBar {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px clamp(20px, 5vw, 48px);
+  color: #705d50;
+  font-size: 0.7rem;
+}
+
+.legalBar p {
+  margin: 0;
+}
+
+.legalBar p:last-child {
+  color: #281e19;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .brandStage {
+    height: 195px;
+    padding-top: 58px;
+  }
+
+  .brandName {
+    font-size: clamp(2.1rem, 12.8vw, 5rem);
+  }
+
+  .personLeft {
+    top: 3px;
+    left: 9%;
+    width: 11vw;
+  }
+
+  .personMiddle {
+    top: 2px;
+    left: 43%;
+    width: 10vw;
+  }
+
+  .personCouple {
+    top: 56px;
+    left: 65%;
+    width: 15vw;
+  }
+
+  .personRight {
+    top: 48px;
+    right: 2%;
+    width: 8vw;
+  }
+
+  .footerNav {
+    min-height: 94px;
+    gap: 12px 20px;
+    padding: 18px 22px;
+  }
+
+  .footerLink {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .legalBar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footerLink {
+    transition: none;
+  }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "./components/common/Navbar";
+import SiteFooter from "./components/common/SiteFooter";
 import "./globals.css";
 
 const shrikhand = localFont({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

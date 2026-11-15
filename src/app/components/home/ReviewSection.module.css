@@ -1,0 +1,228 @@
+.section {
+  position: relative;
+  min-height: clamp(700px, 64vw, 840px);
+  overflow: hidden;
+  padding: clamp(54px, 6vw, 76px) 24px clamp(36px, 5vw, 60px);
+  background: var(--brand-cream);
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--brand-black);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--brand-black);
+  font-family: var(--font-shrikhand), serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.title span {
+  display: block;
+  color: var(--brand-orange);
+}
+
+.centerPhrase {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  z-index: 1;
+  width: min(92%, 1100px);
+  margin: 0;
+  color: var(--brand-black);
+  font-family: var(--font-shrikhand), serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-align: center;
+  text-wrap: balance;
+  transform: translate(-50%, -50%);
+}
+
+.reviews {
+  position: absolute;
+  top: 68%;
+  right: 5%;
+  left: 5%;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 8%;
+}
+
+.review {
+  width: 27%;
+  margin: 0;
+  color: var(--brand-black);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.review p {
+  margin: 0;
+}
+
+.reviewLabel {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--brand-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.people {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 3;
+  width: min(64%, 800px);
+  height: 80%;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.personFrame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: reviewPersonSequence 30s linear infinite;
+}
+
+.personImage {
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.personOne {
+  animation-delay: 0s;
+}
+
+.personTwo {
+  animation-delay: 5s;
+}
+
+.personThree {
+  animation-delay: 10s;
+}
+
+.personFour {
+  animation-delay: 15s;
+}
+
+.personFive {
+  animation-delay: 20s;
+}
+
+.personSix {
+  animation-delay: 25s;
+}
+
+@keyframes reviewPersonSequence {
+  0%,
+  13% {
+    opacity: 1;
+  }
+
+  16.666%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  z-index: 4;
+  color: var(--brand-orange);
+  font-size: clamp(28px, 5vw, 58px);
+  line-height: 1;
+}
+
+.sparkleOne {
+  top: 11%;
+  right: 8%;
+}
+
+.sparkleTwo {
+  top: 17%;
+  right: 17%;
+  font-size: clamp(18px, 2vw, 28px);
+}
+
+@media (max-width: 700px) {
+  .section {
+    min-height: 960px;
+    padding: 62px 18px 0;
+  }
+
+  .title {
+    font-size: clamp(2.3rem, 9vw, 3.6rem);
+  }
+
+  .centerPhrase {
+    top: 37%;
+    width: 96%;
+    font-size: clamp(2.7rem, 10vw, 4.8rem);
+  }
+
+  .reviews {
+    top: 53%;
+    right: 7%;
+    left: 7%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .review {
+    width: min(74%, 360px);
+    font-size: 1rem;
+  }
+
+  .review:nth-child(2) {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .people {
+    width: 100%;
+    height: 48%;
+  }
+
+  .sparkleOne {
+    top: 9%;
+    right: 5%;
+  }
+
+  .sparkleTwo {
+    top: 15%;
+    right: 16%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personFrame {
+    animation: none;
+    opacity: 0;
+  }
+
+  .personOne {
+    opacity: 1;
+  }
+}
