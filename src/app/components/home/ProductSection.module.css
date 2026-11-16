@@ -1,0 +1,220 @@
+/* =========================================
+   PRODUCT MARQUEE
+========================================= */
+
+.productMarqueeSection {
+  --product-gap: clamp(12px, 1.8vw, 22px);
+  overflow: hidden;
+  padding: clamp(64px, 8vw, 112px) clamp(18px, 5vw, 72px) clamp(56px, 7vw, 96px);
+  background: var(--brand-purple);
+  color: var(--brand-cream);
+}
+
+.productMarqueeHeader {
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 5vw, 64px);
+  text-align: center;
+}
+
+.productMarqueeEyebrow {
+  margin: 0 0 12px;
+  color: var(--brand-orange);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.productMarqueeTitle {
+  margin: 0;
+  color: var(--brand-cream);
+  font-family: var(--font-shrikhand), serif;
+  font-size: clamp(2.2rem, 5.2vw, 4.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+}
+
+.productMarqueeDescription {
+  margin: 14px 0 0;
+  color: rgba(255, 252, 238, 0.82);
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+}
+
+.productColumns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--product-gap);
+  width: min(1120px, 100%);
+  height: clamp(520px, 72vh, 760px);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.productColumn {
+  min-width: 0;
+  height: 100%;
+}
+
+.productColumn:nth-child(2) {
+  margin-top: clamp(24px, 5vw, 64px);
+  height: calc(100% - clamp(24px, 5vw, 64px));
+}
+
+.productTrack {
+  display: flex;
+  flex-direction: column;
+  animation: productMarqueeUp 28s linear infinite;
+  will-change: transform;
+}
+
+.productColumn:nth-child(2) .productTrack {
+  animation-duration: 32s;
+}
+
+.productColumn:nth-child(3) .productTrack {
+  animation-duration: 25s;
+}
+
+.productTrackDown {
+  animation-name: productMarqueeDown;
+}
+
+.productSequence {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: var(--product-gap);
+  padding-bottom: var(--product-gap);
+}
+
+.productSequence > div {
+  display: contents;
+}
+
+.productCapsule {
+  display: flex;
+  flex: 0 0 clamp(340px, 39vw, 470px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: clamp(340px, 39vw, 470px);
+  overflow: hidden;
+  padding: clamp(20px, 3vw, 36px) clamp(12px, 2vw, 26px);
+  border-radius: 999px;
+  box-shadow:
+    0 18px 35px rgba(35, 21, 50, 0.28),
+    0 4px 12px rgba(35, 21, 50, 0.18);
+  text-align: center;
+}
+
+.productCapsuleOrange {
+  background: var(--brand-orange);
+  color: var(--brand-cream);
+}
+
+.productCapsuleCream {
+  background: var(--brand-cream);
+  color: var(--brand-purple);
+}
+
+.productImageFrame {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+.productCapsuleImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 14px rgba(48, 29, 61, 0.18));
+}
+
+.productCapsuleName {
+  max-width: 14ch;
+  margin: 10px 0 0;
+  font-family: var(--font-recoleta), serif;
+  font-size: clamp(1rem, 1.55vw, 1.35rem);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+
+@keyframes productMarqueeUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes productMarqueeDown {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .productMarqueeSection {
+    --product-gap: 10px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .productMarqueeHeader {
+    margin-bottom: 30px;
+  }
+
+  .productMarqueeEyebrow {
+    margin-bottom: 8px;
+    font-size: 0.68rem;
+  }
+
+  .productMarqueeTitle {
+    font-size: clamp(1.9rem, 8vw, 3rem);
+  }
+
+  .productMarqueeDescription {
+    max-width: 300px;
+    margin: 10px auto 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .productColumns {
+    height: clamp(480px, 72vh, 660px);
+  }
+
+  .productColumn:nth-child(2) {
+    margin-top: 24px;
+    height: calc(100% - 24px);
+  }
+
+  .productCapsule {
+    flex-basis: clamp(280px, 84vw, 360px);
+    height: clamp(280px, 84vw, 360px);
+    padding: 18px 8px;
+  }
+
+  .productCapsuleName {
+    margin-top: 6px;
+    font-size: clamp(0.72rem, 2.8vw, 0.95rem);
+    line-height: 1.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .productTrack {
+    animation: none;
+  }
+}

@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./sections.module.css";
+import styles from "./HeroSection.module.css";
 
 const desserts = [
   {

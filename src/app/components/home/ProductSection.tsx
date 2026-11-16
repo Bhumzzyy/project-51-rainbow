@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./sections.module.css";
+import styles from "./ProductSection.module.css";
 
 const products = {
   pistachio: {

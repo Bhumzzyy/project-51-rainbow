@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./sections.module.css";
+import styles from "./StorySection.module.css";
 
 /*
 Legacy story section retained at the user's request.
