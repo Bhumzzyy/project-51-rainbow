@@ -284,7 +284,6 @@ Legacy story section styles retained at the user's request.
   align-items: center;
   gap: 16px;
   margin: 0 auto;
-  border-bottom: 3px double var(--brand-purple);
   color: var(--brand-purple);
 }
 
@@ -447,6 +446,46 @@ Legacy story section styles retained at the user's request.
   height: 1px;
   background: var(--brand-purple);
   content: "";
+}
+
+@media (max-width: 900px) {
+  .storySection {
+    min-height: 0;
+    padding: 112px 28px 0;
+  }
+
+  .storyMasthead {
+    min-height: 56px;
+    gap: 12px;
+  }
+
+  .storyArticlePage {
+    padding-top: 16px;
+  }
+
+  .storyTower {
+    bottom: calc(44px + clamp(4px, 0.6vw, 8px));
+    height: clamp(500px, 66vw, 620px);
+    max-width: 48%;
+  }
+
+  .storyIntro {
+    max-width: 100%;
+    padding: 12px 0 18px;
+  }
+
+  .storyTitle {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+  }
+
+  .storyBody {
+    max-width: 760px;
+    margin: 0 auto;
+    column-count: 1;
+    column-rule: 0;
+    padding-bottom: clamp(440px, 62vw, 540px);
+    font-size: clamp(0.95rem, 1.7vw, 1.1rem);
+  }
 }
 
 @media (max-width: 760px) {

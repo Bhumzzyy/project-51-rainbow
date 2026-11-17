@@ -15,8 +15,9 @@ export default function Page() {
         <StorySection />
         <ProductSection />
         <BentoGridSection />
-        <FranchiseCtaSection />
+        
         <ReviewSection />
+        <FranchiseCtaSection />
         <SuratMapSection />
       </main>
     </div>

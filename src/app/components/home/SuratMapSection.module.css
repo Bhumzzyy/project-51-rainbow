@@ -22,18 +22,20 @@
   color: var(--brand-black);
   font-family: var(--font-shrikhand), serif;
   font-size: clamp(2.2rem, 5vw, 4rem);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
 .title span {
   color: var(--brand-orange);
+  font-family: var(--font-shrikhand), serif;
+  letter-spacing: -0.0em;
 }
 
 .subtitle {
   margin: 8px 0 0;
   color: var(--brand-black);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.1rem, 2vw, 1.5rem);
 }
 
 .mapFrame {
@@ -43,11 +45,12 @@
   border: 2px solid var(--brand-black);
   border-radius: 20px;
   background: var(--brand-cream);
-  box-shadow: 6px 6px 0 var(--brand-orange);
+  box-shadow: 12px 12px 0 var(--brand-orange);
 }
 
 .mapCanvas {
   position: relative;
+  width: 100%;
   aspect-ratio: 1.75;
   min-height: 300px;
   overflow: hidden;
@@ -120,13 +123,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.6em;
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 0.85em 1.4em;
   border-radius: 999px;
   background: var(--brand-black);
-  box-shadow: 4px 5px 0 var(--brand-orange);
+  box-shadow: 6px 6px 0 var(--brand-orange);
   color: var(--brand-cream);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
   transition:
@@ -135,13 +138,29 @@
 }
 
 .button:hover {
-  box-shadow: 2px 3px 0 var(--brand-orange);
+  box-shadow: 6px 6px 0 var(--brand-orange);
   transform: translate(2px, 2px);
 }
 
 .button:focus-visible {
   outline: 3px solid var(--brand-purple);
   outline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .mapFrame {
+    border-radius: 16px;
+    box-shadow: 8px 8px 0 var(--brand-orange);
+  }
+
+  .button {
+    margin-top: 36px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -157,6 +176,10 @@
   .attribution {
     max-width: 85%;
     text-align: right;
+  }
+  .button{
+    font-size: 12px;
+    box-shadow: 5px 5px 0 var(--brand-orange);
   }
 }
 

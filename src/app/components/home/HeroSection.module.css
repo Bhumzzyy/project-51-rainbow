@@ -6,7 +6,7 @@
 .hero {
   width: 100%;
   max-width: none;
-  height: calc(100svh - 158px);
+  height: calc(100svh - 120px);
   min-height: 600px;
 
   margin: 0;
@@ -265,7 +265,7 @@
   border: 0;
   border-radius: 999px;
   background: #f1592b;
-  box-shadow: 0 7px 18px rgba(109, 86, 134, 0.2);
+  box-shadow: 5px 5px 0 #6d5686;
   color: #fffcee;
   font-size: 14px;
   font-weight: 800;

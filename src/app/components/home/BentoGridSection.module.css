@@ -344,6 +344,17 @@
   object-position: center;
 }
 
+@media (max-width: 900px) {
+  .section {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .grid {
+    width: min(850px, 100%);
+  }
+}
+
 @media (max-width: 700px) {
   .section {
     padding: 36px 12px;

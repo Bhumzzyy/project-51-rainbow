@@ -164,6 +164,22 @@
   }
 }
 
+@media (max-width: 900px) {
+  .productMarqueeSection {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .productColumns {
+    height: clamp(500px, 66vh, 680px);
+  }
+
+  .productCapsule {
+    flex-basis: clamp(280px, 36vw, 350px);
+    height: clamp(280px, 36vw, 350px);
+  }
+}
+
 @media (max-width: 700px) {
   .productMarqueeSection {
     --product-gap: 10px;

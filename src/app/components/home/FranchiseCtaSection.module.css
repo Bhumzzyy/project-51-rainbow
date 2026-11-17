@@ -72,7 +72,7 @@
   border: 2px solid var(--brand-black);
   border-radius: clamp(150px, 35vw, 250px);
   background: var(--brand-cream);
-  box-shadow: 7px 8px 0 var(--brand-black);
+  box-shadow: 7px 10px 0 var(--brand-black);
   text-align: center;
 }
 
@@ -81,7 +81,7 @@
   color: var(--brand-black);
   font-family: var(--font-shrikhand), serif;
   font-size: clamp(2rem, 5.2vw, 4.5rem);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.0em;
   line-height: 1.08;
   text-wrap: balance;
 }
@@ -110,7 +110,7 @@
   padding: 0.9em 1.5em;
   border-radius: 999px;
   background: var(--brand-black);
-  box-shadow: 4px 5px 0 var(--brand-orange);
+  box-shadow: 4px 7.5px 0 var(--brand-orange);
   color: var(--brand-cream);
   font-weight: 700;
   text-decoration: none;
@@ -120,7 +120,7 @@
 }
 
 .button:hover {
-  box-shadow: 2px 3px 0 var(--brand-orange);
+  box-shadow: 4px 7.5px var(--brand-orange);
   transform: translate(2px, 2px);
 }
 
@@ -168,6 +168,18 @@
   transform: rotate(12deg);
 }
 
+@media (max-width: 900px) {
+  .section {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .card {
+    padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 54px);
+    border-radius: clamp(130px, 24vw, 190px);
+  }
+}
+
 @media (max-width: 600px) {
   .section {
     padding-right: 14px;
@@ -179,8 +191,8 @@
   }
 
   .card {
-    padding: 40px 22px;
-    border-radius: 48px;
+    padding: 50px 35px;
+    border-radius: 100px;
   }
 
   .sparkleLeft {
