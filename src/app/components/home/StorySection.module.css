@@ -268,9 +268,9 @@ Legacy story section styles retained at the user's request.
   width: 100%;
   min-height: clamp(980px, 80vw, 1220px);
   box-sizing: border-box;
-  padding: clamp(128px, 11vw, 150px) clamp(20px, 5vw, 72px) 0;
-  background: #fffcee;
-  margin-bottom: 30px; 
+  padding: clamp(90px, 10vw, 90px) clamp(20px, 5vw, 72px) 0;
+  background: var(--brand-cream);
+  margin-bottom: 10px; 
 }
 
 .storyMasthead {
@@ -284,6 +284,8 @@ Legacy story section styles retained at the user's request.
   align-items: center;
   gap: 16px;
   margin: 0 auto;
+  padding-bottom: 12px;
+  border-bottom: 3px double var(--brand-purple);
   color: var(--brand-purple);
 }
 
@@ -331,7 +333,7 @@ Legacy story section styles retained at the user's request.
 .storyTower {
   position: absolute;
   z-index: 1;
-  bottom: calc(49px + clamp(4px, 0.6vw, 8px));
+  bottom: calc(0px + clamp(4px, 0.6vw, 8px));
   left: 50%;
   display: block;
   width: auto;
@@ -343,7 +345,7 @@ Legacy story section styles retained at the user's request.
   transform: translateX(-50%) rotate(2.5deg);
   transform-origin: center bottom;
   filter: drop-shadow(4px 5px 0 rgba(56, 39, 71, 0.14));
-  margin-bottom: 20px;
+  /* margin-bottom: 50px; */
 }
 
 .storyIntro {
@@ -451,7 +453,7 @@ Legacy story section styles retained at the user's request.
 @media (max-width: 900px) {
   .storySection {
     min-height: 0;
-    padding: 112px 28px 0;
+    padding: 24px 28px 0;
   }
 
   .storyMasthead {
@@ -464,7 +466,7 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyTower {
-    bottom: calc(44px + clamp(4px, 0.6vw, 8px));
+    /* bottom: calc(44px + clamp(4px, 0.6vw, 8px)); */
     height: clamp(500px, 66vw, 620px);
     max-width: 48%;
   }
@@ -592,7 +594,7 @@ Legacy story section styles retained at the user's request.
 
   .storySection {
     min-height: 0;
-    padding: 96px 18px 0;
+    padding: 24px 18px 0;
     margin-bottom: 30px;
   }
 
@@ -625,7 +627,7 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyTower {
-    bottom: calc(40px + clamp(4px, 0.6vw, 8px));
+    /* bottom: calc(40px + clamp(4px, 0.6vw, 8px)); */
     width: auto;
     height: clamp(420px, 108vw, 500px);
     max-width: 100%;

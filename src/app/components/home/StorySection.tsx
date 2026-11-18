@@ -206,9 +206,9 @@ export default function StorySection() {
         className={styles.storyTower}
       />
 
-      <footer className={styles.paperFooter}>
+      {/* <footer className={styles.paperFooter}>
         <span>A little joy, since 1980</span>
-      </footer>
+      </footer> */}
     </section>
   );
 }

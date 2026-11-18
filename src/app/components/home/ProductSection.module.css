@@ -3,17 +3,67 @@
 ========================================= */
 
 .productMarqueeSection {
-  --product-gap: clamp(12px, 1.8vw, 22px);
+  --product-gap: clamp(10px, 1.2vw, 20px);
+
+  position: relative;
+  width: 100%;
+  height: clamp(760px, 100vh, 1000px);
   overflow: hidden;
-  padding: clamp(64px, 8vw, 112px) clamp(18px, 5vw, 72px) clamp(56px, 7vw, 96px);
-  background: var(--brand-purple);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--brand-purple) 18%,
+    var(--brand-purple) 100%
+  );
   color: var(--brand-cream);
 }
 
+.productMarqueeSection::after {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(96px, 18vh, 180px);
+  background: linear-gradient(
+    to top,
+    rgba(67, 45, 86, 0.62),
+    rgba(67, 45, 86, 0)
+  );
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  content: "";
+  pointer-events: none;
+}
+
 .productMarqueeHeader {
-  max-width: 760px;
-  margin: 0 auto clamp(36px, 5vw, 64px);
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: clamp(80px, 10vh, 112px) clamp(18px, 5vw, 72px)
+    clamp(24px, 3vw, 40px);
+  background: var(--brand-purple);
   text-align: center;
+}
+
+.productMarqueeHeader::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: clamp(48px, 8vh, 96px);
+  background: linear-gradient(
+    to bottom,
+    rgba(67, 45, 86, 0.38),
+    rgba(67, 45, 86, 0)
+  );
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .productMarqueeEyebrow {
@@ -40,73 +90,77 @@
   font-size: clamp(0.95rem, 1.35vw, 1.15rem);
 }
 
+/* =========================================
+   CAPSULE GRID AND SCROLLING
+========================================= */
+
 .productColumns {
+  --capsule-height: clamp(260px, 29vw, 390px);
+  --scroll-distance: calc(
+    var(--capsule-height) + var(--product-gap) +
+    var(--capsule-height) + var(--product-gap) +
+    var(--capsule-height) + var(--product-gap) +
+    var(--capsule-height) + var(--product-gap)
+  );
+
+  position: absolute;
+  z-index: 1;
+  inset: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
+  grid-template-rows: repeat(8, var(--capsule-height));
   gap: var(--product-gap);
-  width: min(1120px, 100%);
-  height: clamp(520px, 72vh, 760px);
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.productColumn {
-  min-width: 0;
+  width: 100%;
   height: 100%;
+  padding: 0 clamp(10px, 1.5vw, 24px);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  border-radius: 0;
+  background: var(--brand-purple);
 }
 
-.productColumn:nth-child(2) {
-  margin-top: clamp(24px, 5vw, 64px);
-  height: calc(100% - clamp(24px, 5vw, 64px));
-}
+/* =========================================
+   PRODUCT CAPSULES
+========================================= */
 
-.productTrack {
+.productCapsule {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  height: var(--capsule-height);
+  overflow: hidden;
+  padding: clamp(14px, 2vw, 30px) 10px;
+  border-radius: 999px;
+  text-align: center;
   animation: productMarqueeUp 28s linear infinite;
   will-change: transform;
 }
 
-.productColumn:nth-child(2) .productTrack {
-  animation-duration: 32s;
-}
-
-.productColumn:nth-child(3) .productTrack {
-  animation-duration: 25s;
+.productTrackUp {
+  animation-name: productMarqueeUp;
 }
 
 .productTrackDown {
   animation-name: productMarqueeDown;
 }
 
-.productSequence {
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  gap: var(--product-gap);
-  padding-bottom: var(--product-gap);
-}
-
-.productSequence > div {
-  display: contents;
-}
-
-.productCapsule {
-  display: flex;
-  flex: 0 0 clamp(340px, 39vw, 470px);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: clamp(340px, 39vw, 470px);
-  overflow: hidden;
-  padding: clamp(20px, 3vw, 36px) clamp(12px, 2vw, 26px);
-  border-radius: 999px;
-  box-shadow:
-    0 18px 35px rgba(35, 21, 50, 0.28),
-    0 4px 12px rgba(35, 21, 50, 0.18);
-  text-align: center;
-}
+/* Alternating colors */
 
 .productCapsuleOrange {
   background: var(--brand-orange);
@@ -118,77 +172,104 @@
   color: var(--brand-purple);
 }
 
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
 .productImageFrame {
   display: flex;
   flex: 1 1 auto;
+
   align-items: center;
   justify-content: center;
+
   width: 100%;
   min-height: 0;
 }
 
 .productCapsuleImage {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
-  filter: drop-shadow(0 12px 14px rgba(48, 29, 61, 0.18));
+
+  filter: drop-shadow(
+    0 12px 14px rgba(48, 29, 61, 0.18)
+  );
 }
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
 
 .productCapsuleName {
   max-width: 14ch;
+
   margin: 10px 0 0;
+
   font-family: var(--font-recoleta), serif;
-  font-size: clamp(1rem, 1.55vw, 1.35rem);
-  letter-spacing: 0.03em;
+  font-size: clamp(0.85rem, 1.25vw, 1.2rem);
+
+  letter-spacing: 0.02em;
   line-height: 1.15;
 }
 
-@keyframes productMarqueeUp {
-  from {
-    transform: translateY(0);
-  }
+/* =========================================
+   KEYFRAMES
+========================================= */
 
-  to {
-    transform: translateY(-50%);
-  }
+@keyframes productMarqueeUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(0px - var(--scroll-distance))); }
 }
 
 @keyframes productMarqueeDown {
-  from {
-    transform: translateY(-50%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(calc(0px - var(--scroll-distance))); }
+  to { transform: translateY(0); }
 }
 
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 900px) {
-  .productMarqueeSection {
-    padding-right: 28px;
-    padding-left: 28px;
+  .productColumns {
+    --capsule-height: clamp(180px, 29vw, 270px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0 12px;
+    gap: 10px;
   }
 
-  .productColumns {
-    height: clamp(500px, 66vh, 680px);
+  .productCapsule:nth-child(n + 25) {
+    display: none;
   }
 
   .productCapsule {
-    flex-basis: clamp(280px, 36vw, 350px);
-    height: clamp(280px, 36vw, 350px);
+    padding: 14px 6px;
+  }
+
+  .productCapsuleName {
+    font-size: clamp(0.72rem, 1.5vw, 0.95rem);
   }
 }
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 700px) {
   .productMarqueeSection {
     --product-gap: 10px;
-    padding-right: 14px;
-    padding-left: 14px;
+
+    height: clamp(720px, 100vh, 900px);
   }
 
   .productMarqueeHeader {
-    margin-bottom: 30px;
+    top: 0;
+    width: 100%;
+    padding: 82px 14px 22px;
   }
 
   .productMarqueeEyebrow {
@@ -208,29 +289,29 @@
   }
 
   .productColumns {
-    height: clamp(480px, 72vh, 660px);
-  }
-
-  .productColumn:nth-child(2) {
-    margin-top: 24px;
-    height: calc(100% - 24px);
+    --capsule-height: clamp(150px, 39vw, 210px);
+    padding: 0 6px;
+    gap: 6px;
   }
 
   .productCapsule {
-    flex-basis: clamp(280px, 84vw, 360px);
-    height: clamp(280px, 84vw, 360px);
-    padding: 18px 8px;
+    padding: 12px 4px;
   }
 
   .productCapsuleName {
-    margin-top: 6px;
-    font-size: clamp(0.72rem, 2.8vw, 0.95rem);
+    max-width: 13ch;
+    margin-top: 5px;
+    font-size: clamp(0.62rem, 2vw, 0.78rem);
     line-height: 1.1;
   }
 }
 
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .productTrack {
+  .productCapsule {
     animation: none;
   }
 }

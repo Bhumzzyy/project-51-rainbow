@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -7,84 +6,62 @@ import styles from "./HeroSection.module.css";
 const desserts = [
   {
     id: 1,
-    name: "Pistachio Kunafa Brownie",
-    titleLines: ["Pistachio", "Kunafa", "Brownie"],
-    description:
-      "A fudgy brownie topped with crisp golden kunafa and smooth pistachio cream.",
-    ingredients: [
-      { name: "Pistachio cream", image: "/home/ingridiant-1.webp" },
-      { name: "Kunafa", image: "/home/ingridiant-2.webp" },
-      { name: "Brownie", image: "/home/ingridiant-3.webp" },
-    ],
-    image: "/home/dessert-1.webp",
+    name: "Red Rose Falooda",
+    description: "A little rose magic in every sip! Creamy, refreshing and beautifully infused with the timeless sweetness of roses.",
+    image: "/home/hero/dessert-1.webp",
     elements: [
-      "/home/element-1.webp",
-      "/home/element-2.webp",
+      { name: "Rose syrup", image: "/home/hero/syrup.webp" },
+      { name: "Falooda sev", image: "/home/hero/vsev.webp" },
+      { name: "Fresh cream", image: "/home/hero/cream.webp" },
     ],
   },
   {
     id: 2,
-    name: "Red Rose Falooda",
-    titleLines: ["Red", "Rose", "Falooda"],
-    description:
-      "A refreshing rose falooda layered with silky vermicelli, basil seeds, chilled milk, and ice cream.",
-    ingredients: [
-      { name: "Rose syrup", image: "/home/ingridiant-4.webp" },
-      { name: "Vermicelli", image: "/home/ingridiant-5.webp" },
-      { name: "Fresh cream", image: "/home/ingridiant-6.webp" },
-    ],
-    image: "/home/dessert-2.webp",
+    name: "Cookies & Cream Thickshake",
+    description: "Cookie cravings? We've got you! A thick, creamy blend of rich vanilla and crunchy cookie goodness.",
+    image: "/home/hero/dessert-2.webp",
     elements: [
-      "/home/element-3.webp",
-      "/home/element-6.webp",
-      "/home/element-7.webp",
+      { name: "Chocolate cookies", image: "/home/hero/crumble.webp" },
+      { name: "Creamy milk", image: "/home/hero/milk.webp" },
+      { name: "Fresh cream", image: "/home/hero/cream.webp" },
     ],
   },
   {
     id: 3,
-    name: "Black Currant Thickshake",
-    titleLines: ["Black", "Currant", "Thickshake"],
-    description:
-      "A thick, creamy shake blended with tangy black currants for a cool berry treat.",
-    ingredients: [
-      { name: "Black currant berries", image: "/home/ingridiant-7.webp" },
-      { name: "Fresh cream", image: "/home/ingridiant-6.webp" },
-      { name: "Blackcurrant sauce", image: "/home/ingridiant-8.webp" },
+    name: "Chocolate Chips Coco",
+    description: "Calling all chocolate lovers! A deliciously smooth chocolate treat loaded with crunchy chocolate chips in every sip.",
+    image: "/home/hero/dessert-3.webp",
+    elements: [
+      { name: "Chocolate chips", image: "/home/hero/chips.webp" },
+      { name: "Cocoa", image: "/home/hero/cocop.webp" },
+      { name: "Creamy milk", image: "/home/hero/milk.webp" },
     ],
-    image: "/home/dessert-3.webp",
-    elements: ["/home/element-4.webp", "/home/element-9.webp"],
   },
   {
     id: 4,
-    name: "Choco Chips Coco",
-    titleLines: ["Choco", "Chips", "Coco"],
-    description:
-      "A smooth cocoa and chocolate-chip treat with a creamy finish and plenty of crunch.",
-    ingredients: [
-      { name: "Choco chips", image: "/home/ingridiant-9.webp" },
-      { name: "Cocoa powder", image: "/home/ingridiant-10.webp" },
-      { name: "Milk", image: "/home/ingridiant-11.webp" },
-    ],
-    image: "/home/dessert-4.webp",
+    name: "Badam Shake",
+    description: "Nuts about something delicious? Enjoy the rich, creamy goodness of almonds blended into a royal, refreshing shake.",
+    image: "/home/hero/dessert-4.webp",
     elements: [
-      "/home/element-5.webp",
-      "/home/element-8.webp",
-      "/home/element-9.webp",
+      { name: "Almonds", image: "/home/hero/alamonds.webp" },
+      { name: "Creamy milk", image: "/home/hero/milk.webp" },
+      { name: "Fresh cream", image: "/home/hero/cream.webp" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Mango Smoothie",
+    description: "Hello, sunshine in a glass! A fruity, velvety mango delight bursting with tropical sweetness.",
+    image: "/home/hero/dessert-5.webp",
+    elements: [
+      { name: "Mango", image: "/home/hero/mangos.webp" },
+      { name: "Creamy milk", image: "/home/hero/milk.webp" },
+      { name: "Fresh cream", image: "/home/hero/cream.webp" },
     ],
   },
 ];
 
-const elementPositions = [
-  styles.elementOne,
-  styles.elementTwo,
-  styles.elementThree,
-  styles.elementFour,
-  styles.elementFive,
-  styles.elementSix,
-  styles.elementSeven,
-  styles.elementEight,
-  styles.elementNine,
-];
+const backgrounds = desserts.map((dessert) => `/home/hero/bg-${dessert.id}.webp`);
 
 export default function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -102,6 +79,21 @@ export default function HeroSection() {
     <section className={styles.hero}>
       <div className={styles.heroCollection}>
 
+        {/* Background Images */}
+        {backgrounds.map((background, index) => (
+          <div
+            key={background}
+            className={`${styles.heroBackground} ${
+              activeIndex === index ? styles.heroBackgroundActive : ""
+            }`}
+            style={{
+              backgroundImage: `url("${background}")`,
+            }}
+            aria-hidden="true"
+          />
+        ))}
+
+        {/* Dessert Slides */}
         {desserts.map((dessert, index) => {
           const isActive = activeIndex === index;
 
@@ -111,51 +103,15 @@ export default function HeroSection() {
               className={`${styles.dessertHero} ${
                 isActive ? styles.dessertHeroActive : ""
               }`}
+              data-dessert-id={dessert.id}
               aria-hidden={!isActive}
             >
-
-              {/* Background typography */}
-              <div className={styles.heroTypography}>
-                {dessert.titleLines.map((line, lineIndex) => (
-                  <span
-                    className={
-                      lineIndex === 1
-                        ? styles.heroTitleSecondary
-                        : lineIndex === 2
-                          ? styles.heroTitleTertiary
-                          : styles.heroTitlePrimary
-                    }
-                    key={line}
-                  >
-                    {line}
-                  </span>
-                ))}
+              <div className={styles.heroCopy}>
+                <h1>{dessert.name}</h1>
+                <p>{dessert.description}</p>
               </div>
 
-              {elementPositions.map((position, elementIndex) => {
-                const element = dessert.elements[elementIndex % dessert.elements.length];
-
-                return (
-                  <img
-                    src={element}
-                    alt=""
-                    aria-hidden="true"
-                    className={`${styles.garnish} ${position}`}
-                    key={`${dessert.id}-${elementIndex}-${element}`}
-                  />
-                );
-              })}
-
-              <div className={styles.heroInfo}>
-                <span className={styles.heroEyebrow}>Made for a little joy</span>
-                <h2 className={styles.heroHeading}>{dessert.name}</h2>
-                <p className={styles.heroDescription}>{dessert.description}</p>
-                <a href="/product" className={styles.orderButton}>
-                  Order now <span aria-hidden="true">→</span>
-                </a>
-              </div>
-
-              {/* Center product image */}
+              {/* Center Product Image */}
               <div className={styles.heroProduct}>
                 <div className={styles.productGlow} />
 
@@ -167,62 +123,25 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className={styles.heroIngredients} aria-label={`${dessert.name} ingredients`}>
-                {dessert.ingredients.map((ingredient, ingredientIndex) => (
-                  <div
-                    className={`${styles.ingredientPill} ${
-                      ingredientIndex === 1 ? styles.ingredientPillOrange : ""
-                    }`}
-                    key={ingredient.name}
-                  >
-                    <img
-                      className={styles.ingredientImage}
-                      src={ingredient.image}
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <span>{ingredient.name}</span>
-                  </div>
+              <ul className={styles.heroElements} aria-label={`${dessert.name} elements`}>
+                {dessert.elements.map((element) => (
+                  <li className={styles.heroElement} key={element.name}>
+                    <span className={styles.heroElementImage}>
+                      <img src={element.image} alt="" />
+                    </span>
+                    <span className={styles.heroElementName}>{element.name}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              {/* Decorations */}
-              <span className={`${styles.heroDecoration} ${styles.decorationOne}`}>
-                +
-              </span>
-
-              <span className={`${styles.heroDecoration} ${styles.decorationTwo}`}>
-                +
-              </span>
-
-              <span className={`${styles.heroDecoration} ${styles.decorationThree}`}>
-                ✦
-              </span>
-
-              {/* Slide number */}
-              <span className={styles.heroIndex}>
-                0{dessert.id} <span>/ 04</span>
-              </span>
+              {/* Slide Number */}
+              {/* <span className={styles.heroIndex}>
+                0{dessert.id} <span>/ {String(desserts.length).padStart(2, "0")}</span>
+              </span> */}
 
             </article>
           );
         })}
-
-        {/* Slide indicators */}
-        <div className={styles.heroDots}>
-          {desserts.map((dessert, index) => (
-            <button
-              key={dessert.id}
-              type="button"
-              className={`${styles.heroDot} ${
-                activeIndex === index ? styles.heroDotActive : ""
-              }`}
-              onClick={() => setActiveIndex(index)}
-              aria-label={`Show ${dessert.name}`}
-              aria-current={activeIndex === index ? "true" : undefined}
-            />
-          ))}
-        </div>
 
       </div>
     </section>

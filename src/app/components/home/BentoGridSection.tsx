@@ -2,6 +2,18 @@ import Image from "next/image";
 import IngredientImageGrid from "./IngredientImageGrid";
 import styles from "./BentoGridSection.module.css";
 
+const faloodaImages = [
+  "/home/falooda-1.webp",
+  "/home/falooda-2.webp",
+  "/home/falooda-3.webp",
+] as const;
+
+const faloodaImageClasses = [
+  styles.drinkImageFirst,
+  styles.drinkImageSecond,
+  styles.drinkImageThird,
+];
+
 export default function BentoGridSection() {
   return (
     <section className={styles.section} aria-labelledby="bento-grid-title">
@@ -95,14 +107,22 @@ export default function BentoGridSection() {
           </div>
         </div>
         <div className={styles.drinkTile} data-bento-slot="drink">
-          <div className={styles.drinkImageFrame}>
-            <Image
-              src="/home/falooda.png"
-              alt="Falooda in a 51 Rainbow cup"
-              fill
-              sizes="(max-width: 900px) 27vw, 27vw"
-              className={styles.drinkImage}
-            />
+          <div
+            className={styles.drinkImageFrame}
+            role="img"
+            aria-label="Falooda in a 51 Rainbow cup"
+          >
+            {faloodaImages.map((src, index) => (
+              <Image
+                key={src}
+                src={src}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="(max-width: 900px) 27vw, 27vw"
+                className={`${styles.drinkImage} ${faloodaImageClasses[index]}`}
+              />
+            ))}
           </div>
         </div>
         <div className={styles.lifestyleTile} data-bento-slot="lifestyle">
