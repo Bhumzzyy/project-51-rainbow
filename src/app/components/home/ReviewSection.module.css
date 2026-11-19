@@ -1,6 +1,7 @@
+
 .section {
   position: relative;
-  min-height: clamp(560px, 52vw, 680px);
+  min-height: clamp(500px, 45vw, 600px);
   overflow: hidden;
   padding: clamp(54px, 6vw, 76px) 24px clamp(36px, 5vw, 60px);
   background: var(--brand-cream);
@@ -10,11 +11,12 @@
   position: relative;
   z-index: 2;
   text-align: center;
+  padding-top: 5px;
 }
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--brand-purple);
+  color: var(--brand-orange);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -121,6 +123,10 @@
     padding: 50px 28px 36px;
   }
 
+  .header {
+    padding-top: 12px;
+  }
+
   .title {
     font-size: clamp(2.4rem, 5.5vw, 4.5rem);
   }
@@ -146,6 +152,10 @@
   .section {
     min-height: 768px;
     padding: 62px 18px 0;
+  }
+
+  .header {
+    padding-top: 10px;
   }
 
   .title {
@@ -177,4 +187,3 @@
     right: 16%;
   }
 }
-

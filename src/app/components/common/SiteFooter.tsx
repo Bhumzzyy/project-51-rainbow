@@ -88,7 +88,7 @@ export default function SiteFooter() {
             </Link>
           ))}
         </div>
-        <div className={styles.footerLinkRow}>
+        <div className={`${styles.footerLinkRow} ${styles.footerLinkRowAdditional}`}>
           {additionalFooterLinks.map((link) => (
             <Link key={link.href} href={link.href} className={styles.footerLink}>
               {link.label}
