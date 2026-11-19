@@ -95,6 +95,7 @@ export default function ProductCard({
           className={`product-capsule-card product-capsule-card--${stageModifier}${
             isTouched ? " is-touched" : ""
           }`}
+          data-category={categorySlug}
           tabIndex={0}
           aria-label={`${product.name} - ${product.categoryName}`}
           onTouchStart={() => setIsTouched(true)}

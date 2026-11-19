@@ -546,6 +546,8 @@
 
 /* --------------------------------------------------------------------------
    PAGE TWO: Dedicated Category Page Header (/products/[category])
+   MIGRATED: Image removed per request; title & lead sizes increased;
+   rich category SEO copy and trust badges added.
    -------------------------------------------------------------------------- */
 .category-page-header {
   position: relative;
@@ -553,7 +555,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 56px 4% 32px;
+  padding: clamp(28px, 3.8vw, 44px) 4% clamp(18px, 2.2vw, 26px);
   background-color: var(--c-product-bg) !important;
   overflow: hidden;
 }
@@ -563,12 +565,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 2.2px;
   text-transform: uppercase;
   color: var(--c-purple);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .category-eyebrow-dot {
@@ -580,24 +582,25 @@
   font-weight: 800;
 }
 
-/* Large visually prominent Category Heading */
+/* Visually prominent Category Heading (Slightly larger as requested) */
 .category-page-title {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   font-family: var(--font-display);
-  font-size: clamp(40px, 5.6vw, 70px);
-  line-height: 1.04;
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.06;
   font-weight: 900;
   color: var(--c-brown-deep);
-  letter-spacing: -1px;
+  letter-spacing: -0.6px;
 }
 
-/* Short Category Description */
+/* Short Category Description (Slightly larger as requested) */
 .category-page-lead {
-  max-width: 620px;
-  margin: 0 auto 20px;
-  font-size: clamp(15px, 1.4vw, 18px);
+  max-width: 660px;
+  margin: 0 auto 12px;
+  font-size: clamp(15px, 1.35vw, 18px);
   color: var(--c-brown-muted);
   line-height: 1.55;
+  font-weight: 600;
 }
 
 /* Subtle horizontal decorative lines with center motif */
@@ -605,119 +608,354 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   width: 100%;
-  max-width: 280px;
-  margin: 0 auto 32px;
+  max-width: 200px;
+  margin: 0 auto 12px;
 }
 
 .category-decorative-line {
   flex: 1;
   height: 1px;
-  background: rgba(109, 86, 134, 0.28);
+  background: rgba(109, 86, 134, 0.24);
 }
 
 .category-decorative-diamond {
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--c-orange);
   line-height: 1;
 }
 
-/* Hero Product Artwork Composition (Well-proportioned, not dominating) */
-.category-page-hero-composition {
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 1400 / 950;
+/* Detailed SEO Narrative Description */
+.category-page-seo-lead {
+  max-width: 720px;
+  margin: 0 auto 14px;
+  font-size: clamp(13.5px, 1.12vw, 15px);
+  color: var(--c-brown-muted);
+  line-height: 1.65;
+}
+
+/* Trust & Quality Highlights Row */
+.category-trust-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 8px;
+  gap: 8px 14px;
+  margin: 6px auto 0;
 }
 
-.category-page-hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 14px 24px rgba(44, 24, 16, 0.12));
-}
-
-/* --------------------------------------------------------------------------
-   Category Quick Jump Pills Bar
-   -------------------------------------------------------------------------- */
-.category-quick-nav {
-  position: sticky;
-  top: var(--navbar-height, 80px);
-  z-index: 30;
-  width: 100%;
-  background: rgba(255, 252, 238, 0.94);
-  backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(109, 86, 134, 0.1);
-  border-bottom: 1px solid rgba(109, 86, 134, 0.12);
-  padding: 12px 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.category-quick-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.category-quick-nav-track {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 4%;
-  width: max-content;
-  margin: 0 auto;
-}
-
-.category-quick-pill {
+.category-trust-item {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: #FFFFFF;
-  border: 1.5px solid rgba(109, 86, 134, 0.25);
-  color: var(--c-brown-deep);
-  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(109, 86, 134, 0.07);
+  border: 1px solid rgba(109, 86, 134, 0.16);
+  font-size: 12px;
   font-weight: 700;
-  white-space: nowrap;
+  color: var(--c-purple);
+  letter-spacing: 0.3px;
+}
+
+.category-trust-dot {
+  color: var(--c-orange);
+  font-size: 9px;
+}
+
+@media (max-width: 480px) {
+  .category-page-header {
+    padding: 22px 16px 14px;
+  }
+  .category-page-title {
+    font-size: clamp(28px, 6.5vw, 36px);
+  }
+  .category-trust-row {
+    gap: 6px 10px;
+  }
+  .category-trust-item {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Category Filters Bar & Dropdown Modal
+   MIGRATED: Replaced horizontal pills with single "Filters" button matching Image 2
+   (white pill, orange border, orange text & sliders icon) opening full modal.
+   -------------------------------------------------------------------------- */
+.category-quick-nav {
+  position: sticky;
+  top: calc(var(--navbar-height, 64px) + 52px);
+  z-index: 30;
+  width: 100%;
+  background-color: var(--c-product-bg, #FFFCEE);
+  border: none;
+  padding: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .category-quick-nav {
+    top: calc(var(--navbar-height, 52px) + 50px);
+  }
+}
+
+@media (max-width: 480px) {
+  .category-quick-nav {
+    top: calc(var(--navbar-height, 48px) + 48px);
+    padding: 8px 0;
+  }
+}
+
+.category-filter-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* The Main "Filters" Button — White pill with Orange Border & Orange Text */
+.category-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  min-height: 44px;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--c-orange);
+  color: var(--c-orange);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(241, 89, 43, 0.14);
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  outline: none;
+}
+
+.category-filter-btn:hover {
+  background-color: #FFF2ED;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(241, 89, 43, 0.24);
+}
+
+.category-filter-btn:focus-visible {
+  outline: 2px solid var(--c-orange);
+  outline-offset: 3px;
+}
+
+.category-filter-icon {
+  color: var(--c-orange);
+  flex-shrink: 0;
+}
+
+.category-filter-btn-text {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.category-filter-active-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  background: var(--c-orange);
+  color: #FFFFFF;
+  margin-left: 2px;
+  letter-spacing: 0.2px;
+}
+
+/* --------------------------------------------------------------------------
+   Category Selection Modal Dialog
+   -------------------------------------------------------------------------- */
+.category-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(40, 30, 25, 0.48);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: categoryModalFadeIn 200ms ease-out;
+}
+
+@keyframes categoryModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.category-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  background: #FFFCEE;
+  border-radius: 24px;
+  border: 1.5px solid rgba(241, 89, 43, 0.35);
+  box-shadow: 0 24px 64px rgba(40, 30, 25, 0.24);
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  animation: categoryModalPop 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes categoryModalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.category-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(109, 86, 134, 0.15);
+}
+
+.category-modal-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: var(--c-orange);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.category-modal-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 26px);
+  color: var(--c-purple);
+  line-height: 1.1;
+}
+
+.category-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(109, 86, 134, 0.2);
+  background: #FFFFFF;
+  color: var(--c-brown-deep);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  outline: none;
+}
+
+.category-modal-close:hover {
+  background: var(--c-orange);
+  color: #FFFFFF;
+  border-color: var(--c-orange);
+}
+
+.category-modal-close:focus-visible {
+  outline: 2px solid var(--c-orange);
+  outline-offset: 2px;
+}
+
+.category-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  overflow-y: auto;
+  padding: 4px 2px;
+  max-height: calc(85vh - 120px);
+  scrollbar-width: thin;
+}
+
+.category-modal-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  min-height: 42px;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--c-orange);
+  color: var(--c-orange);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: center;
   text-decoration: none;
   box-shadow: 0 2px 6px rgba(44, 24, 16, 0.04);
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
   cursor: pointer;
 }
 
-.category-quick-pill:hover {
-  transform: translateY(-2px);
-  border-color: var(--c-orange);
-  color: var(--c-orange);
-  box-shadow: 0 4px 10px rgba(241, 89, 43, 0.15);
+.category-modal-pill:hover {
+  background-color: #FFF2ED;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(241, 89, 43, 0.18);
 }
 
-.category-quick-pill.is-active {
+.category-modal-pill:focus-visible {
+  outline: 2px solid var(--c-orange);
+  outline-offset: 2px;
+}
+
+.category-modal-pill.is-active {
   background: var(--c-orange) !important;
   border-color: var(--c-orange) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 12px rgba(241, 89, 43, 0.32);
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(241, 89, 43, 0.32);
 }
 
-.category-quick-pill--back {
-  font-weight: 800;
+.category-modal-pill--all {
+  grid-column: 1 / -1;
+  background: rgba(109, 86, 134, 0.08);
   border-color: var(--c-purple);
   color: var(--c-purple);
-  background: rgba(109, 86, 134, 0.06);
+  font-weight: 800;
 }
 
-.category-quick-pill--back:hover {
+.category-modal-pill--all:hover {
   background: var(--c-purple);
   color: #FFFFFF;
   border-color: var(--c-purple);
 }
 
-.pill-arrow {
-  font-size: 14px;
+@media (max-width: 540px) {
+  .category-modal-card {
+    padding: 22px 16px 24px;
+    border-radius: 20px;
+  }
+  .category-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .category-modal-pill {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -736,13 +974,33 @@
 
 /* --------------------------------------------------------------------------
    Product Cards Grid Container (4 columns desktop, 3 tablet, 2 mobile)
+   MIGRATED: Tightened top padding, min-height to prevent layout jump on switch,
+   and smooth fade-in animation wrapped in prefers-reduced-motion check.
    -------------------------------------------------------------------------- */
+@keyframes categoryGridFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .products-grid-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(56px, 6vw, 92px) clamp(16px, 4vw, 48px) clamp(88px, 9vw, 140px);
+  padding: clamp(32px, 3.5vw, 48px) clamp(16px, 4vw, 48px) clamp(88px, 9vw, 140px);
   background: transparent;
   box-sizing: border-box;
+  min-height: 520px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .products-grid-container {
+    animation: categoryGridFadeIn 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
 .products-grid {
@@ -898,8 +1156,9 @@
 /* 1. Independent Vertical Purple Capsule (#6D5686) strictly BEHIND the product */
 .capsule-backdrop {
   position: absolute;
-  top: clamp(28px, 2.5vw, 42px);
-  bottom: clamp(14px, 1.4vw, 24px);
+  /* Centered symmetric capsule positioning across viewports */
+  top: clamp(22px, 2.2vw, 30px);
+  bottom: clamp(22px, 2.2vw, 30px);
   left: 50%;
   transform: translateX(-50%) scale(1) translateY(0);
   width: clamp(210px, 17vw, 255px);
@@ -962,7 +1221,7 @@
   width: 86%;
   height: 92%;
   max-height: 380px;
-  margin-top: -24px; /* Protrudes elegantly above upper rim */
+  margin-top: -2px; /* Centered in capsule */
 }
 
 /* Specific Category Proportions: Wide Treats (Waffles, Cakes) */
@@ -970,7 +1229,7 @@
   width: 95%;
   height: 82%;
   max-height: 330px;
-  margin-top: -12px;
+  margin-top: 6px; /* Centered on platter base */
 }
 
 /* Specific Category Proportions: Tubs (Party Tubs, Brownie Tubs, Sundaes) */
@@ -978,7 +1237,7 @@
   width: 88%;
   height: 88%;
   max-height: 350px;
-  margin-top: -16px;
+  margin-top: -2px; /* Centered in capsule */
 }
 
 /* Specific Category Proportions: Artisan Scoops (Single Complete WebP Image) */
@@ -986,7 +1245,16 @@
   width: 90%;
   height: 90%;
   max-height: 360px;
-  margin-top: -14px;
+  margin-top: -11px; /* Optical center balancing scoop dome and cup */
+  margin-left: -3px; /* Optical horizontal compensation */
+}
+
+/* Outlier asset transparency compensation */
+.product-capsule-card[data-category="brownie-desserts"] .product-image-container {
+  margin-top: -46px; /* Offsets transparent top padding in brownie tub assets */
+}
+.product-capsule-card[data-category="coco"] .product-image-container {
+  margin-top: -30px; /* Offsets transparent top padding in cold coco assets */
 }
 
 /* --------------------------------------------------------------------------
