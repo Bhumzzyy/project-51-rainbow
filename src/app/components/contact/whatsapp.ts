@@ -102,8 +102,9 @@ export function validateContactForm(data: ContactFormData): ContactFormErrors {
 
 /**
  * Builds the plain-text WhatsApp formatted message string.
+ * Supports configurable greeting line per page while defaulting to the Contact page message.
  */
-export function buildWhatsAppMessage(data: ContactFormData): string {
+export function buildWhatsAppMessage(data: ContactFormData, greeting?: string): string {
   const fName = sanitizeInput(data.firstName);
   const lName = sanitizeInput(data.lastName);
   const phone = sanitizeInput(data.phone);
@@ -112,8 +113,10 @@ export function buildWhatsAppMessage(data: ContactFormData): string {
   const description = sanitizeInput(data.description);
   const address = sanitizeInput(data.address);
 
+  const greetingLine = greeting || "Hello 51 Rainbow! I'd like to get in touch.";
+
   return [
-    "Hello 51 Rainbow! I'd like to get in touch.",
+    greetingLine,
     '',
     `*Name:* ${fName} ${lName}`,
     `*Phone:* ${phone}`,
@@ -130,10 +133,15 @@ export function buildWhatsAppMessage(data: ContactFormData): string {
 
 /**
  * Builds the complete https://wa.me URL with encoded message text.
+ * Configurable number and greeting override.
  */
-export function buildWhatsAppUrl(data: ContactFormData, numberOverride?: string): string {
+export function buildWhatsAppUrl(
+  data: ContactFormData,
+  numberOverride?: string,
+  greetingOverride?: string
+): string {
   const cleanNumber = (numberOverride || WHATSAPP_NUMBER).replace(/\D/g, '');
-  const message = buildWhatsAppMessage(data);
+  const message = buildWhatsAppMessage(data, greetingOverride);
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
 }
 

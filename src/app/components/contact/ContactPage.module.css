@@ -11,7 +11,7 @@
   min-height: 100vh;
   background-color: var(--contact-cream);
   color: var(--contact-espresso);
-  padding: 24px 20px 80px;
+  padding: clamp(36px, 4.5vw, 60px) 20px 80px;
 }
 
 .container {
@@ -24,7 +24,8 @@
   text-align: center;
   max-width: 780px;
   margin: 0 auto 48px;
-  padding-top: 16px;
+  padding-top: 8px;
+  scroll-margin-top: 140px;
 }
 
 .eyebrow {
@@ -178,6 +179,14 @@
 
 /* Form Card Container */
 .formCard {
+  --contact-espresso: #281E19;
+  --contact-cocoa: #705D50;
+  --contact-cream: var(--brand-cream, #FFFCEE);
+  --contact-sand: var(--brand-sand, #F6E9D5);
+  --contact-orange: var(--brand-orange, #F1592B);
+  --contact-purple: var(--brand-purple, #6D5686);
+  --contact-white: #FFFFFF;
+
   background: var(--contact-white);
   border-radius: 24px;
   border: 1px solid var(--contact-sand);
@@ -199,7 +208,7 @@
   margin: 0 0 8px;
   font-size: 2rem;
   line-height: 1.15;
-  color: var(--contact-purple);
+  color: var(--contact-orange, #F1592B);
   font-family: var(--font-shrikhand), serif;
 }
 
@@ -547,4 +556,74 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* --------------------------------------------------------------------------
+   Additive classes for standalone form usage (Investors / Career)
+   Strictly additive; leaves all existing Contact rules unchanged.
+   -------------------------------------------------------------------------- */
+.standaloneFormContainer {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.accentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--contact-sand, #F6E9D5);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--contact-cocoa, #705D50);
+  font-family: var(--font-recoleta), serif;
+  box-shadow: 0 2px 8px rgba(40, 30, 25, 0.03);
+}
+
+.accentBadgeDiamond {
+  color: var(--contact-orange, #F1592B);
+  font-size: 0.75rem;
+}
+
+.extraNoticeBox {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background-color: var(--contact-cream, #FFFCEE);
+  border: 1px dashed rgba(241, 89, 43, 0.4);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--contact-cocoa, #705D50);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-recoleta), serif;
+}
+
+.extraNoticeIcon {
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.extraNoticeText {
+  flex: 1;
+}
+
+.extraNoticeText strong {
+  color: var(--contact-orange, #F1592B);
+  font-weight: 700;
 }

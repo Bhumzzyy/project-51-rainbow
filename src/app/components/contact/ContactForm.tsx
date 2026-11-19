@@ -6,6 +6,39 @@ import { validateContactForm, buildWhatsAppUrl, openWhatsApp } from './whatsapp'
 import { FormField } from './FormField';
 import styles from './ContactPage.module.css';
 
+export interface FormConfig {
+  idPrefix?: string;
+  title?: string;
+  subtitle?: string;
+  whatsAppGreeting?: string;
+  subjectPlaceholder?: string;
+  descriptionPlaceholder?: string;
+  addressPlaceholder?: string;
+  submitButtonText?: string;
+  doneTitle?: string;
+  doneSubtitle?: string;
+  extraNotice?: React.ReactNode;
+}
+
+export const DEFAULT_CONTACT_FORM_CONFIG: FormConfig = {
+  idPrefix: 'contact',
+  title: 'Send an Enquiry',
+  subtitle:
+    'Fill in your details below. We will format everything and open WhatsApp with your message ready to send.',
+  whatsAppGreeting: "Hello 51 Rainbow! I'd like to get in touch.",
+  subjectPlaceholder: 'e.g. Catering Enquiry / Bulk Order / General Feedback',
+  descriptionPlaceholder: 'Tell us about your occasion, event date, dessert preferences, or questions...',
+  addressPlaceholder: 'Area / City (e.g. Adajan, Surat, Gujarat)',
+  submitButtonText: 'Continue to WhatsApp',
+  doneTitle: 'Almost There!',
+  doneSubtitle:
+    'WhatsApp is opening with your formatted message ready. Tap "Send" in WhatsApp to finish your enquiry.',
+};
+
+export interface ContactFormProps {
+  config?: Partial<FormConfig>;
+}
+
 const INITIAL_DATA: ContactFormData = {
   firstName: '',
   lastName: '',
@@ -18,7 +51,18 @@ const INITIAL_DATA: ContactFormData = {
 
 type FormState = 'idle' | 'redirecting' | 'done' | 'error';
 
-export function ContactForm() {
+export function ContactForm({ config }: ContactFormProps = {}) {
+  const mergedConfig: FormConfig = {
+    ...DEFAULT_CONTACT_FORM_CONFIG,
+    ...config,
+  };
+
+  // Prefix for unique element IDs when multiple forms exist across the site
+  const prefix =
+    mergedConfig.idPrefix && mergedConfig.idPrefix !== 'contact'
+      ? `${mergedConfig.idPrefix}-`
+      : '';
+
   const [formData, setFormData] = useState<ContactFormData>(INITIAL_DATA);
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [formState, setFormState] = useState<FormState>('idle');
@@ -71,10 +115,10 @@ export function ContactForm() {
       return;
     }
 
-    // 2. Build URL
+    // 2. Build URL with page-specific or default greeting
     let url = '';
     try {
-      url = buildWhatsAppUrl(formData);
+      url = buildWhatsAppUrl(formData, undefined, mergedConfig.whatsAppGreeting);
       setWhatsAppUrl(url);
     } catch {
       setFormState('error');
@@ -142,7 +186,7 @@ export function ContactForm() {
             </svg>
           </div>
 
-          <h2 className={styles.doneTitle}>Almost There!</h2>
+          <h2 className={styles.doneTitle}>{mergedConfig.doneTitle}</h2>
           <p className={styles.doneText}>
             WhatsApp is opening with your formatted message ready. <strong>Tap &quot;Send&quot;</strong> in WhatsApp to finish your enquiry.
           </p>
@@ -178,10 +222,8 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} noValidate className={styles.formElement}>
           <div className={styles.formHeader}>
-            <h2 className={styles.formTitle}>Send an Enquiry</h2>
-            <p className={styles.formSubtitle}>
-              Fill in your details below. We will format everything and open WhatsApp with your message ready to send.
-            </p>
+            <h2 className={styles.formTitle}>{mergedConfig.title}</h2>
+            <p className={styles.formSubtitle}>{mergedConfig.subtitle}</p>
           </div>
 
           {formState === 'error' && (
@@ -204,7 +246,7 @@ export function ContactForm() {
             <div className={styles.gridRowTwo}>
               <FormField
                 ref={firstNameRef}
-                id="firstName"
+                id={`${prefix}firstName`}
                 name="firstName"
                 label="First Name"
                 type="text"
@@ -219,7 +261,7 @@ export function ContactForm() {
 
               <FormField
                 ref={lastNameRef}
-                id="lastName"
+                id={`${prefix}lastName`}
                 name="lastName"
                 label="Last Name"
                 type="text"
@@ -236,7 +278,7 @@ export function ContactForm() {
             <div className={styles.gridRowTwo}>
               <FormField
                 ref={phoneRef}
-                id="phone"
+                id={`${prefix}phone`}
                 name="phone"
                 label="Phone Number"
                 type="tel"
@@ -251,7 +293,7 @@ export function ContactForm() {
 
               <FormField
                 ref={emailRef}
-                id="email"
+                id={`${prefix}email`}
                 name="email"
                 label="Email Address"
                 type="email"
@@ -267,21 +309,21 @@ export function ContactForm() {
 
             <FormField
               ref={subjectRef}
-              id="subject"
+              id={`${prefix}subject`}
               name="subject"
               label="Subject"
               type="text"
               value={formData.subject}
               onChange={handleChange}
               error={errors.subject}
-              placeholder="e.g. Catering Enquiry / Bulk Order / General Feedback"
+              placeholder={mergedConfig.subjectPlaceholder}
               maxLength={FIELD_LIMITS.subject}
               required
             />
 
             <FormField
               ref={descriptionRef}
-              id="description"
+              id={`${prefix}description`}
               name="description"
               label="Message Description"
               isTextArea
@@ -289,14 +331,14 @@ export function ContactForm() {
               value={formData.description}
               onChange={handleChange}
               error={errors.description}
-              placeholder="Tell us about your occasion, event date, dessert preferences, or questions..."
+              placeholder={mergedConfig.descriptionPlaceholder}
               maxLength={FIELD_LIMITS.description}
               required
             />
 
             <FormField
               ref={addressRef}
-              id="address"
+              id={`${prefix}address`}
               name="address"
               label="Your Location / Address"
               isTextArea
@@ -304,12 +346,22 @@ export function ContactForm() {
               value={formData.address}
               onChange={handleChange}
               error={errors.address}
-              placeholder="Area / City (e.g. Adajan, Surat, Gujarat)"
+              placeholder={mergedConfig.addressPlaceholder}
               maxLength={FIELD_LIMITS.address}
               autoComplete="street-address"
               required
             />
           </div>
+
+          {/* Optional notice for specific forms (e.g. CV attachment on Career page) */}
+          {mergedConfig.extraNotice && (
+            <div className={styles.extraNoticeBox} role="note">
+              <span className={styles.extraNoticeIcon} aria-hidden="true">📎</span>
+              <div className={styles.extraNoticeText}>
+                <strong>Note on CV:</strong> {mergedConfig.extraNotice}
+              </div>
+            </div>
+          )}
 
           <div className={styles.submitSection}>
             <button
@@ -317,7 +369,7 @@ export function ContactForm() {
               disabled={formState === 'redirecting'}
               className={styles.submitButton}
             >
-              <span>{formState === 'redirecting' ? 'Opening WhatsApp...' : 'Continue to WhatsApp'}</span>
+              <span>{formState === 'redirecting' ? 'Opening WhatsApp...' : mergedConfig.submitButtonText}</span>
               <svg
                 className={styles.submitArrowIcon}
                 viewBox="0 0 20 20"
@@ -331,8 +383,6 @@ export function ContactForm() {
                 <path d="M4 10h12M11 5l5 5-5 5" />
               </svg>
             </button>
-
-          
           </div>
         </form>
       )}
