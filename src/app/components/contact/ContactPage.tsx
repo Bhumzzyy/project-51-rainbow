@@ -1,37 +1,60 @@
-import Image from 'next/image';
+import { ContactForm } from './ContactForm';
+import { WHATSAPP_NUMBER } from './contact.config';
 import styles from './ContactPage.module.css';
 
 export default function ContactPage() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero}>
-        <div>
-          <p className={styles.eyebrow}>Contact us</p>
-          <h1>Let’s create something delicious together.</h1>
-          <p className={styles.lead}>
-            Share your occasion, flavor ideas, or partnership inquiry and our team will get back to you with warm, thoughtful guidance.
+      <div className={styles.container}>
+        {/* Editorial Hero Header */}
+        <header className={styles.heroHeader}>
+          <p className={styles.eyebrow}>Get In Touch</p>
+          <h1 className={styles.mainTitle}>Let’s create something sweet together.</h1>
+          <p className={styles.leadText}>
+            Have an occasion, catering request, or question? Send us a direct WhatsApp enquiry and our team will get back to you with warm, thoughtful guidance.
           </p>
-        </div>
+        </header>
 
-        <div className={styles.imageWrap}>
-          <Image src="/contact/contact-illustration.svg" alt="Contact and support illustration" width={520} height={420} />
-        </div>
-      </section>
+        {/* Two-Column Editorial Layout */}
+        <div className={styles.contentLayout}>
+          {/* Left Column: Context, Illustration & Minimal Contact Channels */}
+          <aside className={styles.sidebarColumn}>
 
-      <section className={styles.contactGrid}>
-        <div className={styles.infoCard}>
-          <h3>Email</h3>
-          <p>hello@rainbowstudio.com</p>
+
+            <div className={styles.sidebarInfoCard}>
+              <h2 className={styles.sidebarTitle}>Direct Communication</h2>
+              <p className={styles.sidebarDesc}>
+                We prioritize quick and friendly communication. Submitting the enquiry form opens our dedicated WhatsApp channel with your request formatted and ready to send.
+              </p>
+
+              <div className={styles.contactPoints}>
+                <div className={styles.pointItem}>
+                  <span className={styles.pointLabel}>Instant Messaging:</span>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.pointLink}
+                  >
+                    Chat directly on WhatsApp →
+                  </a>
+                </div>
+
+                <div className={styles.pointItem}>
+                  <span className={styles.pointLabel}>Headquarters:</span>
+                  <span className={styles.pointValue}>Surat, Gujarat, India</span>
+                </div>
+
+              </div>
+            </div>
+          </aside>
+
+          {/* Right Column: Premium Contact Form */}
+          <section className={styles.formColumn} aria-label="Enquiry Form">
+            <ContactForm />
+          </section>
         </div>
-        <div className={styles.infoCard}>
-          <h3>Phone</h3>
-          <p>+91 98765 43210</p>
-        </div>
-        <div className={styles.infoCard}>
-          <h3>Hours</h3>
-          <p>Mon-Sat, 9:00 AM - 8:00 PM</p>
-        </div>
-      </section>
+      </div>
     </main>
   );
 }

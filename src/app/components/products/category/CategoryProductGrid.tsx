@@ -13,7 +13,11 @@ export default function CategoryProductGrid({
   categoryName,
 }: CategoryProductGridProps) {
   return (
-    <section className="products-grid-container" aria-label={`${categoryName} products list`}>
+    <section
+      key={categoryName}
+      className="products-grid-container"
+      aria-label={`${categoryName} products list`}
+    >
       <div className="products-grid">
         {products.map((product, idx) => (
           <ProductCard
