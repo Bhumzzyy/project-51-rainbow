@@ -7,7 +7,7 @@
 
   position: relative;
   width: 100%;
-  height: clamp(760px, 100vh, 1000px);
+  height: clamp(800px, 100vh, 1000px);
   overflow: hidden;
   background: linear-gradient(
     to bottom,
@@ -95,8 +95,9 @@
 ========================================= */
 
 .productColumns {
-  --capsule-height: clamp(260px, 29vw, 390px);
+  --capsule-height: clamp(420px, 38vw, 560px);
   --scroll-distance: calc(
+    var(--capsule-height) + var(--product-gap) +
     var(--capsule-height) + var(--product-gap) +
     var(--capsule-height) + var(--product-gap) +
     var(--capsule-height) + var(--product-gap) +
@@ -108,7 +109,7 @@
   inset: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(8, var(--capsule-height));
+  grid-template-rows: repeat(10, var(--capsule-height));
   gap: var(--product-gap);
   width: 100%;
   height: 100%;
@@ -142,7 +143,8 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  width: 100%;
+  width: min(86%, 390px);
+  justify-self: center;
   height: var(--capsule-height);
   overflow: hidden;
   padding: clamp(14px, 2vw, 30px) 10px;
@@ -195,9 +197,9 @@
 
   object-fit: contain;
 
-  filter: drop-shadow(
-    0 12px 14px rgba(48, 29, 61, 0.18)
-  );
+  filter:
+    drop-shadow(0 14px 18px rgba(38, 22, 52, 0.34))
+    drop-shadow(0 5px 8px rgba(38, 22, 52, 0.24));
 }
 
 /* =========================================
@@ -236,17 +238,14 @@
 
 @media (max-width: 900px) {
   .productColumns {
-    --capsule-height: clamp(180px, 29vw, 270px);
+    --capsule-height: clamp(280px, 36vw, 380px);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0 12px;
     gap: 10px;
   }
 
-  .productCapsule:nth-child(n + 25) {
-    display: none;
-  }
-
   .productCapsule {
+    width: 90%;
     padding: 14px 6px;
   }
 
@@ -289,12 +288,13 @@
   }
 
   .productColumns {
-    --capsule-height: clamp(150px, 39vw, 210px);
+    --capsule-height: clamp(230px, 48vw, 320px);
     padding: 0 6px;
     gap: 6px;
   }
 
   .productCapsule {
+    width: 94%;
     padding: 12px 4px;
   }
 

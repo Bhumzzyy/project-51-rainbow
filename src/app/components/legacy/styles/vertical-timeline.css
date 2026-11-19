@@ -1,0 +1,245 @@
+/* ==========================================================================
+   51 RAINBOW — VERTICAL TIMELINE STYLES
+   Central continuous crimson line, year markers & connectors
+   ========================================================================== */
+
+/* The main vertical track container */
+.legacy-vertical__timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 24px 120px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Continuous Central Vertical Crimson Line (#B9272F)
+   Bold, thick (16px), 100% solid crimson matching the legacy ribbon.
+   Terminal dot caps removed cleanly.
+   ========================================================================== */
+.legacy-vertical__timeline-line {
+  position: absolute;
+  top: 40px;
+  bottom: 80px;
+  left: 50%;
+  width: 16px;
+  background-color: #B9272F !important; /* 100% solid brand crimson */
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(185, 39, 47, 0.28);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Dynamic Scroll Progress Fill (seamlessly matching solid crimson) */
+.legacy-vertical__timeline-progress {
+  display: none;
+}
+
+/* ==========================================================================
+   Center Spine Anchor (Year Marker & Connector Lines)
+   ========================================================================== */
+.legacy-vertical__center-anchor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Year Marker Badge directly on the central line
+   White border REMOVED; number size INCREASED significantly
+   Solid crimson pill matching Image 2 & 3 editorial design
+   ========================================================================== */
+.legacy-vertical__year-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  height: 52px;
+  padding: 10px 30px;
+  background-color: #B9272F !important;
+  color: #FFFDF7 !important;
+  border-radius: 9999px;
+  border: none !important; /* White border removed */
+  box-shadow:
+    0 6px 22px rgba(185, 39, 47, 0.42),
+    0 2px 8px rgba(44, 24, 16, 0.16);
+  z-index: 25;
+  user-select: none;
+  white-space: nowrap;
+  pointer-events: auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.legacy-vertical__milestone:hover .legacy-vertical__year-marker {
+  transform: scale(1.05);
+  box-shadow:
+    0 8px 28px rgba(185, 39, 47, 0.52),
+    0 3px 10px rgba(44, 24, 16, 0.22);
+}
+
+.legacy-vertical__year-text {
+  font-family: var(--font-recoleta), Georgia, serif;
+  font-size: clamp(24px, 2.2vw, 32px); /* Prominent large year numeral */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  color: #FFFDF7;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   2. Horizontal Connector Line
+   Thickness: 6px, Length: 65–85px, rounded edges, solid #B9272F
+   ========================================================================== */
+.legacy-vertical__connector {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  background-color: #B9272F;
+  border-radius: 9999px;
+  z-index: 15;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(185, 39, 47, 0.25);
+}
+
+/* Left connector: stretches leftwards from year marker */
+.legacy-vertical__connector--left {
+  right: 100%;
+  width: clamp(65px, 6vw, 85px);
+  justify-content: flex-start;
+}
+
+/* Right connector: stretches rightwards from year marker */
+.legacy-vertical__connector--right {
+  left: 100%;
+  width: clamp(65px, 6vw, 85px);
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   3. Circular Connector Dot
+   Perfect circle, #B9272F with subtle ivory border, static (no pulsing)
+   ========================================================================== */
+.legacy-vertical__connector-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #B9272F;
+  border: 3px solid #FFFCEE;
+  box-shadow: 0 2px 8px rgba(185, 39, 47, 0.45);
+  flex-shrink: 0;
+}
+
+/* Ensure the dot sits cleanly anchored at the outer tip of the connector */
+.legacy-vertical__connector--left .legacy-vertical__connector-dot {
+  margin-left: -4px;
+}
+
+.legacy-vertical__connector--right .legacy-vertical__connector-dot {
+  margin-right: -4px;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE TIMELINE LAYOUT
+   ========================================================================== */
+@media (max-width: 860px) {
+  .legacy-vertical__timeline {
+    padding: 30px 16px 80px;
+  }
+
+  /* Shift line to the left edge (solid 10px on tablet) */
+  .legacy-vertical__timeline-line {
+    left: 32px;
+    transform: none;
+    width: 10px;
+    top: 20px;
+    bottom: 40px;
+  }
+
+  /* Year marker pinned to left line near top of milestone */
+  .legacy-vertical__center-anchor {
+    left: 32px;
+    top: 24px;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+  .legacy-vertical__year-marker {
+    min-width: 90px;
+    height: 42px;
+    padding: 6px 18px;
+    border: none !important;
+  }
+
+  .legacy-vertical__year-text {
+    font-size: 20px;
+  }
+
+  /* Connector branches rightward on mobile towards stacked content */
+  .legacy-vertical__connector--left,
+  .legacy-vertical__connector--right {
+    left: 100%;
+    right: auto;
+    width: 36px;
+    height: 5px;
+    justify-content: flex-end;
+  }
+
+  .legacy-vertical__connector-dot {
+    width: 14px;
+    height: 14px;
+    border-width: 2.5px;
+  }
+
+  .legacy-vertical__connector--left .legacy-vertical__connector-dot,
+  .legacy-vertical__connector--right .legacy-vertical__connector-dot {
+    margin-right: -3px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .legacy-vertical__timeline-line {
+    left: 24px;
+    width: 8px;
+  }
+
+  .legacy-vertical__center-anchor {
+    left: 24px;
+    top: 20px;
+  }
+
+  .legacy-vertical__year-marker {
+    min-width: 80px;
+    height: 38px;
+    padding: 5px 14px;
+    border: none !important;
+  }
+
+  .legacy-vertical__year-text {
+    font-size: 18px;
+  }
+
+  .legacy-vertical__connector--left,
+  .legacy-vertical__connector--right {
+    width: 26px;
+    height: 5px;
+  }
+
+  .legacy-vertical__connector-dot {
+    width: 13px;
+    height: 13px;
+    border-width: 2px;
+  }
+}

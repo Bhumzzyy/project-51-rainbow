@@ -1,0 +1,1251 @@
+@import "./products-hero.css";
+
+/* ==========================================================================
+   51 RAINBOW — PRODUCTS EXPERIENCE DESIGN SYSTEM
+   Editorial Showcase & Premium Gallery Architecture
+   Brand Colors: Primary Orange (#F1592B) | Secondary Purple (#6D5686)
+   Primary Background: #FFFCEE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tokens & Brand Color Variables
+   -------------------------------------------------------------------------- */
+:root {
+  --font-display: var(--font-lilita-one), 'Lilita One', cursive, sans-serif;
+  --font-editorial: var(--font-bodoni-moda), 'Bodoni Moda', Georgia, serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-script: var(--font-caveat), 'Caveat', cursive;
+
+  /* Brand colors */
+  --c-cream-light: #fffcee;
+  --c-cream: #fffcee;
+  --c-cream-deep: #f7f1ff;
+
+  /* Primary brand palette */
+  --c-orange: #f1592b;
+  --c-orange-hover: #D84315;
+  --c-purple: #6d5686;
+  --c-purple-light: rgba(109, 86, 134, 0.12);
+
+  /* Product experience colors */
+  --c-product-bg: #fffcee;
+  --c-brown-deep: #6d5686;
+  --c-brown-muted: #806c9d;
+  --c-card-bg: #FFFFFF;
+  --c-orange-light: #fff2ed;
+  --c-orange-glow: rgba(241, 89, 43, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   Global Layout & Wrapper for Product Experience
+   -------------------------------------------------------------------------- */
+.products-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--c-product-bg) !important;
+  color: var(--c-brown-deep);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+/* --------------------------------------------------------------------------
+   Editorial Discovery Hero Banner (See products-hero.css)
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   PAGE ONE: Editorial Category Showcase Sections Container (/products)
+   Concept A: Horizontal Inward-Facing Curved Pill Showcase (Full-Bleed Outer Flat)
+   Concept C: Floating Image with Upper Curved Orbit Typography
+   -------------------------------------------------------------------------- */
+.category-showcase-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(48px, 6vw, 96px) 0 clamp(80px, 10vw, 140px);
+  background-color: var(--c-product-bg);
+  gap: clamp(64px, 8vw, 120px);
+  overflow-x: clip; /* Cleanly prevents horizontal page scrollbars while allowing full-bleed layouts */
+}
+
+/* Individual Showcase Row Section (Full viewport width, zero horizontal margin) */
+.editorial-showcase-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: clamp(24px, 3.5vw, 48px) 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* The Editorial Row: Flexbox Split */
+.editorial-showcase-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Row Direction 1: Left-oriented capsule (Image Left, Text Right) */
+.editorial-showcase-row--image-left,
+.editorial-showcase-row.capsule--left {
+  flex-direction: row;
+}
+
+/* Row Direction 2: Right-oriented capsule (Text Left, Image Right) */
+.editorial-showcase-row--image-right,
+.editorial-showcase-row.capsule--right {
+  flex-direction: row-reverse;
+}
+
+/* Screen reader accessible text utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   CONCEPT A: Full-Bleed Inward-Facing Curved Capsule Container & Frame
+   Height: 320px–380px desktop, Width: 53–58vw
+   -------------------------------------------------------------------------- */
+.category-capsule-container {
+  position: relative;
+  flex: 0 0 clamp(520px, 56vw, 960px);
+  width: clamp(520px, 56vw, 960px);
+  max-width: 58vw;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* Flat edge full viewport alignment (touches 0px outer page boundaries) */
+.category-capsule-container.capsule--left,
+.category-capsule-container--left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.category-capsule-container.capsule--right,
+.category-capsule-container--right {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Concept C: Floating Orbit Typography SVG wrapper */
+.category-orbit-wrapper {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 30px);
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+.category-orbit-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.category-orbit-text {
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(255, 252, 238, 0.85);
+  user-select: none;
+}
+
+.category-orbit-word {
+  fill: var(--c-purple, #6D5686);
+}
+
+.category-orbit-diamond {
+  fill: var(--c-orange, #F1592B);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* Inward-Facing Curved Capsule Frame (Substantial 320px–380px Height) */
+.category-capsule-frame {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 24vw, 380px);
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #F7F1E6;
+  box-shadow: 0 20px 50px -12px rgba(44, 24, 16, 0.14), 0 4px 18px -2px rgba(44, 24, 16, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: default; /* Non-clickable display frame */
+  transition: box-shadow 400ms ease;
+}
+
+/* LEFT-SIDE IMAGE:
+   Outer LEFT edge is FLAT (touches viewport).
+   Inner RIGHT edge is CURVED (faces center text). */
+.category-capsule-frame.capsule--left,
+.category-capsule-frame--left {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 9999px !important;
+  border-bottom-right-radius: 9999px !important;
+}
+
+/* RIGHT-SIDE IMAGE:
+   Outer RIGHT edge is FLAT (touches viewport).
+   Inner LEFT edge is CURVED (faces center text). */
+.category-capsule-frame.capsule--right,
+.category-capsule-frame--right {
+  border-top-left-radius: 9999px !important;
+  border-bottom-left-radius: 9999px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.category-capsule-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.category-capsule-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.category-capsule-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 24, 16, 0) 65%, rgba(44, 24, 16, 0.08) 100%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Editorial Text Column (Spaced comfortably from center)
+   -------------------------------------------------------------------------- */
+.editorial-text-col {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Balanced inward spacing from curved capsule and outer page edges */
+.editorial-text-col.capsule--left,
+.editorial-text-col--right {
+  padding-left: clamp(36px, 5vw, 88px);
+  padding-right: clamp(24px, 5vw, 96px);
+  align-items: flex-start;
+}
+
+.editorial-text-col.capsule--right,
+.editorial-text-col--left {
+  padding-left: clamp(24px, 5vw, 96px);
+  padding-right: clamp(36px, 5vw, 88px);
+  align-items: flex-start;
+}
+
+.editorial-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Category Eyebrow / Label */
+.editorial-label-wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 4px;
+  font-size: clamp(11px, 0.9vw, 12.5px);
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--c-purple);
+  margin-bottom: clamp(10px, 1.2vw, 16px);
+}
+
+.editorial-collection-num {
+  font-weight: 900;
+  color: var(--c-orange);
+}
+
+.editorial-divider {
+  opacity: 0.35;
+}
+
+.editorial-tagline {
+  color: var(--c-purple);
+}
+
+/* Large Category Heading in Recoleta Display Serif */
+.editorial-category-title {
+  margin: 0 0 clamp(10px, 1.2vw, 16px);
+  font-family: var(--font-display, "Recoleta", serif);
+  font-size: clamp(28px, 2.7vw, 44px);
+  line-height: 1.12;
+  font-weight: 900;
+  color: var(--c-purple, #6D5686);
+  letter-spacing: -0.02em;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Short Category Narrative Description */
+.editorial-category-desc {
+  margin: 0 0 clamp(22px, 2.4vw, 32px);
+  font-size: clamp(14.5px, 1.05vw, 16.5px);
+  line-height: 1.65;
+  color: var(--c-brown-muted, #5A3828);
+  max-width: 440px;
+  overflow-wrap: break-word;
+}
+
+/* Explore Collection CTA Button - ONLY interactive element that responds to hover */
+.editorial-cta-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.editorial-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(12px, 1.1vw, 15px) clamp(24px, 1.8vw, 32px);
+  border-radius: 999px;
+  background-color: var(--c-purple, #6D5686);
+  color: #FFFFFF !important;
+  font-size: clamp(11px, 0.9vw, 12.5px);
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(109, 86, 134, 0.28);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms ease, background-color 240ms ease;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.editorial-btn-arrow {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-explore-btn:hover {
+  background-color: var(--c-crimson, #B9272F);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(185, 39, 47, 0.35);
+}
+
+.editorial-explore-btn:hover .editorial-btn-arrow {
+  transform: translateX(4px);
+}
+
+.editorial-explore-btn:focus-visible {
+  outline: 3px solid var(--c-purple);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   DIRECTIONAL SCROLL ANIMATIONS (Staggered Liquid Reveals)
+   -------------------------------------------------------------------------- */
+.editorial-showcase-section .category-capsule-container {
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.editorial-showcase-section .editorial-text-col {
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 120ms;
+  will-change: opacity, transform;
+}
+
+/* Left Image Capsule reveals from left; Text enters with subtle opposing movement */
+.editorial-showcase-section.capsule--left:not(.is-visible) .category-capsule-container {
+  opacity: 0;
+  transform: translateX(-48px);
+}
+
+.editorial-showcase-section.capsule--left:not(.is-visible) .editorial-text-col {
+  opacity: 0;
+  transform: translateX(36px);
+}
+
+/* Right Image Capsule reveals from right; Text enters with subtle opposing movement */
+.editorial-showcase-section.capsule--right:not(.is-visible) .category-capsule-container {
+  opacity: 0;
+  transform: translateX(48px);
+}
+
+.editorial-showcase-section.capsule--right:not(.is-visible) .editorial-text-col {
+  opacity: 0;
+  transform: translateX(-36px);
+}
+
+/* Final visible resting state (No jumping or bouncing) */
+.editorial-showcase-section.is-visible .category-capsule-container,
+.editorial-showcase-section.is-visible .editorial-text-col {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-capsule-container,
+  .editorial-text-col,
+  .editorial-showcase-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules: Tablet & Mobile Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .category-capsule-container {
+    flex: 0 0 52vw;
+    width: 52vw;
+    max-width: 54vw;
+  }
+
+  .category-capsule-frame {
+    height: clamp(260px, 26vw, 320px);
+  }
+
+  .editorial-text-col.capsule--left,
+  .editorial-text-col--right {
+    padding-left: clamp(24px, 3.5vw, 48px);
+    padding-right: clamp(16px, 3vw, 40px);
+  }
+
+  .editorial-text-col.capsule--right,
+  .editorial-text-col--left {
+    padding-left: clamp(16px, 3vw, 40px);
+    padding-right: clamp(24px, 3.5vw, 48px);
+  }
+
+  .editorial-category-title {
+    font-size: clamp(24px, 3.2vw, 34px);
+  }
+}
+
+@media (max-width: 768px) {
+  .editorial-showcase-section {
+    padding: clamp(20px, 4vw, 36px) 0;
+  }
+
+  .editorial-showcase-row,
+  .editorial-showcase-row--image-left,
+  .editorial-showcase-row--image-right,
+  .editorial-showcase-row.capsule--left,
+  .editorial-showcase-row.capsule--right {
+    flex-direction: column !important;
+    align-items: stretch;
+    padding: 0 clamp(16px, 4vw, 24px);
+  }
+
+  .category-capsule-container,
+  .category-capsule-container.capsule--left,
+  .category-capsule-container.capsule--right,
+  .category-capsule-container--left,
+  .category-capsule-container--right {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+  }
+
+  /* On mobile, keep a clean, intentional rounded container */
+  .category-capsule-frame,
+  .category-capsule-frame.capsule--left,
+  .category-capsule-frame.capsule--right,
+  .category-capsule-frame--left,
+  .category-capsule-frame--right {
+    height: clamp(200px, 48vw, 260px);
+    border-radius: clamp(24px, 5vw, 36px) !important;
+  }
+
+  .editorial-text-col,
+  .editorial-text-col.capsule--left,
+  .editorial-text-col.capsule--right,
+  .editorial-text-col--left,
+  .editorial-text-col--right {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: clamp(20px, 3vw, 28px) 4px 0 !important;
+  }
+
+  .editorial-text-content {
+    max-width: 100%;
+  }
+
+  .editorial-category-title {
+    font-size: clamp(26px, 5.5vw, 36px);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .editorial-category-desc {
+    font-size: 15px;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .category-showcase-container {
+    padding: 24px 0 60px;
+    gap: clamp(40px, 8vw, 56px);
+  }
+
+  .category-orbit-wrapper {
+    display: none; /* Keep clean and unobstructed on compact mobile */
+  }
+
+  .editorial-explore-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PAGE TWO: Dedicated Category Page Header (/products/[category])
+   -------------------------------------------------------------------------- */
+.category-page-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 4% 32px;
+  background-color: var(--c-product-bg) !important;
+  overflow: hidden;
+}
+
+/* Small uppercase category label */
+.category-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--c-purple);
+  margin-bottom: 12px;
+}
+
+.category-eyebrow-dot {
+  color: var(--c-orange);
+  font-size: 10px;
+}
+
+.category-eyebrow-text {
+  font-weight: 800;
+}
+
+/* Large visually prominent Category Heading */
+.category-page-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 70px);
+  line-height: 1.04;
+  font-weight: 900;
+  color: var(--c-brown-deep);
+  letter-spacing: -1px;
+}
+
+/* Short Category Description */
+.category-page-lead {
+  max-width: 620px;
+  margin: 0 auto 20px;
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--c-brown-muted);
+  line-height: 1.55;
+}
+
+/* Subtle horizontal decorative lines with center motif */
+.category-decorative-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 32px;
+}
+
+.category-decorative-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(109, 86, 134, 0.28);
+}
+
+.category-decorative-diamond {
+  font-size: 10px;
+  color: var(--c-orange);
+  line-height: 1;
+}
+
+/* Hero Product Artwork Composition (Well-proportioned, not dominating) */
+.category-page-hero-composition {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1400 / 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+}
+
+.category-page-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(44, 24, 16, 0.12));
+}
+
+/* --------------------------------------------------------------------------
+   Category Quick Jump Pills Bar
+   -------------------------------------------------------------------------- */
+.category-quick-nav {
+  position: sticky;
+  top: var(--navbar-height, 80px);
+  z-index: 30;
+  width: 100%;
+  background: rgba(255, 252, 238, 0.94);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(109, 86, 134, 0.1);
+  border-bottom: 1px solid rgba(109, 86, 134, 0.12);
+  padding: 12px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.category-quick-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.category-quick-nav-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4%;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.category-quick-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(109, 86, 134, 0.25);
+  color: var(--c-brown-deep);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(44, 24, 16, 0.04);
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+}
+
+.category-quick-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--c-orange);
+  color: var(--c-orange);
+  box-shadow: 0 4px 10px rgba(241, 89, 43, 0.15);
+}
+
+.category-quick-pill.is-active {
+  background: var(--c-orange) !important;
+  border-color: var(--c-orange) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(241, 89, 43, 0.32);
+}
+
+.category-quick-pill--back {
+  font-weight: 800;
+  border-color: var(--c-purple);
+  color: var(--c-purple);
+  background: rgba(109, 86, 134, 0.06);
+}
+
+.category-quick-pill--back:hover {
+  background: var(--c-purple);
+  color: #FFFFFF;
+  border-color: var(--c-purple);
+}
+
+.pill-arrow {
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   VERTICAL CAPSULE PRODUCT PRESENTATION (Vadilal-Inspired Premium Architecture)
+   Page Background: #FFFCEE | Signature Purple Capsule: #6D5686
+   Brand Colors: Primary Orange (#F1592B) | Secondary Purple (#6D5686)
+   -------------------------------------------------------------------------- */
+
+:root {
+  --capsule-bg: #6D5686;
+  --capsule-radius: 9999px;
+  --capsule-shadow: 0 16px 36px rgba(109, 86, 134, 0.28), 0 4px 12px rgba(44, 24, 16, 0.08);
+  --capsule-shadow-hover: 0 8px 20px rgba(109, 86, 134, 0.2);
+  --product-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Product Cards Grid Container (4 columns desktop, 3 tablet, 2 mobile)
+   -------------------------------------------------------------------------- */
+.products-grid-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(56px, 6vw, 92px) clamp(16px, 4vw, 48px) clamp(88px, 9vw, 140px);
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(52px, 5vw, 84px) clamp(18px, 2.5vw, 36px);
+  width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 46px 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    max-width: 290px;
+    margin: 0 auto;
+    gap: 36px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BALANCED UP-DOWN ZIGZAG POSITIONING & LIQUID SCROLL REVEAL SYSTEM
+   Outer Wrapper: Handles Zigzag offset + Liquid Entrance
+   Inner Card: Keeps 100% of existing hover effects & styling isolated
+   -------------------------------------------------------------------------- */
+.product-zigzag-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Desktop Zigzag: Higher (-35px) / Lower (+35px) -> Exactly 70px balanced difference */
+.product-zigzag-wrapper--higher {
+  --zigzag-offset: -30px;
+}
+
+.product-zigzag-wrapper--lower {
+  --zigzag-offset: 30px;
+}
+
+.product-zigzag-wrapper--neutral {
+  --zigzag-offset: 0px;
+}
+
+/* Fluid Liquid Scroll Reveal Motion Layer */
+.product-liquid-motion-layer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(calc(var(--zigzag-offset, 0px) + 38px)) scale(0.97);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay, 0ms),
+    transform 950ms cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/* Revealed State: Gently glides upward into balanced zigzag resting position */
+.product-zigzag-wrapper.is-revealed .product-liquid-motion-layer {
+  opacity: 1;
+  transform: translateY(var(--zigzag-offset, 0px)) scale(1);
+}
+
+/* Tablets (3 columns): Moderated offset (-24px / +24px = 48px difference) */
+@media (max-width: 1180px) {
+  .product-zigzag-wrapper--higher {
+    --zigzag-offset: -24px;
+  }
+  .product-zigzag-wrapper--lower {
+    --zigzag-offset: 24px;
+  }
+}
+
+/* Mobile (2 columns): Balanced offset (-16px / +16px = 32px difference) */
+@media (max-width: 768px) {
+  .product-zigzag-wrapper--higher {
+    --zigzag-offset: -16px;
+  }
+  .product-zigzag-wrapper--lower {
+    --zigzag-offset: 16px;
+  }
+}
+
+/* Very Small Mobile (1 column): Zero offset for clean vertical column */
+@media (max-width: 380px) {
+  .product-zigzag-wrapper--higher,
+  .product-zigzag-wrapper--lower {
+    --zigzag-offset: 0px;
+  }
+}
+
+/* Disable zigzag inside horizontal carousel items */
+.product-carousel-item .product-zigzag-wrapper--higher,
+.product-carousel-item .product-zigzag-wrapper--lower {
+  --zigzag-offset: 0px !important;
+}
+
+/* Reduced Motion Accessibility Override */
+@media (prefers-reduced-motion: reduce) {
+  .product-liquid-motion-layer {
+    opacity: 1 !important;
+    transform: translateY(var(--zigzag-offset, 0px)) scale(1) !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   The Main Vertical Capsule Card
+   -------------------------------------------------------------------------- */
+.product-capsule-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stage Wrapper: Isolated Stacking Context, Zero 3D Intersections */
+.capsule-stage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: clamp(390px, 29vw, 470px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: visible;
+  margin-bottom: clamp(16px, 1.6vw, 22px);
+}
+
+/* 1. Independent Vertical Purple Capsule (#6D5686) strictly BEHIND the product */
+.capsule-backdrop {
+  position: absolute;
+  top: clamp(28px, 2.5vw, 42px);
+  bottom: clamp(14px, 1.4vw, 24px);
+  left: 50%;
+  transform: translateX(-50%) scale(1) translateY(0);
+  width: clamp(210px, 17vw, 255px);
+  background: var(--capsule-bg);
+  border-radius: var(--capsule-radius);
+  box-shadow: var(--capsule-shadow);
+  transition: transform 480ms var(--product-ease), box-shadow 480ms ease;
+  will-change: transform;
+  overflow: hidden;
+  z-index: 1; /* STRICTLY LAYERED BEHIND PRODUCT */
+  pointer-events: none;
+}
+
+/* Subtle inner ambient sheen on the purple capsule */
+.capsule-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--capsule-radius);
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.24) 0%, rgba(109, 86, 134, 0) 65%);
+  pointer-events: none;
+}
+
+/* 2. Independent Floating Product Image Layer strictly IN FRONT of the capsule */
+.capsule-product-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* STRICTLY IN FRONT OF CAPSULE (Z-INDEX 10 vs 1) */
+  transform: translateY(0) scale(1);
+  transition: transform 480ms var(--product-ease);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Product Image Container with Increased Prominence and Clean Framing */
+.product-image-container {
+  position: relative;
+  width: 88%;
+  height: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 12px 22px rgba(44, 24, 16, 0.18));
+  transition: filter 480ms ease;
+  overflow: visible;
+}
+
+.product-capsule-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Specific Category Proportions: Tall Drinks (Faloodas, Shakes, Smoothies, Coco) */
+.product-capsule-card--drink .product-image-container {
+  width: 86%;
+  height: 92%;
+  max-height: 380px;
+  margin-top: -24px; /* Protrudes elegantly above upper rim */
+}
+
+/* Specific Category Proportions: Wide Treats (Waffles, Cakes) */
+.product-capsule-card--wide .product-image-container {
+  width: 95%;
+  height: 82%;
+  max-height: 330px;
+  margin-top: -12px;
+}
+
+/* Specific Category Proportions: Tubs (Party Tubs, Brownie Tubs, Sundaes) */
+.product-capsule-card--tub .product-image-container {
+  width: 88%;
+  height: 88%;
+  max-height: 350px;
+  margin-top: -16px;
+}
+
+/* Specific Category Proportions: Artisan Scoops (Single Complete WebP Image) */
+.product-capsule-card--scoop .product-image-container {
+  width: 90%;
+  height: 90%;
+  max-height: 360px;
+  margin-top: -14px;
+}
+
+/* --------------------------------------------------------------------------
+   SIGNATURE 3D HOVER INTERACTION
+   Capsule recedes (scale 0.95, translateY 6px)
+   Product floats forward & up (translateY -18px, scale 1.05)
+   Zero image covering at any point
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .product-capsule-card:hover .capsule-backdrop,
+  .product-capsule-card:focus-visible .capsule-backdrop {
+    transform: translateX(-50%) scale(0.95) translateY(6px);
+    box-shadow: var(--capsule-shadow-hover);
+  }
+
+  .product-capsule-card:hover .capsule-product-layer,
+  .product-capsule-card:focus-visible .capsule-product-layer {
+    transform: translateY(-18px) scale(1.05);
+  }
+
+  .product-capsule-card:hover .product-image-container,
+  .product-capsule-card:focus-visible .product-image-container {
+    filter: drop-shadow(0 24px 34px rgba(44, 24, 16, 0.28));
+  }
+}
+
+/* Touch active state */
+.product-capsule-card.is-touched .capsule-backdrop {
+  transform: translateX(-50%) scale(0.95) translateY(6px);
+}
+.product-capsule-card.is-touched .capsule-product-layer {
+  transform: translateY(-14px) scale(1.04);
+}
+.product-capsule-card.is-touched .product-image-container {
+  filter: drop-shadow(0 20px 28px rgba(44, 24, 16, 0.24));
+}
+
+/* --------------------------------------------------------------------------
+   Product Information (Cleanly Positioned Below Capsule on #FFFCEE)
+   -------------------------------------------------------------------------- */
+.capsule-product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 260px;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+.product-new-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(241, 89, 43, 0.35);
+  color: var(--c-orange);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  box-shadow: 0 2px 6px rgba(44, 24, 16, 0.04);
+}
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--c-orange);
+}
+
+.capsule-category-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--c-purple);
+  margin-bottom: 6px;
+  transition: color 250ms ease;
+}
+
+.capsule-product-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.24;
+  font-weight: 900;
+  color: #2C1810;
+  text-align: center;
+  transition: color 250ms ease;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.product-capsule-card:hover .capsule-product-title,
+.product-capsule-card:focus-visible .capsule-product-title {
+  color: #B9272F !important;
+}
+
+/* --------------------------------------------------------------------------
+   Featured Products Horizontal Capsule Carousel (Vadilal-Inspired)
+   -------------------------------------------------------------------------- */
+.product-carousel-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px) clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.product-carousel-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  gap: 16px;
+}
+
+.product-carousel-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-carousel-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--c-purple);
+  margin-bottom: 6px;
+}
+
+.product-carousel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  color: var(--c-brown-deep);
+  line-height: 1.15;
+}
+
+.product-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(109, 86, 134, 0.15);
+  color: var(--c-purple);
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.06);
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease, border-color 220ms ease;
+}
+
+.carousel-nav-btn:hover:not(:disabled) {
+  background: var(--c-orange);
+  border-color: var(--c-orange);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(241, 89, 43, 0.28);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.product-carousel-track {
+  display: flex;
+  gap: clamp(16px, 2.2vw, 28px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 16px 4px 28px;
+  margin: -16px -4px -28px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.product-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.product-carousel-item {
+  flex: 0 0 clamp(230px, 22vw, 275px);
+  scroll-snap-align: start;
+}
+
+/* --------------------------------------------------------------------------
+   Loading Skeleton (Next.js Suspense Fallback)
+   -------------------------------------------------------------------------- */
+.category-loading-skeleton {
+  min-height: 80vh;
+  padding: 60px 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  background-color: var(--c-product-bg);
+}
+
+.skeleton-hero {
+  width: 100%;
+  max-width: 460px;
+  height: 280px;
+  border-radius: 24px;
+  background: rgba(109, 86, 134, 0.08);
+  animation: pulseSkeleton 1.5s ease-in-out infinite;
+}
+
+.skeleton-grid {
+  width: 100%;
+  max-width: 1380px;
+  height: 500px;
+  border-radius: 24px;
+  background: rgba(109, 86, 134, 0.05);
+  animation: pulseSkeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseSkeleton {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility & Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+  .product-capsule-card,
+  .capsule-backdrop,
+  .capsule-product-layer,
+  .product-image-container,
+  .product-card,
+  .editorial-banner-img,
+  .editorial-explore-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

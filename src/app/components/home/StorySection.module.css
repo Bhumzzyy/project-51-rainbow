@@ -337,8 +337,8 @@ Legacy story section styles retained at the user's request.
   left: 50%;
   display: block;
   width: auto;
-  height: clamp(720px, 61vw, 850px);
-  max-width: 34%;
+  height: clamp(710px, 58vw, 835px);
+  max-width: 36%;
   margin: 0;
   object-fit: contain;
   object-position: center bottom;
@@ -350,8 +350,8 @@ Legacy story section styles retained at the user's request.
 
 .storyIntro {
   position: relative;
-  z-index: 1;
-  max-width: 70%;
+  z-index: 2;
+  max-width: 100%;
   padding: 14px 0 22px;
 }
 
@@ -367,7 +367,7 @@ Legacy story section styles retained at the user's request.
   max-width: 100%;
   margin: 0;
   color: var(--brand-purple);
-  font-size: clamp(3.2rem, 7.8vw, 7.4rem);
+  font-size: clamp(2.8rem, 5.2vw, 5.6rem);
   letter-spacing: -0.01em;
   line-height: 0.98;
 }
@@ -384,15 +384,15 @@ Legacy story section styles retained at the user's request.
 .storyBody {
   position: relative;
   z-index: 2;
-  column-count: 2;
-  column-gap: clamp(260px, 30vw, 420px);
-  column-rule: 1px solid rgba(109, 86, 134, 0.3);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 22vw) minmax(0, 1fr);
+  column-gap: clamp(16px, 2vw, 28px);
   font-size: clamp(1rem, 1.35vw, 1.2rem);
   line-height: 1.48;
 }
 
 .storyByline {
-  column-span: all;
+  grid-column: 1 / -1;
   margin: 0 0 16px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -400,7 +400,7 @@ Legacy story section styles retained at the user's request.
 }
 
 .storyBody p {
-  margin: 0 0 16px;
+  margin: 0 0 24px;
 }
 
 .storyColumnLabel {
@@ -412,17 +412,34 @@ Legacy story section styles retained at the user's request.
 
 .storyArticleBlock {
   margin-bottom: 20px;
-  break-inside: avoid;
+}
+
+.storyArticleBlock p:last-child {
+  margin-bottom: 0;
+}
+
+.storyColumnFeatured {
+  grid-column: 1;
+}
+
+.storyColumnRight {
+  grid-column: 3;
 }
 
 .storyPullQuote {
-  max-width: 430px;
-  margin: 22px 0 26px 28px;
-  padding-left: 15px;
+  position: relative;
+  z-index: 3;
+  grid-column: 2;
+  align-self: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 14px 10px;
   border-left: 3px solid var(--brand-orange);
+  background: rgba(255, 252, 238, 0.9);
   color: var(--brand-purple);
-  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  font-size: clamp(1.2rem, 1.75vw, 1.65rem);
   line-height: 1.2;
+  text-align: center;
 }
 
 .paperFooter {
@@ -477,16 +494,29 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyTitle {
-    font-size: clamp(2.8rem, 7vw, 5rem);
+    max-width: min(100%, 760px);
+    font-size: clamp(2.7rem, 6.5vw, 4.4rem);
   }
 
   .storyBody {
     max-width: 760px;
     margin: 0 auto;
-    column-count: 1;
-    column-rule: 0;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 20px;
     padding-bottom: clamp(440px, 62vw, 540px);
     font-size: clamp(0.95rem, 1.7vw, 1.1rem);
+  }
+
+  .storyByline,
+  .storyColumnFeatured,
+  .storyColumnRight,
+  .storyPullQuote {
+    grid-column: 1;
+  }
+
+  .storyPullQuote {
+    justify-self: center;
+    max-width: 420px;
   }
 }
 
@@ -537,7 +567,8 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyTitle {
-    font-size: clamp(2.7rem, 11vw, 4.5rem);
+    max-width: 100%;
+    font-size: clamp(2.3rem, 9vw, 3.6rem);
   }
 
   .storySubtitle {
@@ -654,8 +685,8 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyBody {
-    column-count: 1;
-    column-rule: 0;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 16px;
     padding-bottom: clamp(450px, 118vw, 540px);
     font-size: 0.9rem;
     line-height: 1.5;
@@ -666,7 +697,7 @@ Legacy story section styles retained at the user's request.
   }
 
   .storyPullQuote {
-    margin: 18px 0 20px 10px;
+    margin: 0;
     font-size: 1.35rem;
   }
 

@@ -1,0 +1,356 @@
+/* ==========================================================================
+   51 RAINBOW — PRODUCTS EDITORIAL HERO DISCOVERY SECTION
+   Master Overlap + 15-Product Position Control System
+   ========================================================================== */
+
+.products-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: clamp(680px, 86vh, 920px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 2.5% 60px;
+  background: radial-gradient(circle at 50% 36%, #ffffff 0%, #FFFCEE 80%);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Ambient warm spotlight behind central typography */
+.products-hero-ambient-spotlight {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: min(78vw, 760px);
+  height: min(65vh, 500px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 252, 238, 0.45) 58%,
+    transparent 78%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Layered Organic Wave Ribbons Landscape */
+.products-hero-waves-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: clamp(120px, 16vw, 220px);
+  pointer-events: none;
+  line-height: 0;
+  overflow: visible;
+}
+
+/* Layer 1: Rear Waves (Chocolate-Caramel & Heritage Red) */
+.products-hero-waves--rear {
+  z-index: 2;
+}
+
+/* Layer 3: Foreground Waves (Warm Vanilla Ivory & Silky Cream) */
+.products-hero-waves--foreground {
+  z-index: 10;
+}
+
+.products-hero-wave-layer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wave-layer--chocolate {
+  z-index: 1;
+}
+
+.wave-layer--red {
+  z-index: 2;
+}
+
+.wave-layer--vanilla {
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.wave-layer--cream {
+  z-index: 2;
+  opacity: 0.98;
+}
+
+.products-hero-wave-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* Perimeter Product Placements Stages (5-Layer Interleaved Stacking System) */
+.products-hero-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Layer 2: Rear Products Stage (Tucked behind foreground waves) */
+.products-hero-stage--rear {
+  z-index: 5;
+}
+
+/* Layer 4: Foreground Products Stage (In front of foreground waves) */
+.products-hero-stage--foreground {
+  z-index: 15;
+}
+
+.hero-product-item {
+  position: absolute;
+  left: var(--pos-left);
+  top: var(--pos-top);
+  width: var(--item-w);
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.hero-product-parallax {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.hero-product-float {
+  width: 100%;
+  height: 100%;
+  transform: rotate(var(--rotation, 0deg));
+  will-change: transform;
+}
+
+.hero-product-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clean transparent product image — ABSOLUTELY ZERO ARTIFICIAL DROP SHADOWS */
+.hero-product-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Central Editorial Typography Group (Layer 5: Topmost Stacking Context) */
+.products-hero-center {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: clamp(340px, 46vw, 660px);
+  margin: 0 auto;
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Eyebrow Wrap with Winged Red Heart Ornament */
+.products-hero-eyebrow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.products-hero-eyebrow {
+  display: block;
+  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-size: clamp(13px, 1.25vw, 18px);
+  font-weight: 600;
+  letter-spacing: clamp(0.24em, 0.5vw, 0.38em);
+  text-transform: uppercase;
+  color: var(--c-brown-deep, #2C1810);
+  line-height: 1.2;
+}
+
+.products-hero-eyebrow-accent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 140px;
+}
+
+.eyebrow-accent-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(44, 24, 16, 0.35),
+    transparent
+  );
+}
+
+.eyebrow-accent-heart {
+  flex-shrink: 0;
+}
+
+/* Main Headline with Refined Red Arc Underline */
+.products-hero-title-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.products-hero-title {
+  margin: 0;
+  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-size: clamp(48px, 7.6vw, 116px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--c-brown-deep, #2C1810);
+  text-align: center;
+}
+
+.products-hero-title-arc {
+  width: min(85%, 380px);
+  height: auto;
+  margin-top: -3px;
+  pointer-events: none;
+}
+
+/* Supporting Paragraph */
+.products-hero-paragraph {
+  max-width: 540px;
+  margin: 16px auto 0;
+  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-size: clamp(14px, 1.35vw, 18px);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--c-brown-muted, #5E4235);
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM
+   ========================================================================== */
+
+/* Tablet (768px to 1024px) */
+@media (max-width: 1024px) {
+  .products-hero-section {
+    min-height: clamp(560px, 76vh, 740px);
+    padding: 40px 2.5% 50px;
+  }
+
+  .products-hero-center {
+    max-width: 520px;
+  }
+
+  .products-hero-title {
+    font-size: clamp(44px, 7.5vw, 86px);
+  }
+
+  .hero-product-item {
+    left: var(--tablet-left);
+    top: var(--tablet-top);
+    width: var(--tablet-w);
+  }
+
+  .products-hero-waves-container {
+    height: clamp(95px, 14vw, 155px);
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 767px) {
+  .products-hero-section {
+    min-height: auto;
+    padding: 38px 16px 44px;
+  }
+
+  .products-hero-center {
+    max-width: 100%;
+  }
+
+  .products-hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+  }
+
+  .products-hero-eyebrow-accent {
+    width: 110px;
+  }
+
+  .products-hero-title {
+    font-size: clamp(38px, 10.5vw, 56px);
+    line-height: 0.94;
+  }
+
+  .products-hero-title-arc {
+    width: min(80%, 260px);
+  }
+
+  .products-hero-paragraph {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-top: 14px;
+    max-width: 300px;
+  }
+
+  .hero-product-item {
+    left: var(--mobile-left);
+    top: var(--mobile-top);
+    width: var(--mobile-w);
+  }
+
+  .products-hero-waves-container {
+    height: clamp(70px, 18vw, 110px);
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  .hero-product-item,
+  .hero-product-parallax,
+  .hero-product-float,
+  .products-hero-eyebrow-wrap,
+  .products-hero-title-wrap,
+  .products-hero-paragraph,
+  .products-hero-wave-layer {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

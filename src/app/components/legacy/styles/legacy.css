@@ -1,0 +1,111 @@
+/* ========================================================
+   LEGACY TIMELINE MODULAR STYLES ENTRYPOINT
+   ======================================================== */
+
+/* Import modular legacy stylesheets at the top per CSS spec */
+@import "./timeline.css";
+@import "./milestones.css";
+@import "./decorations.css";
+@import "./floating-decorations.css";
+
+/* ========================================================
+   LEGACY TIMELINE SIZE CONTROLS & SHARED TOKENS
+   Adjust these CSS variables to resize elements throughout the timeline
+   ======================================================== */
+:root {
+  /* Central horizontal blood-red timeline bar (increased by 25% from 56px -> 70px) */
+  --legacy-timeline-height: 70px;
+  /* Thickness of central horizontal red bar */
+  --legacy-timeline-color: #B9272F;
+  /* Brand heritage crimson red */
+
+  /* Year typography */
+  --legacy-year-font-size: clamp(2.1rem, 3.6vw, 3.6rem);
+  /* Expressive retro year numbers */
+  --legacy-year-color: #FFFDF7;
+  /* High-contrast ivory white lettering */
+  --legacy-year-font-family: var(--font-shrikhand), var(--font-lilita-one), 'Lilita One', cursive, sans-serif;
+
+  /* Milestone typography */
+  --legacy-heading-font-size: clamp(1.5rem, 2.2vw, 2.4rem);
+  /* Bold milestone title size */
+  --legacy-heading-line-height: 1.1;
+  --legacy-body-font-size: clamp(0.95rem, 1.15vw, 1.2rem);
+  /* Description text size */
+  --legacy-body-line-height: 1.6;
+  --legacy-text-max-width: clamp(280px, 26vw, 420px);
+  /* Width of text block column */
+
+  /* Milestone artwork */
+  --legacy-image-width: clamp(280px, 28vw, 440px);
+  /* Max width of artwork */
+  --legacy-image-height: clamp(220px, 28vh, 350px);
+  /* Max height of artwork */
+
+  /* Decorative ice-cream illustrations */
+  --legacy-decoration-scale: 1.4;
+  --legacy-decoration-max-width: 240px;
+  /* Max size for large decorations */
+
+  /* Timeline track layout */
+  --legacy-track-pl: 6rem;
+  /* Desktop left padding (matches md:pl-24) */
+  --legacy-milestone-width: clamp(320px, 30vw, 460px);
+  /* Width of each milestone column */
+  --legacy-milestone-gap: clamp(110px, 11vw, 190px);
+  /* Spacing between columns accommodating bigger middle images */
+  --legacy-active-position: 35%;
+  /* Focus alignment from left edge */
+}
+
+/* Tablet overrides */
+@media (max-width: 1024px) {
+  :root {
+    --legacy-track-pl: 4rem;
+    /* Tablet left padding (matches sm:pl-16) */
+    --legacy-timeline-height: 63px;
+    /* 50px + 25% */
+    --legacy-year-font-size: clamp(1.85rem, 3.4vw, 2.8rem);
+    --legacy-heading-font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    --legacy-body-font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    --legacy-image-width: clamp(240px, 32vw, 360px);
+    --legacy-image-height: clamp(190px, 25vh, 280px);
+    --legacy-decoration-max-width: 180px;
+    --legacy-milestone-width: clamp(280px, 34vw, 380px);
+    --legacy-milestone-gap: clamp(75px, 9vw, 130px);
+  }
+}
+
+/* Mobile overrides */
+@media (max-width: 640px) {
+  :root {
+    --legacy-track-pl: 2.5rem;
+    /* Mobile left padding (matches pl-10) */
+    --legacy-timeline-height: 55px;
+    /* 44px + 25% */
+    --legacy-year-font-size: clamp(1.6rem, 5.8vw, 2.3rem);
+    --legacy-heading-font-size: clamp(1.15rem, 4.5vw, 1.45rem);
+    --legacy-body-font-size: 0.85rem;
+    --legacy-image-width: clamp(200px, 60vw, 280px);
+    --legacy-image-height: clamp(160px, 22vh, 220px);
+    --legacy-decoration-max-width: 140px;
+    --legacy-milestone-width: clamp(240px, 72vw, 300px);
+    --legacy-milestone-gap: clamp(50px, 8vw, 75px);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-decor-float,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+  }
+
+  .milestone-column,
+  .legacy-text-block,
+  .legacy-image-container {
+    transition: none !important;
+  }
+}
