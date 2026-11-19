@@ -182,7 +182,7 @@
 
 .products-hero-eyebrow {
   display: block;
-  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-editorial), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(13px, 1.25vw, 18px);
   font-weight: 600;
   letter-spacing: clamp(0.24em, 0.5vw, 0.38em);
@@ -225,7 +225,7 @@
 
 .products-hero-title {
   margin: 0;
-  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-editorial), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(48px, 7.6vw, 116px);
   font-weight: 900;
   line-height: 0.92;
@@ -246,7 +246,7 @@
 .products-hero-paragraph {
   max-width: 540px;
   margin: 16px auto 0;
-  font-family: var(--font-editorial), 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-editorial), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(14px, 1.35vw, 18px);
   font-style: italic;
   font-weight: 500;

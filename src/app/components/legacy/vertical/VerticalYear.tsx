@@ -22,4 +22,3 @@ export const VerticalYear: React.FC<VerticalYearProps> = ({
 };
 
 export default VerticalYear;
-

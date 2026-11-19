@@ -86,7 +86,7 @@
 }
 
 .legacy-vertical__year-text {
-  font-family: var(--font-recoleta), Georgia, serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(24px, 2.2vw, 32px); /* Prominent large year numeral */
   font-weight: 800;
   letter-spacing: 0.5px;

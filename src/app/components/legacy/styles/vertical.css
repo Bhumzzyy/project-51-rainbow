@@ -61,7 +61,7 @@
 
 .legacy-vertical__header-title {
   margin: 0 0 18px 0;
-  font-family: var(--font-recoleta), Georgia, serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(38px, 5.2vw, 64px);
   font-weight: 800;
   line-height: 1.1;
@@ -71,7 +71,7 @@
 
 .legacy-vertical__header-lead {
   margin: 0 0 32px 0;
-  font-family: var(--font-body), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(16px, 1.3vw, 19px);
   line-height: 1.68;
   color: #2C1810;

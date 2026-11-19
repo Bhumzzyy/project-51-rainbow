@@ -103,4 +103,3 @@ export const VerticalParallax: React.FC<VerticalParallaxProps> = ({
 };
 
 export default VerticalParallax;
-

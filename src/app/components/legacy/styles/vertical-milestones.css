@@ -112,7 +112,7 @@
 
 /* Milestone Index Number badge (e.g. '01', '02') */
 .legacy-vertical__index {
-  font-family: var(--font-condensed), 'Oswald', sans-serif;
+  font-family: var(--font-condensed), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 2.4px;
@@ -124,7 +124,7 @@
 /* Bold Milestone Title (Editorial Brand Purple) */
 .legacy-vertical__heading {
   margin: 0 0 14px 0;
-  font-family: var(--font-recoleta), Georgia, serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(26px, 2.7vw, 38px);
   font-weight: 800;
   line-height: 1.15;
@@ -141,7 +141,7 @@
 /* Story Narrative Paragraph (Dark Chocolate) */
 .legacy-vertical__description {
   margin: 0;
-  font-family: var(--font-body), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(15.5px, 1.2vw, 18px);
   line-height: 1.7;
   font-weight: 400;

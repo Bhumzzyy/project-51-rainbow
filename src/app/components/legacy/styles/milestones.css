@@ -14,7 +14,7 @@
 
 /* Milestone text typography */
 .legacy-milestone-heading {
-  font-family: var(--font-condensed), "Oswald", sans-serif;
+  font-family: var(--font-condensed), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: var(--legacy-heading-font-size);
   line-height: var(--legacy-heading-line-height);
 }
