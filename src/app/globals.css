@@ -681,7 +681,6 @@ li {
 .legacy-vertical-wrapper svg,
 .legacy-vertical-wrapper video {
   display: block;
-  vertical-align: middle;
 }
 
 .products-wrapper h1,
