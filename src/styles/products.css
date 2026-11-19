@@ -11,10 +11,10 @@
    Tokens & Brand Color Variables
    -------------------------------------------------------------------------- */
 :root {
-  --font-display: var(--font-lilita-one), 'Lilita One', cursive, sans-serif;
-  --font-editorial: var(--font-bodoni-moda), 'Bodoni Moda', Georgia, serif;
-  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
-  --font-script: var(--font-caveat), 'Caveat', cursive;
+  --font-display: var(--font-recoleta-full), "Recoleta", Georgia, serif;
+  --font-editorial: var(--font-recoleta-full), "Recoleta", Georgia, serif;
+  --font-body: var(--font-recoleta-full), "Recoleta", Georgia, serif;
+  --font-script: var(--font-recoleta-full), "Recoleta", Georgia, serif;
 
   /* Brand colors */
   --c-cream-light: #fffcee;
@@ -166,7 +166,7 @@
 }
 
 .category-orbit-text {
-  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-family: var(--font-body, var(--font-recoleta-full)), "Recoleta", Georgia, serif;
   font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -790,11 +790,11 @@
 
 /* Desktop Zigzag: Higher (-35px) / Lower (+35px) -> Exactly 70px balanced difference */
 .product-zigzag-wrapper--higher {
-  --zigzag-offset: -30px;
+  --zigzag-offset: 0px;
 }
 
 .product-zigzag-wrapper--lower {
-  --zigzag-offset: 30px;
+  --zigzag-offset: 0px;
 }
 
 .product-zigzag-wrapper--neutral {

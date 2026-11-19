@@ -2,42 +2,35 @@
 import Image from "next/image";
 import styles from "./ProductSection.module.css";
 
-const products = {
-  pistachio: "Pistachio Kunafa Brownie",
-  rose: "Red Rose Falooda",
-  currant: "Black Currant Thickshake",
-  choco: "Choco Chips Coco",
-};
-
 const columns = [
   {
     direction: "down",
     products: [
-      { name: products.pistachio, image: "/home/product/a1.webp" },
-      { name: products.rose, image: "/home/product/a2.webp" },
-      { name: products.currant, image: "/home/product/a3.webp" },
-      { name: products.choco, image: "/home/product/a4.webp" },
-      { name: products.rose, image: "/home/product/a5.webp" },
+      { name: "Black Currant Falooda", image: "/home/product/a1.webp" },
+      { name: "Lassi", image: "/home/product/a2.webp" },
+      { name: "Kaju Coco", image: "/home/product/a3.webp" },
+      { name: "Dark Chocolate Smoothie", image: "/home/product/a4.webp" },
+      { name: "Pista Malai Thickshake", image: "/home/product/a5.webp" },
     ],
   },
   {
     direction: "up",
     products: [
-      { name: products.rose, image: "/home/product/b1.webp" },
-      { name: products.currant, image: "/home/product/b2.webp" },
-      { name: products.choco, image: "/home/product/b3.webp" },
-      { name: products.pistachio, image: "/home/product/b4.webp" },
-      { name: products.currant, image: "/home/product/b5.webp" },
+      { name: "Rajbhog Falooda", image: "/home/product/b1.webp" },
+      { name: "Kaju Anjeer Milkshake", image: "/home/product/b2.webp" },
+      { name: "Ice Cream Coco", image: "/home/product/b3.webp" },
+      { name: "Black Currant Smoothie", image: "/home/product/b4.webp" },
+      { name: "Kaju Gulkand Thickshake", image: "/home/product/b5.webp" },
     ],
   },
   {
     direction: "down",
     products: [
-      { name: products.currant, image: "/home/product/c1.webp" },
-      { name: products.choco, image: "/home/product/c2.webp" },
-      { name: products.pistachio, image: "/home/product/c3.webp" },
-      { name: products.rose, image: "/home/product/c4.webp" },
-      { name: products.choco, image: "/home/product/c5.webp" },
+      { name: "Green Pista Falooda", image: "/home/product/c1.webp" },
+      { name: "Fruit Salad", image: "/home/product/c2.webp" },
+      { name: "Nutella Coco", image: "/home/product/c3.webp" },
+      { name: "Strawberry Smoothie", image: "/home/product/c4.webp" },
+      { name: "Choco Rock Brownie Thickshake", image: "/home/product/c5.webp" },
     ],
   },
 ] as const;

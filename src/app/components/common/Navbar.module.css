@@ -81,17 +81,16 @@
 
 .logo {
   display: block;
-  width: 190px;
-  height: 95px;
-  max-height: 60px;
+  width: 300px;
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 5px rgba(238, 220, 142, 0.307));
+  /* filter: drop-shadow(0 0 5px rgba(238, 220, 142, 0.307)); */
   transition: transform 0.3s ease, filter 0.3s ease;
-  margin-top: 14px;
+  margin-top: 20px;
 }
 
 .brand:hover .logo {
-  filter: drop-shadow(0 0 9px rgba(249, 239, 193/ 80%));
+  /* filter: drop-shadow(0 0 9px rgba(249, 239, 193/ 80%)); */
   transform: scale(1.04);
 }
 
@@ -157,8 +156,7 @@
   }
 
   .logo {
-    width: 130px;
-    max-height: 44px;
+    width: 160px;
   }
 
   .menuButton {
@@ -249,8 +247,7 @@
   }
 
   .logo {
-    width: 110px;
-    max-height: 40px;
+    width: 140px;
   }
 
   .mobileNav {

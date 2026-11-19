@@ -54,7 +54,7 @@ Legacy story section styles retained at the user's request.
 
 .storyMeta {
   justify-self: end;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(0.65rem, 1.15vw, 0.95rem);
   text-align: right;
 }
@@ -327,7 +327,7 @@ Legacy story section styles retained at the user's request.
   margin: 0 auto;
   padding-top: 18px;
   color: var(--brand-purple);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
 }
 
 .storyTower {

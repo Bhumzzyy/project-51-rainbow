@@ -35,7 +35,7 @@ const MilestoneTextBlock: React.FC<MilestoneTextBlockProps> = ({
     {/* Orange milestone index */}
     <span
       className="text-[12px] sm:text-[13px] md:text-[14px] font-bold tracking-[0.25em] uppercase text-[#E98745] mb-1 font-condensed"
-      style={{ fontFamily: "var(--font-condensed), sans-serif" }}
+      style={{ fontFamily: "var(--font-condensed), var(--font-recoleta-full), 'Recoleta', Georgia, serif" }}
     >
       {milestone.index}
     </span>

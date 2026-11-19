@@ -95,7 +95,7 @@
 ========================================= */
 
 .productColumns {
-  --capsule-height: clamp(420px, 38vw, 560px);
+  --capsule-height: clamp(360px, 32vw, 480px);
   --scroll-distance: calc(
     var(--capsule-height) + var(--product-gap) +
     var(--capsule-height) + var(--product-gap) +
@@ -143,7 +143,7 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  width: min(86%, 390px);
+  width: min(82%, 350px);
   justify-self: center;
   height: var(--capsule-height);
   overflow: hidden;
@@ -192,8 +192,8 @@
 .productCapsuleImage {
   display: block;
 
-  width: 100%;
-  height: 100%;
+  width: 88%;
+  height: 88%;
 
   object-fit: contain;
 
@@ -211,7 +211,7 @@
 
   margin: 10px 0 0;
 
-  font-family: var(--font-recoleta), serif;
+  font-family: var(--font-recoleta-full), "Recoleta", Georgia, serif;
   font-size: clamp(0.85rem, 1.25vw, 1.2rem);
 
   letter-spacing: 0.02em;
@@ -238,14 +238,14 @@
 
 @media (max-width: 900px) {
   .productColumns {
-    --capsule-height: clamp(280px, 36vw, 380px);
+    --capsule-height: clamp(250px, 32vw, 340px);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0 12px;
     gap: 10px;
   }
 
   .productCapsule {
-    width: 90%;
+    width: 86%;
     padding: 14px 6px;
   }
 
@@ -288,7 +288,7 @@
   }
 
   .productColumns {
-    --capsule-height: clamp(230px, 48vw, 320px);
+    --capsule-height: clamp(200px, 44vw, 290px);
     padding: 0 6px;
     gap: 6px;
   }
