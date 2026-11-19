@@ -1,3 +1,11 @@
+/* MIGRATED from 51-rainbow-latest-bhumi: Restricted Tailwind v4 layers without preflight */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities) source(none);
+@source "./components/legacy";
+@source "./components/products";
+@source "./legacy";
+@source "./products";
+
 :root {
   --brand-orange: #f1592b;
   --brand-purple: #6d5686;
@@ -559,4 +567,146 @@ li {
   .product-card {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   MIGRATED from 51-rainbow-latest-bhumi: Scoped Wrapper Rules & Tokens
+   All tokens and typography overrides are strictly scoped under page wrappers
+   (.products-wrapper, .legacy-wrapper, .legacy-vertical-wrapper)
+   to guarantee ZERO side-effects on TARGET's existing pages and components.
+   ========================================================================== */
+
+.products-wrapper,
+.legacy-wrapper,
+.legacy-vertical-wrapper {
+  /* Token mapping: reuse TARGET's existing brand tokens */
+  --background: var(--brand-cream);
+  --foreground: var(--brand-purple);
+  --cream: var(--brand-cream);
+  --cream-light: #fffaf2;
+  --purple: var(--brand-purple);
+  --brown: var(--brand-purple);
+  --orange: var(--brand-orange);
+  --gold: var(--brand-orange);
+  --coral: var(--brand-orange);
+  --page-max: 1440px;
+  --font-recoleta: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
+  --navbar-height: 64px; /* Real measured sticky height of TARGET Navbar */
+
+  /* Font token aliases scoped strictly to wrappers */
+  --font-display: var(--font-recoleta);
+  --font-editorial: var(--font-recoleta);
+  --font-body: var(--font-recoleta);
+  --font-shrikhand: var(--font-recoleta);
+  --font-condensed: var(--font-recoleta);
+  --font-lilita-one: var(--font-recoleta);
+
+  background: var(--brand-cream);
+  color: var(--brand-purple);
+  font-family: var(--font-recoleta), Georgia, serif;
+}
+
+@media (max-width: 1000px) {
+  .products-wrapper,
+  .legacy-wrapper,
+  .legacy-vertical-wrapper {
+    --navbar-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-wrapper,
+  .legacy-wrapper,
+  .legacy-vertical-wrapper {
+    --navbar-height: 48px;
+  }
+}
+
+.products-wrapper h1,
+.products-wrapper h2,
+.products-wrapper h3,
+.products-wrapper h4,
+.products-wrapper h5,
+.products-wrapper h6,
+.legacy-wrapper h1,
+.legacy-wrapper h2,
+.legacy-wrapper h3,
+.legacy-wrapper h4,
+.legacy-wrapper h5,
+.legacy-wrapper h6,
+.legacy-vertical-wrapper h1,
+.legacy-vertical-wrapper h2,
+.legacy-vertical-wrapper h3,
+.legacy-vertical-wrapper h4,
+.legacy-vertical-wrapper h5,
+.legacy-vertical-wrapper h6 {
+  font-family: var(--font-recoleta), Georgia, serif;
+  letter-spacing: -0.05em;
+  color: var(--foreground);
+}
+
+/* Scoped font utilities replacing SOURCE @theme inline declarations */
+.legacy-wrapper .font-condensed,
+.legacy-vertical-wrapper .font-condensed,
+.products-wrapper .font-condensed {
+  font-family: var(--font-recoleta), Georgia, serif;
+}
+
+.legacy-wrapper .font-display,
+.legacy-vertical-wrapper .font-display,
+.products-wrapper .font-display {
+  font-family: var(--font-recoleta), Georgia, serif;
+}
+
+/* MIGRATED from 51-rainbow-latest-bhumi: Scoped minimal reset for migrated wrappers */
+.products-wrapper *,
+.products-wrapper *::before,
+.products-wrapper *::after,
+.legacy-wrapper *,
+.legacy-wrapper *::before,
+.legacy-wrapper *::after,
+.legacy-vertical-wrapper *,
+.legacy-vertical-wrapper *::before,
+.legacy-vertical-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.products-wrapper img,
+.products-wrapper svg,
+.products-wrapper video,
+.legacy-wrapper img,
+.legacy-wrapper svg,
+.legacy-wrapper video,
+.legacy-vertical-wrapper img,
+.legacy-vertical-wrapper svg,
+.legacy-vertical-wrapper video {
+  display: block;
+  vertical-align: middle;
+}
+
+.products-wrapper h1,
+.products-wrapper h2,
+.products-wrapper h3,
+.products-wrapper h4,
+.products-wrapper h5,
+.products-wrapper h6,
+.products-wrapper p,
+.products-wrapper figure,
+.legacy-wrapper h1,
+.legacy-wrapper h2,
+.legacy-wrapper h3,
+.legacy-wrapper h4,
+.legacy-wrapper h5,
+.legacy-wrapper h6,
+.legacy-wrapper p,
+.legacy-wrapper figure,
+.legacy-vertical-wrapper h1,
+.legacy-vertical-wrapper h2,
+.legacy-vertical-wrapper h3,
+.legacy-vertical-wrapper h4,
+.legacy-vertical-wrapper h5,
+.legacy-vertical-wrapper h6,
+.legacy-vertical-wrapper p,
+.legacy-vertical-wrapper figure {
+  margin: 0;
 }

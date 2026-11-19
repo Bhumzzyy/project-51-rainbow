@@ -1,0 +1,186 @@
+/* ============================================================================
+   51 RAINBOW ICE CREAM — FLOATING DECORATIONS STYLES
+   ============================================================================ */
+
+/* Full-width layer sitting inside the horizontal milestone track */
+.legacy-floating-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 35;
+}
+
+/* Outer wrapper: Handles coordinates, initial rotation, flips, scale & responsive sizes */
+.legacy-floating-decor {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--decor-w-desktop, 100px);
+  height: var(--decor-w-desktop, 100px);
+  max-width: var(--decor-max-w, none);
+  max-height: var(--decor-max-w, none);
+  transition: opacity 0.3s ease;
+  z-index: 36;
+}
+
+/* Responsive visibility & width/height controls */
+@media (max-width: 1024px) {
+  .legacy-floating-decor {
+    width: var(--decor-w-tablet, 80px);
+    height: var(--decor-w-tablet, 80px);
+  }
+
+  .legacy-hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .legacy-floating-decor {
+    width: var(--decor-w-mobile, 60px);
+    height: var(--decor-w-mobile, 60px);
+  }
+
+  .legacy-hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .legacy-hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Inner animation wrapper: Isolates keyframe motion from initial transform */
+.legacy-floating-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   ANIMATION A: GENTLE FLOAT (Mint, Strawberry, Lemon, Mango, Cherry)
+   ============================================================================ */
+@keyframes legacyFloatKeyframes {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(
+        var(--travel-x, 4px),
+        calc(-1 * var(--travel-y, 14px)),
+        0
+      )
+      rotate(var(--travel-rot, 3deg));
+  }
+  100% {
+    transform: translate3d(
+        calc(-0.5 * var(--travel-x, 4px)),
+        var(--travel-y, 14px),
+        0
+      )
+      rotate(calc(-1 * var(--travel-rot, 3deg)));
+  }
+}
+
+.legacy-anim-float {
+  animation-name: legacyFloatKeyframes;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* ============================================================================
+   ANIMATION B: SOFT BOUNCE (Ice Cream Scoops, Waffles, Ice Cubes)
+   ============================================================================ */
+@keyframes legacyBounceKeyframes {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, calc(-1 * var(--travel-y, 10px)), 0)
+      scale(var(--travel-scale, 1.03)) rotate(var(--travel-rot, 2deg));
+  }
+}
+
+.legacy-anim-bounce {
+  animation-name: legacyBounceKeyframes;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* ============================================================================
+   ANIMATION C: SLOW DRIFT (Rose Petals, Syrups, Caramel)
+   ============================================================================ */
+@keyframes legacyDriftKeyframes {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(
+        var(--travel-x, 14px),
+        calc(-1 * var(--travel-y, 10px)),
+        0
+      )
+      rotate(var(--travel-rot, 6deg));
+  }
+  100% {
+    transform: translate3d(
+        calc(-0.6 * var(--travel-x, 14px)),
+        calc(0.8 * var(--travel-y, 10px)),
+        0
+      )
+      rotate(calc(-1 * var(--travel-rot, 6deg)));
+  }
+}
+
+.legacy-anim-drift {
+  animation-name: legacyDriftKeyframes;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Static fallback */
+.legacy-anim-static {
+  transform: translate3d(0, 0, 0);
+  animation: none;
+}
+
+/* Image element inside inner wrapper */
+.legacy-float-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  filter: drop-shadow(0 6px 16px rgba(40, 35, 31, 0.08));
+}
+
+/* ============================================================================
+   REDUCED MOTION SUPPORT (WCAG 2.1 AA Compliance)
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .legacy-floating-inner,
+  .legacy-anim-float,
+  .legacy-anim-bounce,
+  .legacy-anim-drift {
+    animation: none !important;
+  }
+}
+

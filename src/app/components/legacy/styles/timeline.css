@@ -1,0 +1,29 @@
+/* ========================================================
+   LEGACY TIMELINE TRACK & VIEWPORT STYLES
+   ======================================================== */
+
+/* Central horizontal red line bar */
+.legacy-timeline-bar {
+  height: var(--legacy-timeline-height);
+  background-color: var(--legacy-timeline-color);
+  box-shadow: 0 4px 16px rgba(185, 39, 47, 0.22);
+}
+
+/* Hide scrollbars while allowing smooth scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer utilities {
+  .font-condensed {
+    font-family: var(--font-condensed), "Oswald", "Barlow Condensed", sans-serif;
+  }
+
+  .font-display {
+    font-family: var(--font-display), "Bebas Neue", "Oswald", sans-serif;
+  }
+}

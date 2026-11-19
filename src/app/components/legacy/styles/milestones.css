@@ -1,0 +1,42 @@
+/* ========================================================
+   LEGACY MILESTONES, YEARS & CONNECTORS STYLES
+   ======================================================== */
+
+/* Year numerals */
+.legacy-year-numeral {
+  font-family: var(--legacy-year-font-family);
+  font-size: var(--legacy-year-font-size);
+  color: var(--legacy-year-color);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+/* Milestone text typography */
+.legacy-milestone-heading {
+  font-family: var(--font-condensed), "Oswald", sans-serif;
+  font-size: var(--legacy-heading-font-size);
+  line-height: var(--legacy-heading-line-height);
+}
+
+.legacy-milestone-body {
+  font-size: var(--legacy-body-font-size);
+  line-height: var(--legacy-body-line-height);
+  max-width: var(--legacy-text-max-width);
+}
+
+/* Milestone artwork container */
+.legacy-artwork-container {
+  max-width: var(--legacy-image-width);
+  height: var(--legacy-image-height);
+}
+
+/* Milestone column width and gap */
+.legacy-milestone-col {
+  width: var(--legacy-milestone-width);
+  margin-right: var(--legacy-milestone-gap);
+}
+
+.legacy-milestone-col:last-child {
+  margin-right: 0;
+}
