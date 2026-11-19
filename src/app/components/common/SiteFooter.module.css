@@ -75,7 +75,9 @@
   justify-content: center;
   gap: 12px;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(40, 30, 25, 0.12);
+  border-bottom: 2px solid rgba(40, 30, 25, 0.12);
+  margin-left: 75px;
+    margin-right: 75px;
 }
 
 .footerLinkRow {
@@ -83,15 +85,21 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px clamp(18px, 3vw, 34px);
+  gap: 10px clamp(25px, 5vw, 50px);
+}
+
+.footerLinkRowAdditional {
+  width: min(100%, 820px);
+  justify-content: space-between;
 }
 
 .footerLink {
   color: #281e19;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 160ms ease;
+  margin-top: 10px;
 }
 
 .footerLink:hover {
@@ -118,9 +126,11 @@
 
 .legalLink,
 .credit {
-  margin: 0;
+  margin-top: 15px;
+    margin-bottom: 15px;
   color: #705d50;
-  font-size: inherit;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .legalLink {
@@ -141,7 +151,7 @@
 
 .credit a {
   color: #281e19;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -183,6 +193,10 @@
 
   .footerLinkRow {
     gap: 12px 20px;
+  }
+
+  .footerLinkRowAdditional {
+    justify-content: space-around;
   }
 
   .footerLink {

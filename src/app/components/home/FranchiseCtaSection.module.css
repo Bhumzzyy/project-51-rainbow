@@ -110,7 +110,7 @@
   padding: 0.9em 1.5em;
   border-radius: 999px;
   background: var(--brand-black);
-  box-shadow: 4px 7.5px 0 var(--brand-orange);
+  /* box-shadow: 4px 7.5px 0 var(--brand-orange); */
   color: var(--brand-cream);
   font-weight: 700;
   text-decoration: none;
