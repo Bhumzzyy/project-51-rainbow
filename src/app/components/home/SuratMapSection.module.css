@@ -147,6 +147,9 @@
   overflow: hidden;
   box-shadow: 0 20px 48px rgba(40, 30, 25, 0.09);
   position: relative;
+  /* Contain Leaflet's internal z-indexes (400-1000) so the map never paints above the sticky navbar (z-index 100). */
+  z-index: 0;
+  isolation: isolate;
 }
 
 /* Map Toolbar (Floating on Top of Map) */
@@ -218,6 +221,9 @@
   width: 100%;
   height: 100%;
   position: relative;
+  /* Contain Leaflet's internal z-indexes (400-1000) so the map never paints above the sticky navbar (z-index 100). */
+  z-index: 0;
+  isolation: isolate;
 }
 
 .mapCanvas {
