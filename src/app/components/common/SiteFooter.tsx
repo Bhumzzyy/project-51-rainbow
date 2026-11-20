@@ -100,16 +100,22 @@ export default function SiteFooter() {
       <div className={styles.legalBar}>
         <Link href="/terms-and-conditions" className={styles.legalLink}>
           Terms and Conditions
-        </Link>
+        </Link> 
         <p className={styles.credit}>
-          Developed by{" "}
-          <a
-            href="https://the3rdlayers.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            THE THREE LAYERS
-          </a>
+        Developed by{" "}
+        <a
+          href="https://the3rdlayers.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.purple}>Brew</span>{" "}
+          <span className={styles.orange}>My</span>{" "}
+          <span className={styles.purple}>Socials</span>{" "}
+          X{" "}
+          <span className={styles.purple}>THE</span>{" "}
+          <span className={styles.orange}>THREE</span>{" "}
+          <span className={styles.purple}>LAYERS</span>
+        </a>
         </p>
       </div>
     </footer>
