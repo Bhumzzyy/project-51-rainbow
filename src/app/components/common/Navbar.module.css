@@ -187,6 +187,10 @@
     background: rgb(255 252 238 / 12%);
   }
 
+  .menuButton:hover .menuIconLine {
+    background: var(--brand-purple);
+  }
+
   .menuIconLine {
     width: 20px;
     height: 2px;
@@ -228,10 +232,12 @@
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
-  .mobileLink:hover {
-    color: #f1592b;
+  .mobileLink:hover,
+  .mobileLink:focus-visible {
+    color: var(--brand-purple);
   }
 
   .mobileContact {
