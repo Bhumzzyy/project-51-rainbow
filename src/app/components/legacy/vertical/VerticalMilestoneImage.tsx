@@ -53,4 +53,3 @@ export const VerticalMilestoneImage: React.FC<VerticalMilestoneImageProps> = ({
 };
 
 export default VerticalMilestoneImage;
-

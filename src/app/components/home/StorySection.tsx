@@ -12,7 +12,7 @@ export default function StorySection() {
     >
       <header className={styles.storyMasthead}>
         <p className={styles.storyBrandMark}>51 RAINBOW</p>
-        <p className={styles.storyPublication}>THE RAINBOW JOURNAL</p>
+        <p className={styles.storyPublication}>THE RAINBOW STORY</p>
         <p className={styles.storyMeta}>SURAT, GUJARAT · EST. 1980</p>
       </header>
 
@@ -121,79 +121,84 @@ export default function StorySection() {
     >
       <header className={styles.storyMasthead}>
         <p className={styles.storyBrandMark}>51 RAINBOW</p>
-        <p className={styles.storyPublication}>THE RAINBOW JOURNAL</p>
+        <p className={styles.storyPublication}>THE RAINBOW STORY</p>
         <p className={styles.storyMeta}>SURAT, GUJARAT · EST. 1980</p>
       </header>
 
       <div className={styles.storyArticlePage}>
         <div className={styles.storyIntro}>
-          <p className={styles.storyEyebrow}>A taste of home</p>
+          <p className={styles.storyEyebrow}>A Legacy Since 1980</p>
           <h2 id="story-title" className={styles.storyTitle}>
-            A sweeter side of Surat
+            Rooted in Surat.<br/> Loved Everywhere.
           </h2>
           <p className={styles.storySubtitle}>
-            From a familiar city landmark to a shared scoop, discover the
-            little joys that bring Surat together.
+            From a local beginning to a growing presence across India, USA,
+            UAE and KSA, discover the story behind 51 Rainbow.
           </p>
         </div>
 
         <article className={styles.storyBody}>
-          <p className={styles.storyByline}>BY 51 RAINBOW · SURAT, GUJARAT</p>
+          <p className={styles.storyByline}>
+            51 RAINBOW ICE CREAM · EST. 1980
+          </p>
 
-          <section className={styles.storyArticleBlock}>
-            <h3 className={styles.storyColumnLabel}>A good day starts sweet</h3>
-            <p>
-              Every city has a landmark that feels like an old friend. In
-              Surat, the clock tower stands watch over familiar streets,
-              everyday errands, and the many little moments that make a place
-              feel like home.
-            </p>
-            <p>
-              51 Rainbow began with that same feeling: a simple wish to make
-              good days even better with ice cream and desserts made to share.
-              Since 1980, what started as a neighbourhood favourite has grown
-              alongside the city, while keeping its warm welcome and generous
-              scoops close to heart.
-            </p>
-          </section>
+          <div className={styles.storyColumnFeatured}>
+            <section className={styles.storyArticleBlock}>
+              <h3 className={styles.storyColumnLabel}>Where It All Began</h3>
+              <p>
+                Since 1980, 51 Rainbow has been bringing people together
+                through the joy of ice cream. What began in Surat has grown
+                into a brand built around memorable flavours, quality and a
+                love for sharing sweet moments.
+              </p>
+              <p>
+                From classic favourites to exciting new flavours, our journey
+                continues with one simple purpose: making every visit a little
+                sweeter.
+              </p>
+            </section>
+            <section className={styles.storyArticleBlock}>
+              <h3 className={styles.storyColumnLabel}>Growing With Every Scoop</h3>
+              <p>
+                From Surat to India, USA, UAE and KSA, 51 Rainbow continues to
+                take its ice cream journey across borders. With every new
+                destination comes an opportunity to introduce more people to
+                the brand, create lasting connections and make sweet moments
+                part of everyday life.
+              </p>
+            </section>
+          </div>
 
-          <blockquote className={styles.storyPullQuote}>
-            The sweetest moments are the ones we share.
-          </blockquote>
+          {/* <blockquote className={styles.storyPullQuote}>
+            One Legacy. Many Places. Endless Sweet Moments.
+          </blockquote> */}
 
-          <section className={styles.storyArticleBlock}>
-            <h3 className={styles.storyColumnLabel}>A landmark close to home</h3>
-            <p>
-              The tower is more than a point on the map. It is a meeting place,
-              a memory in the making, and a reminder that the best parts of a
-              city are found in the moments people share there.
-            </p>
-            <p>
-              That sense of belonging inspires every visit to 51 Rainbow.
-              Whether friends stop by after school or a family gathers for a
-              celebration, there is always room for one more scoop and one more
-              story.
-            </p>
-          </section>
-
-          <section className={styles.storyArticleBlock}>
-            <h3 className={styles.storyColumnLabel}>Made for the moments</h3>
-            <p>
-              There is something new to discover on the menu, alongside the
-              timeless flavours people return for. Each treat is an invitation
-              to pause, connect, and turn an ordinary afternoon into a happy
-              memory.
-            </p>
-          </section>
-
-          <section className={styles.storyArticleBlock}>
-            <h3 className={styles.storyColumnLabel}>A tradition in the making</h3>
-            <p>
-              With thoughtful flavours, dependable quality, and a spirit of
-              discovery, 51 Rainbow keeps finding new ways to bring people
-              together—one scoop at a time.
-            </p>
-          </section>
+          <div className={styles.storyColumnRight}>
+            <section className={styles.storyArticleBlock}>
+              <h3 className={styles.storyColumnLabel}>Beyond Boundaries</h3>
+              <p>
+                From its roots in Surat, 51 Rainbow has expanded its presence
+                across India, USA, UAE and KSA, bringing its love for ice cream
+                to more people and communities.
+              </p>
+            </section>
+            <section className={styles.storyArticleBlock}>
+              <h3 className={styles.storyColumnLabel}>Made to Be Shared</h3>
+              <p>
+                Every flavour brings an opportunity to create memories. From
+                everyday treats to family celebrations, 51 Rainbow makes room
+                for moments worth sharing.
+              </p>
+            </section>
+            <section className={styles.storyArticleBlock}>
+              <h3 className={styles.storyColumnLabel}>A Legacy That Continues</h3>
+              <p>
+                With a growing range of flavours and a commitment to quality,
+                51 Rainbow continues its journey of making every scoop a little
+                more special.
+              </p>
+            </section>
+          </div>
         </article>
       </div>
 

@@ -12,12 +12,12 @@
   --legacy-muted-text: #5A4B47;
   --legacy-subtle-gold: #D4A373;
   --legacy-amber-glow: #FFA450;
-  
+
   /* Typography Tokens */
-  --legacy-font-serif: var(--font-bodoni-moda), 'Bodoni Moda', 'Playfair Display', Georgia, serif;
-  --legacy-font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
-  --legacy-font-display: var(--font-lilita-one), 'Lilita One', sans-serif;
-  --legacy-font-script: var(--font-caveat), 'Caveat', 'Playwrite', 'Alex Brush', cursive;
+  --legacy-font-serif: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
+  --legacy-font-sans: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
+  --legacy-font-display: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
+  --legacy-font-script: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
 
   /* Spacing and Transitions */
   --legacy-transition: 350ms cubic-bezier(0.2, 0.8, 0.2, 1);

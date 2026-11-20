@@ -12,7 +12,7 @@ export default function LegacyLoading() {
       <div style={{ textAlign: "center" }}>
         <p
           style={{
-            fontFamily: "var(--font-condensed), sans-serif",
+            fontFamily: "var(--font-recoleta-full), 'Recoleta', Georgia, serif",
             fontSize: "14px",
             fontWeight: 800,
             letterSpacing: "0.25em",
@@ -25,7 +25,7 @@ export default function LegacyLoading() {
         </p>
         <h2
           style={{
-            fontFamily: "var(--font-display), sans-serif",
+            fontFamily: "var(--font-recoleta-full), 'Recoleta', Georgia, serif",
             fontSize: "32px",
             fontWeight: 900,
             color: "#B9272F",

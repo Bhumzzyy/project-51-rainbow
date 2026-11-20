@@ -43,10 +43,11 @@ export default function Navbar() {
           aria-label="Rainbow Home"
         >
           <Image
-            src="/home/hero/logo-p.webp"
+            src="/home/nav-foot/h-cream.webp"
             alt="Rainbow Ice Cream"
-            width={180}
-            height={80}
+            width={579}
+            height={105}
+            sizes="(max-width: 480px) 140px, (max-width: 1000px) 160px, 240px"
             priority
             className={styles.logo}
           />

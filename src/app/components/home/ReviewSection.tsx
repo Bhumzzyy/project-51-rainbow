@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -62,16 +63,17 @@ export default function ReviewSection() {
           <span>Even bigger cravings.</span>
         </h2>
       </header>
+
       <div className={styles.reviews} aria-live="polite" aria-atomic="true">
         <blockquote className={`${styles.review} ${styles.reviewLeft}`}>
-          {/* <span className={styles.reviewLabel}>Sample review</span> */}
           <p>“{activeReview.leftQuote}”</p>
         </blockquote>
+
         <blockquote className={`${styles.review} ${styles.reviewRight}`}>
-          {/* <span className={styles.reviewLabel}>Sample review</span> */}
           <p>“{activeReview.rightQuote}”</p>
         </blockquote>
       </div>
+
       <div className={styles.people} aria-hidden="true">
         <Image
           key={activeReview.src}
@@ -83,10 +85,18 @@ export default function ReviewSection() {
           className={styles.personImage}
         />
       </div>
-      <span className={`${styles.sparkle} ${styles.sparkleOne}`} aria-hidden="true">
+
+      <span
+        className={`${styles.sparkle} ${styles.sparkleOne}`}
+        aria-hidden="true"
+      >
         ✦
       </span>
-      <span className={`${styles.sparkle} ${styles.sparkleTwo}`} aria-hidden="true">
+
+      <span
+        className={`${styles.sparkle} ${styles.sparkleTwo}`}
+        aria-hidden="true"
+      >
         ✦
       </span>
     </section>

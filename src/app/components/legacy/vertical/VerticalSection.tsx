@@ -48,4 +48,3 @@ export const VerticalSection: React.FC = () => {
 };
 
 export default VerticalSection;
-

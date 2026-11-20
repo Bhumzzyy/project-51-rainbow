@@ -1,6 +1,6 @@
 /* MIGRATED from 51-rainbow-latest-bhumi: Restricted Tailwind v4 layers without preflight */
 @import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(utilities) source(none);
+@import "tailwindcss/utilities" layer(utilities);
 @source "./components/legacy";
 @source "./components/products";
 @source "./legacy";
@@ -13,8 +13,9 @@
   --brand-black: #111111;
   --brand-white: #ffffff;
   --brand-sand: #f6e9d5;
-  --font-heading: var(--font-shrikhand);
-  --font-body: var(--font-recoleta);
+  --font-recoleta-family: var(--font-recoleta-full), "Recoleta", "Recoleta Alt", Georgia, serif;
+  --font-heading: var(--font-recoleta-family);
+  --font-body: var(--font-recoleta-family);
 }
 
 *,
@@ -25,6 +26,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Route transition scroll offset: clears sticky navbar (120px) and lands cleanly at top */
+main,
+[data-page-root] {
+  scroll-margin-top: 150px;
 }
 
 body {
@@ -597,7 +604,7 @@ li {
   --font-display: var(--font-recoleta);
   --font-editorial: var(--font-recoleta);
   --font-body: var(--font-recoleta);
-  --font-shrikhand: var(--font-recoleta);
+  --font-script: var(--font-recoleta);
   --font-condensed: var(--font-recoleta);
   --font-lilita-one: var(--font-recoleta);
 

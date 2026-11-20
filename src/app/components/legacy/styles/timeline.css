@@ -20,10 +20,10 @@
 
 @layer utilities {
   .font-condensed {
-    font-family: var(--font-condensed), "Oswald", "Barlow Condensed", sans-serif;
+    font-family: var(--font-condensed), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   }
 
   .font-display {
-    font-family: var(--font-display), "Bebas Neue", "Oswald", sans-serif;
+    font-family: var(--font-display), var(--font-recoleta-full), "Recoleta", Georgia, serif;
   }
 }

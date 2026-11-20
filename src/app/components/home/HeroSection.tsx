@@ -7,7 +7,7 @@ const desserts = [
   {
     id: 1,
     name: "Red Rose Falooda",
-    description: "A little rose magic in every sip! Creamy, refreshing and beautifully infused with the timeless sweetness of roses.",
+    description: "Enjoy the refreshing taste of Red Rose Falooda, a delightful blend of rose flavour and classic falooda goodness, perfect for satisfying your sweet cravings.",
     image: "/home/hero/dessert-1.webp",
     elements: [
       { name: "Rose syrup", image: "/home/hero/syrup.webp" },
@@ -18,7 +18,7 @@ const desserts = [
   {
     id: 2,
     name: "Cookies & Cream Thickshake",
-    description: "Cookie cravings? We've got you! A thick, creamy blend of rich vanilla and crunchy cookie goodness.",
+    description: "A creamy blend of cookies and smooth cream, our Cookies & Cream Thickshake is a delicious treat for every dessert lover.",
     image: "/home/hero/dessert-2.webp",
     elements: [
       { name: "Chocolate cookies", image: "/home/hero/crumble.webp" },
@@ -29,7 +29,7 @@ const desserts = [
   {
     id: 3,
     name: "Chocolate Chips Coco",
-    description: "Calling all chocolate lovers! A deliciously smooth chocolate treat loaded with crunchy chocolate chips in every sip.",
+    description: "A chocolate lover's delight, Chocolate Chips Coco combines rich chocolate flavour with crunchy chocolate chips for a delicious dessert experience.",
     image: "/home/hero/dessert-3.webp",
     elements: [
       { name: "Chocolate chips", image: "/home/hero/chips.webp" },
@@ -40,7 +40,7 @@ const desserts = [
   {
     id: 4,
     name: "Badam Shake",
-    description: "Nuts about something delicious? Enjoy the rich, creamy goodness of almonds blended into a royal, refreshing shake.",
+    description: "Enjoy the classic goodness of Badam Shake, a delicious and creamy almond-flavoured drink perfect for every occasion.",
     image: "/home/hero/dessert-4.webp",
     elements: [
       { name: "Almonds", image: "/home/hero/alamonds.webp" },

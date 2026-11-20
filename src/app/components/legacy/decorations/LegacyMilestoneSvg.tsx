@@ -115,7 +115,7 @@ export const LegacyMilestoneSvg: React.FC<MilestoneSvgProps> = ({
           {/* Tub */}
           <path d="M95 180 L115 280 H225 L245 180 Z" fill="#FAF8F0" stroke="#28231F" strokeWidth="2.5" />
           <rect x="125" y="210" width="90" height="45" rx="4" fill="#FFF9D6" stroke="#28231F" strokeWidth="1.5" />
-          <text x="170" y="238" textAnchor="middle" fill="#28231F" fontSize="16" fontWeight="bold" fontFamily="sans-serif">51</text>
+          <text x="170" y="238" textAnchor="middle" fill="#28231F" fontSize="16" fontWeight="bold" fontFamily="var(--font-recoleta-full)">51</text>
           {/* Scoops */}
           <circle cx="140" cy="160" r="32" fill="#B9272F" fillOpacity="0.75" stroke="#28231F" strokeWidth="2" />
           <circle cx="200" cy="160" r="32" fill="#E98745" fillOpacity="0.75" stroke="#28231F" strokeWidth="2" />
@@ -274,7 +274,9 @@ export const LegacyMilestoneSvg: React.FC<MilestoneSvgProps> = ({
     default:
       return (
         <div className="w-full h-48 bg-[#FFF9D6] border border-[#28231F]/20 rounded-md flex items-center justify-center p-6 text-center">
-          <span className="font-serif text-lg font-bold text-[#28231F]">51 Rainbow Heritage</span>
+          <span className="font-serif text-lg font-bold text-[#28231F]" style={{ fontFamily: "var(--font-recoleta-full), Georgia, serif" }}>
+            51 Rainbow Heritage
+          </span>
         </div>
       );
   }

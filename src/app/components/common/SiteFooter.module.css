@@ -17,39 +17,21 @@
 .brandLockup {
   position: relative;
   z-index: 1;
+  width: min(98vw, 1200px);
   text-align: center;
 }
 
-.brandName {
-  position: relative;
-  display: inline-block;
-  color: var(--brand-orange);
-  font-family: var(--font-shrikhand), serif;
-  font-size: clamp(3rem, 18vw, 13.5rem);
-  letter-spacing: -0.055em;
-  line-height: 0.82;
-  text-decoration: none;
-  white-space: nowrap;
+.brandLogo {
+  display: block;
+  width: 100%;
+  line-height: 0;
 }
 
-.brandName sup {
-  position: absolute;
-  top: 0.08em;
-  right: -0.38em;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.16em;
-  letter-spacing: 0;
-}
-
-.brandTagline {
-  margin: clamp(9px, 1.4vw, 15px) 0 0;
-  color: var(--brand-orange);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(0.7rem, 2.7vw, 1.6rem);
-  font-weight: 700;
-  letter-spacing: clamp(0.3em, 0.75vw, 0.58em);
-  line-height: 1;
-  padding-left: 0.58em;
+.brandLogoImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .person {
@@ -62,46 +44,62 @@
 }
 
 .personLeft {
-  top: 68px;
-  left: 9.5%;
+  top: 12px;
+  left: 11%;
   width: clamp(52px, 6.7vw, 82px);
 }
 
 .personMiddle {
-  top: 5px;
-  left: 41%;
+  top: 88px;
+  left: 39%;
   width: clamp(65px, 6.2vw, 90px);
 }
 
 .personCouple {
-  top: clamp(55px, 6vw, 10px);
-  left: 60%;
+  top: clamp(10px, 2vw, 5px);
+  left: 57%;
   width: clamp(78px, 10.4vw, 126px);
 }
 
 .personRight {
-  top: clamp(100px, 7vw, 200px);
-  right: 12%;
-  width: clamp(42px, 5.2vw, 70px);
+  top: clamp(90px, 7vw, 200px);
+  right: 22%;
+  width: clamp(45px, 5.2vw, 70px);
 }
 
 .footerNav {
   display: flex;
+  flex-direction: column;
   min-height: 82px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 2px solid rgba(40, 30, 25, 0.12);
+  margin-left: 75px;
+    margin-right: 75px;
+}
+
+.footerLinkRow {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px clamp(18px, 3vw, 34px);
-  padding: 16px 24px;
-  border-bottom: 1px solid rgba(40, 30, 25, 0.12);
+  gap: 10px clamp(25px, 5vw, 50px);
+}
+
+.footerLinkRowAdditional {
+  width: min(100%, 820px);
+  justify-content: space-between;
 }
 
 .footerLink {
   color: #281e19;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 160ms ease;
+  margin-top: 10px;
 }
 
 .footerLink:hover {
@@ -109,7 +107,7 @@
 }
 
 .footerLink:focus-visible,
-.brandName:focus-visible {
+.brandLogo:focus-visible {
   border-radius: 2px;
   outline: 2px solid var(--brand-orange);
   outline-offset: 4px;
@@ -126,23 +124,41 @@
   font-size: 0.7rem;
 }
 
-.legalBar p {
-  margin: 0;
+.legalLink,
+.credit {
+  margin-top: 15px;
+    margin-bottom: 15px;
+  color: #705d50;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.legalBar p:last-child {
+.legalLink {
+  text-decoration: none;
+}
+
+.legalLink:hover,
+.credit a:hover {
+  color: var(--brand-orange);
+}
+
+.legalLink:focus-visible,
+.credit a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 3px;
+}
+
+.credit a {
   color: #281e19;
-  font-weight: 600;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 @media (max-width: 640px) {
   .brandStage {
     height: 195px;
     padding-top: 58px;
-  }
-
-  .brandName {
-    font-size: clamp(1rem, 10vw, 3rem);
   }
 
   .personLeft {
@@ -171,8 +187,16 @@
 
   .footerNav {
     min-height: 94px;
-    gap: 12px 20px;
+    gap: 12px;
     padding: 18px 22px;
+  }
+
+  .footerLinkRow {
+    gap: 12px 20px;
+  }
+
+  .footerLinkRowAdditional {
+    justify-content: space-around;
   }
 
   .footerLink {
@@ -187,9 +211,6 @@
     gap: 4px;
     padding: 10px 16px;
     text-align: center;
-  }
-  .brandName{
-    font-size: clamp(3rem, 15vw, 7rem);
   }
 }
 

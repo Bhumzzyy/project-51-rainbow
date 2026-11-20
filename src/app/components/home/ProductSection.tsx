@@ -2,37 +2,36 @@
 import Image from "next/image";
 import styles from "./ProductSection.module.css";
 
-const products = {
-  pistachio: {
-    name: "Pistachio Kunafa Brownie",
-    image: "/home/dessert-1.webp",
-  },
-  rose: {
-    name: "Red Rose Falooda",
-    image: "/home/dessert-2.webp",
-  },
-  currant: {
-    name: "Black Currant Thickshake",
-    image: "/home/dessert-3.webp",
-  },
-  choco: {
-    name: "Choco Chips Coco",
-    image: "/home/dessert-4.webp",
-  },
-};
-
 const columns = [
   {
     direction: "down",
-    products: [products.pistachio, products.rose, products.currant, products.choco],
+    products: [
+      { name: "Black Currant Falooda", image: "/home/product/a1.webp" },
+      { name: "Lassi", image: "/home/product/a2.webp" },
+      { name: "Kaju Coco", image: "/home/product/a3.webp" },
+      { name: "Dark Chocolate Smoothie", image: "/home/product/a4.webp" },
+      { name: "Pista Malai Thickshake", image: "/home/product/a5.webp" },
+    ],
   },
   {
     direction: "up",
-    products: [products.rose, products.currant, products.choco, products.pistachio],
+    products: [
+      { name: "Rajbhog Falooda", image: "/home/product/b1.webp" },
+      { name: "Kaju Anjeer Milkshake", image: "/home/product/b2.webp" },
+      { name: "Ice Cream Coco", image: "/home/product/b3.webp" },
+      { name: "Black Currant Smoothie", image: "/home/product/b4.webp" },
+      { name: "Kaju Gulkand Thickshake", image: "/home/product/b5.webp" },
+    ],
   },
   {
     direction: "down",
-    products: [products.currant, products.choco, products.pistachio, products.rose],
+    products: [
+      { name: "Green Pista Falooda", image: "/home/product/c1.webp" },
+      { name: "Fruit Salad", image: "/home/product/c2.webp" },
+      { name: "Nutella Coco", image: "/home/product/c3.webp" },
+      { name: "Strawberry Smoothie", image: "/home/product/c4.webp" },
+      { name: "Choco Rock Brownie Thickshake", image: "/home/product/c5.webp" },
+    ],
   },
 ] as const;
 
@@ -40,17 +39,19 @@ function ProductCapsule({
   product,
   columnIndex,
   rowIndex,
+  colorIndex,
   direction,
   isDuplicate,
 }: {
-  product: (typeof products)[keyof typeof products];
+  product: { name: string; image: string };
   columnIndex: number;
   rowIndex: number;
+  colorIndex: number;
   direction: "up" | "down";
   isDuplicate: boolean;
 }) {
   const capsuleColor =
-    (rowIndex + columnIndex) % 2 === 0
+    (colorIndex + columnIndex) % 2 === 0
       ? styles.productCapsuleOrange
       : styles.productCapsuleCream;
 
@@ -75,6 +76,7 @@ function ProductCapsule({
           height={850}
           className={styles.productCapsuleImage}
           sizes="(max-width: 700px) 45vw, 20vw"
+          loading={isDuplicate ? "lazy" : "eager"}
         />
       </div>
 
@@ -117,10 +119,11 @@ export default function ProductSection() {
           column.products.flatMap((product, productIndex) =>
             [false, true].map((isDuplicate) => (
               <ProductCapsule
-                key={`${columnIndex}-${product.name}-${isDuplicate}`}
+                key={`${columnIndex}-${productIndex}-${isDuplicate}`}
                 product={product}
                 columnIndex={columnIndex}
                 rowIndex={productIndex + (isDuplicate ? column.products.length : 0)}
+                colorIndex={productIndex}
                 direction={column.direction}
                 isDuplicate={isDuplicate}
               />

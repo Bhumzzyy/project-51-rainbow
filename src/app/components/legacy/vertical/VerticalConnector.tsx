@@ -22,4 +22,3 @@ export const VerticalConnector: React.FC<VerticalConnectorProps> = ({
 };
 
 export default VerticalConnector;
-

@@ -24,7 +24,7 @@
   /* Expressive retro year numbers */
   --legacy-year-color: #FFFDF7;
   /* High-contrast ivory white lettering */
-  --legacy-year-font-family: var(--font-shrikhand), var(--font-lilita-one), 'Lilita One', cursive, sans-serif;
+  --legacy-year-font-family: var(--font-shrikhand), var(--font-recoleta-full), "Recoleta", Georgia, serif;
 
   /* Milestone typography */
   --legacy-heading-font-size: clamp(1.5rem, 2.2vw, 2.4rem);

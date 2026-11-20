@@ -39,16 +39,31 @@ const footerLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const additionalFooterLinks = [
+  { label: "Investors", href: "/investors" },
+  { label: "Career", href: "/career" },
+  { label: "Merchandise", href: "/merchandise" },
+  { label: "Rainbow Club", href: "/rainbow-club" },
+  { label: "Events", href: "/events" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "The Team", href: "/team" },
+];
+
 export default function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.brandStage}>
         <div className={styles.brandLockup}>
-          <Link href="/" className={styles.brandName} aria-label="51 Rainbow home">
-            51 RAINBOW
-            <sup aria-hidden="true">®</sup>
+          <Link href="/" className={styles.brandLogo} aria-label="51 Rainbow home">
+            <Image
+              src="/home/nav-foot/h-orange.webp"
+              alt="51 Rainbow Ice Cream"
+              width={579}
+              height={105}
+              sizes="(max-width: 1088px) 90vw, 980px"
+              className={styles.brandLogoImage}
+            />
           </Link>
-          <p className={styles.brandTagline}>ICE CREAM</p>
         </div>
 
         {footerPeople.map((person) => (
@@ -66,16 +81,36 @@ export default function SiteFooter() {
       </div>
 
       <nav className={styles.footerNav} aria-label="Footer navigation">
-        {footerLinks.map((link) => (
-          <Link key={link.href} href={link.href} className={styles.footerLink}>
-            {link.label}
-          </Link>
-        ))}
+        <div className={styles.footerLinkRow}>
+          {footerLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={styles.footerLink}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+        <div className={`${styles.footerLinkRow} ${styles.footerLinkRowAdditional}`}>
+          {additionalFooterLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={styles.footerLink}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </nav>
 
       <div className={styles.legalBar}>
-        <p>© 51 Rainbow Ice Cream. All rights reserved.</p>
-        <p>Until the next scoop.</p>
+        <Link href="/terms-and-conditions" className={styles.legalLink}>
+          Terms and Conditions
+        </Link>
+        <p className={styles.credit}>
+          Developed by{" "}
+          <a
+            href="https://the3rdlayers.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            THE THREE LAYERS
+          </a>
+        </p>
       </div>
     </footer>
   );

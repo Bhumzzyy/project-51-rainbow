@@ -221,4 +221,3 @@ export const VERTICAL_MILESTONES_DATA: LegacyVerticalMilestoneData[] = [
     height: 400,
   },
 ];
-

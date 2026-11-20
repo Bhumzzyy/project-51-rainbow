@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import {
   CategoryHero,
   CategoryQuickNav,
@@ -78,17 +77,6 @@ async function CategoryPageContent({ params }: CategoryPageProps) {
         isScoopCategory={isScoop}
         categoryName={category.name}
       />
-
-      {/* Bottom Navigation CTA */}
-      <div style={{ textAlign: 'center', padding: '0 20px 80px' }}>
-        <Link
-          href="/products"
-          className="editorial-explore-btn"
-          style={{ display: 'inline-flex' }}
-        >
-          <span>&larr; EXPLORE ALL COLLECTIONS</span>
-        </Link>
-      </div>
     </main>
   );
 }
