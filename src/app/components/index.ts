@@ -11,3 +11,8 @@ export { default as EventsPage } from './events/EventsPage';
 export { default as BlogsPage } from './blogs/BlogsPage';
 export { default as TeamPage } from './team/TeamPage';
 export { default as TermsPage } from './terms/TermsPage';
+export {
+  GalleryHeroSection,
+  GalleryImageGridSection,
+  GalleryCtaSection,
+} from './gallery';
