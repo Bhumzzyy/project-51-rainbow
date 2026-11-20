@@ -28,6 +28,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Route transition scroll offset: clears sticky navbar (120px) and lands cleanly at top */
+main,
+[data-page-root] {
+  scroll-margin-top: 150px;
+}
+
 body {
   margin: 0;
   background: linear-gradient(180deg, #fffcee 0%, #fffcee 100%);
