@@ -382,7 +382,7 @@
   }
 
   .hero {
-    height: auto;
+    height: 1100;
     min-height: 0;
   }
 
@@ -412,7 +412,7 @@
     visibility: visible;
     pointer-events: auto;
 
-    transform: none;
+    transform: translateY(12px);
     transition: none;
   }
 
@@ -460,17 +460,17 @@
     gap: 10px;
     width: min(100%, 680px);
     margin: 16px auto 0;
-    transform: none;
+    transform: translateY(12px);
   }
 
   .heroElement {
     min-width: 0;
-    min-height: 82px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 5px;
-    text-align: center;
+    min-height: 62px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px 10px;
+    text-align: left;
   }
 
   .heroElementImage {
@@ -480,10 +480,12 @@
   }
 
   .heroElementName {
-    width: 100%;
+    width: auto;
+    flex: 1;
     font-size: clamp(0.65rem, 1.5vw, 0.8rem);
     line-height: 1.2;
     white-space: normal;
+    text-align: left;
   }
 
   .dessertImage {
@@ -493,7 +495,7 @@
   }
 
   .dessertHeroActive .dessertImage {
-    transform: translateY(65px) scale(1);
+    transform: translateY(130px);
   }
 
   .heroIndex {
@@ -532,8 +534,8 @@
   }
 
   .heroElement {
-    min-height: 76px;
-    padding: 7px 4px;
+    min-height: 60px;
+    padding: 7px 8px;
   }
 
   .heroCopy h1 {
@@ -561,11 +563,7 @@
   }
 
   .dessertHeroActive .dessertImage {
-    transform: translateY(120px) scale(0.98);
-  }
-
-  .dessertHeroActive:hover .dessertImage {
-    transform: translateY(90px) scale(0.99);
+    transform: translateY(140px);
   }
 
   .heroIndex {
