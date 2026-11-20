@@ -627,3 +627,221 @@
   color: var(--contact-orange, #F1592B);
   font-weight: 700;
 }
+
+/* ==========================================================================
+   Headquarters Location Map Card (Directly below Direct Communication)
+   ========================================================================== */
+
+.locationMapCard {
+  background: var(--contact-white, #FFFFFF);
+  border-radius: 20px;
+  border: 1.5px solid var(--contact-sand, #F6E9D5);
+  padding: 24px 22px;
+  box-shadow: 0 8px 24px rgba(40, 30, 25, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.locationCardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.locationBadgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.hqBadge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--contact-orange, #F1592B);
+  background: rgba(241, 89, 43, 0.08);
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-family: var(--font-recoleta), serif;
+}
+
+.mapProviderPill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--contact-cocoa, #705D50);
+  background: var(--contact-cream, #FFFCEE);
+  border: 1px solid var(--contact-sand, #F6E9D5);
+  border-radius: 9999px;
+  padding: 2px 8px;
+  font-family: var(--font-recoleta), serif;
+}
+
+.locationTitle {
+  margin: 0;
+  font-size: 1.35rem;
+  font-family: var(--font-shrikhand), serif;
+  color: var(--contact-purple, #6D5686);
+  line-height: 1.2;
+}
+
+.locationAddressText {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--contact-cocoa, #705D50);
+  font-family: var(--font-recoleta), serif;
+}
+
+/* Map Frame */
+.locationMapFrame {
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--contact-sand, #F6E9D5);
+  position: relative;
+  box-shadow: 0 4px 14px rgba(40, 30, 25, 0.05);
+}
+
+.contactMapCanvasWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #E8E4D8;
+}
+
+.contactMapContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+}
+
+/* Skeleton Loading State */
+.contactMapSkeleton {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4EFE6;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Location Card Footer Actions */
+.locationCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.locationDirectionsBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--contact-orange, #F1592B);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--font-recoleta), serif;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(241, 89, 43, 0.22);
+}
+
+.locationDirectionsBtn:hover {
+  background: var(--contact-purple, #6D5686);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(109, 86, 134, 0.35);
+}
+
+/* Leaflet Custom Contact Popup */
+:global(.contactCustomPopup .leaflet-popup-content-wrapper) {
+  background: #FFFCEE !important;
+  color: #281E19 !important;
+  border: 1.5px solid #F6E9D5 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(40, 30, 25, 0.16) !important;
+  padding: 0 !important;
+}
+
+:global(.contactCustomPopup .leaflet-popup-content) {
+  margin: 12px 14px !important;
+  line-height: 1.45 !important;
+}
+
+:global(.contactCustomPopup .leaflet-popup-tip) {
+  background: #FFFCEE !important;
+  border: 1px solid #F6E9D5 !important;
+  box-shadow: none !important;
+}
+
+.contactPopup {
+  font-family: var(--font-recoleta), serif;
+  text-align: left;
+}
+
+.contactPopupHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.contactPopupBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #F1592B;
+  border-radius: 9999px;
+  padding: 2px 7px;
+}
+
+.contactPopupArea {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #705D50;
+}
+
+.contactPopupTitle {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+  font-family: var(--font-shrikhand), serif;
+  color: #6D5686;
+  line-height: 1.2;
+}
+
+.contactPopupAddress {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: #705D50;
+  line-height: 1.45;
+}
+
+.contactPopupActions {
+  padding-top: 6px;
+  border-top: 1px solid #F6E9D5;
+}
+
+.contactDirectionsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #F1592B;
+  text-decoration: none;
+}
+
+.contactDirectionsBtn:hover {
+  text-decoration: underline;
+}
