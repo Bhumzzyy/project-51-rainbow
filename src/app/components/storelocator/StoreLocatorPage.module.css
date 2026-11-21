@@ -1,80 +1,960 @@
+/* ==========================================================================
+   51 RAINBOW — STORE LOCATOR STYLES
+   Native brand styling: Cream (#FFFCEE), Orange (#F1592B), Purple (#6D5686)
+   ========================================================================== */
+
 .page {
+  --sl-cream: var(--brand-cream, #FFFCEE);
+  --sl-sand: var(--brand-sand, #F6E9D5);
+  --sl-orange: var(--brand-orange, #F1592B);
+  --sl-orange-hover: #D84315;
+  --sl-purple: var(--brand-purple, #6D5686);
+  --sl-purple-light: rgba(109, 86, 134, 0.1);
+  --sl-white: #FFFFFF;
+  --sl-espresso: #281E19;
+  --sl-cocoa: #705D50;
+
   min-height: 100vh;
-  background: linear-gradient(180deg, #fffcee 0%, #f5f3ff 100%);
-  color: #111111;
-  padding: 48px 24px;
+  background-color: var(--sl-cream);
+  color: var(--sl-espresso);
+  padding: clamp(24px, 3.5vw, 48px) 20px 80px;
 }
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Hero & Editorial Header
+   ========================================================================== */
 
 .hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  line-height: 0.96;
-  letter-spacing: -0.05em;
-  font-family: var(--font-shrikhand), serif;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
 }
 
 .eyebrow {
-  margin: 0 0 16px;
-  color: #6d5686;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.lead {
-  margin-top: 18px;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: rgba(17, 17, 17, 0.75);
-}
-
-.imageWrap img {
-  width: min(100%, 520px);
-  height: auto;
-  border-radius: 28px;
-  box-shadow: 0 24px 50px rgba(109, 86, 134, 0.18);
-}
-
-.cards {
-  max-width: 1200px;
-  margin: 48px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.locationCard {
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 24px;
-  border: 1px solid rgba(17, 17, 17, 0.06);
-  padding: 28px 22px;
-}
-
-.locationCard h3 {
   margin: 0 0 12px;
-  font-size: 2rem;
+  color: var(--sl-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-recoleta), serif;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--sl-purple);
   font-family: var(--font-shrikhand), serif;
 }
 
-.locationCard p {
+.lead {
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.75;
+  color: var(--sl-cocoa);
+  font-family: var(--font-recoleta), serif;
+}
+
+/* Stats Pill Badges */
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.accentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFDF8;
+  border: 1px solid var(--sl-sand);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--sl-espresso);
+  box-shadow: 0 2px 8px rgba(40, 30, 25, 0.04);
+}
+
+.accentBadgeDiamond {
+  color: var(--sl-orange);
+}
+
+/* ==========================================================================
+   Filter Bar
+   ========================================================================== */
+
+.filterBar {
+  background: #FFFDF8;
+  /* border: 1.5px solid var(--sl-sand); */
+  border-radius: 24px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px rgba(40, 30, 25, 0.04);
+}
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sl-espresso);
+}
+
+.searchInputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.9rem;
+  color: var(--sl-cocoa);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 32px 10px 36px;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 14px;
+  background: #FFFDF7;
+  font-size: 0.92rem;
+  color: var(--sl-espresso);
+  font-family: var(--font-recoleta), serif;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--sl-orange);
+  box-shadow: 0 0 0 3px rgba(241, 89, 43, 0.12);
+}
+
+.searchClearBtn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--sl-cocoa);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.85rem;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 14px;
+  background: #FFFDF7;
+  font-size: 0.92rem;
+  color: var(--sl-espresso);
+  font-family: var(--font-recoleta), serif;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filterSelect:focus {
+  border-color: var(--sl-orange);
+  box-shadow: 0 0 0 3px rgba(241, 89, 43, 0.12);
+}
+
+.filterMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--sl-sand);
+}
+
+.filterCountBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--sl-cocoa);
+  font-family: var(--font-recoleta), serif;
+}
+
+.countNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sl-orange);
+  color: var(--sl-white);
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.resetButton {
+  background: none;
+  border: 1px solid var(--sl-sand);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--sl-cocoa);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  background: #FFFDF7;
+  color: var(--sl-orange);
+  border-color: var(--sl-orange);
+}
+
+/* ==========================================================================
+   Two-Column Layout
+   ========================================================================== */
+
+.twoColumnLayout {
+  display: grid;
+  grid-template-columns: minmax(360px, 440px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.listColumn {
+  width: 100%;
+}
+
+.mapColumn {
+  position: sticky;
+  top: 140px;
+  /* Contain Leaflet's internal z-indexes (400-1000) so the map never paints above the sticky navbar (z-index 100). */
+  z-index: 0;
+  isolation: isolate;
+  height: calc(100vh - 200px);
+  min-height: 520px;
+}
+
+/* ==========================================================================
+   Store List & Cards
+   ========================================================================== */
+
+.storeListWrapper {
+  width: 100%;
+}
+
+.storeCardsScrollContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-right: 8px;
+  scroll-behavior: smooth;
+}
+
+/* Sleek scrollbar */
+.storeCardsScrollContainer::-webkit-scrollbar {
+  width: 6px;
+}
+.storeCardsScrollContainer::-webkit-scrollbar-track {
+  background: rgba(246, 233, 213, 0.4);
+  border-radius: 8px;
+}
+.storeCardsScrollContainer::-webkit-scrollbar-thumb {
+  background: var(--sl-sand);
+  border-radius: 8px;
+}
+.storeCardsScrollContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--sl-orange);
+}
+
+.storeCard {
+  background: #FFFDF8;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 3px 12px rgba(40, 30, 25, 0.03);
+}
+
+.storeCard:hover {
+  border-color: rgba(241, 89, 43, 0.45);
+  box-shadow: 0 8px 24px rgba(241, 89, 43, 0.08);
+}
+
+.storeCardSelected {
+  border-color: var(--sl-orange);
+  box-shadow: 0 10px 28px rgba(241, 89, 43, 0.16);
+  background: #FFF9EE;
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.storeIndexBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sl-cocoa);
+  background: #F7EFE4;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.areaBadge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--sl-orange);
+  background: rgba(241, 89, 43, 0.08);
+  border-radius: 9999px;
+  padding: 3px 10px;
+}
+
+.cityBadge {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--sl-cocoa);
+  background: rgba(112, 93, 80, 0.08);
+  border-radius: 9999px;
+  padding: 3px 10px;
+}
+
+.cardStoreName {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+  color: var(--sl-espresso);
+  font-family: var(--font-shrikhand), serif;
+  line-height: 1.25;
+}
+
+.cardAddressText {
+  margin: 0 0 12px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--sl-cocoa);
+  font-family: var(--font-recoleta), serif;
+}
+
+.pincodeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--sl-cocoa);
+  margin-bottom: 16px;
+}
+
+.pincodeLabel {
+  font-weight: 600;
+}
+
+.pincodeValue {
+  font-weight: 700;
+  color: var(--sl-espresso);
+}
+
+.cardActionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(246, 233, 213, 0.6);
+}
+
+.selectOnMapBtn {
+  background: rgba(109, 86, 134, 0.08);
+  color: var(--sl-purple);
+  border: 1px solid rgba(109, 86, 134, 0.2);
+  border-radius: 9999px;
+  padding: 7px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-recoleta), serif;
+}
+
+.selectOnMapBtn:hover {
+  background: var(--sl-purple);
+  color: var(--sl-white);
+  border-color: var(--sl-purple);
+}
+
+.selectOnMapBtnActive {
+  background: var(--sl-orange);
+  color: var(--sl-white);
+  border-color: var(--sl-orange);
+}
+
+.selectOnMapBtnActive:hover {
+  background: var(--sl-purple);
+  border-color: var(--sl-purple);
+}
+
+.unverifiedTag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sl-cocoa);
+  background: #F5EFE7;
+  border-radius: 9999px;
+  padding: 5px 12px;
+}
+
+.googleDirectionsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--sl-orange);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.googleDirectionsLink:hover {
+  color: var(--sl-orange-hover);
+  text-decoration: underline;
+}
+
+/* Empty State */
+.emptyStateContainer {
+  background: #FFFDF8;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 20px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.emptyTitle {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-family: var(--font-shrikhand), serif;
+  color: var(--sl-espresso);
+}
+
+.emptyText {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--sl-cocoa);
+}
+
+.emptyResetBtn {
+  background: var(--sl-orange);
+  color: var(--sl-white);
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.emptyResetBtn:hover {
+  background: var(--sl-purple);
+}
+
+/* ==========================================================================
+   Map Container & Leaflet Customization
+   ========================================================================== */
+
+.storeMapContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid var(--sl-sand);
+  box-shadow: 0 8px 30px rgba(40, 30, 25, 0.06);
+  position: relative;
+  /* Contain Leaflet's internal z-indexes (400-1000) so the map never paints above the sticky navbar (z-index 100). */
+  z-index: 0;
+  isolation: isolate;
+}
+
+.mapCanvasWrapper {
+  position: relative;
+  /* Contain Leaflet's internal z-indexes (400-1000) so the map never paints above the sticky navbar (z-index 100). */
+  z-index: 0;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  background: #E8E4D8;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+}
+
+.mapSkeleton {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4EFE6;
+  border-radius: 24px;
+}
+
+.skeletonPulse {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  animation: skeletonShimmer 1.8s infinite;
+}
+
+@keyframes skeletonShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeletonContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.skeletonSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(241, 89, 43, 0.2);
+  border-top-color: var(--sl-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.skeletonText {
   margin: 0;
-  color: rgba(17, 17, 17, 0.78);
-  line-height: 1.8;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--sl-cocoa);
+}
+
+.mapInfoOverlay {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  right: 20px;
+  z-index: 500;
+  background: rgba(255, 252, 238, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--sl-sand);
+  border-radius: 16px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(40, 30, 25, 0.08);
+}
+
+.overlayIcon {
+  font-size: 1.4rem;
+}
+
+.overlayTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayTitle {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sl-espresso);
+}
+
+.overlaySubtitle {
+  margin: 2px 0 0;
+  font-size: 0.82rem;
+  color: var(--sl-cocoa);
+}
+
+/* ==========================================================================
+   Leaflet Custom Pin & Popup Styles (Global via :global)
+   ========================================================================== */
+
+:global(.store-pin) {
+  background: none;
+  border: 0;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 3px 4px rgba(40, 30, 25, 0.25));
+  cursor: pointer;
+}
+
+:global(.store-pin--selected) {
+  z-index: 1000 !important;
+  transform: scale(1.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.store-pin) {
+    transition: none;
+  }
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  background: #FFFCEE !important;
+  color: #281E19 !important;
+  border: 1.5px solid #F6E9D5 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 12px 32px rgba(40, 30, 25, 0.16) !important;
+  padding: 0 !important;
+}
+
+:global(.leaflet-popup-content) {
+  margin: 16px 18px !important;
+  line-height: 1.5 !important;
+}
+
+:global(.leaflet-popup-tip) {
+  background: #FFFCEE !important;
+  border: 1px solid #F6E9D5 !important;
+  box-shadow: none !important;
+}
+
+:global(.leaflet-container a.leaflet-popup-close-button) {
+  top: 10px !important;
+  right: 12px !important;
+  color: #705D50 !important;
+  font-size: 18px !important;
+}
+
+.mapPopup {
+  font-family: var(--font-recoleta), serif;
+}
+
+.mapPopupHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.popupBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #F1592B;
+  border-radius: 9999px;
+  padding: 2px 8px;
+}
+
+.popupArea {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #705D50;
+}
+
+.popupTitle {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-family: var(--font-shrikhand), serif;
+  color: #6D5686;
+  line-height: 1.25;
+}
+
+.popupAddress {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: #705D50;
+  line-height: 1.5;
+}
+
+.popupActions {
+  padding-top: 8px;
+  border-top: 1px solid #F6E9D5;
+}
+
+.popupDirectionsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #F1592B;
+  text-decoration: none;
+}
+
+.popupDirectionsBtn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Server Crawlable List & SEO Content Sections
+   Warm brand-integrated styling with no harsh white boxes
+   ========================================================================== */
+
+.crawlableSection {
+  margin-top: 56px;
+  padding: clamp(24px, 3.5vw, 40px) clamp(20px, 3vw, 36px);
+  background: transparent;
+  /* border: 1.5px solid var(--sl-sand); */
+  border-radius: 24px;
+}
+
+.crawlableHeading {
+  margin: 0 0 12px;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-family: var(--font-shrikhand), serif;
+  color: var(--sl-purple);
+}
+
+.crawlableIntro {
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--sl-cocoa);
+}
+
+.crawlableGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crawlableItem {
+  padding: 16px 18px;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 16px;
+  background: #FFFDF8;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.crawlableItem:hover {
+  border-color: rgba(241, 89, 43, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(40, 30, 25, 0.04);
+}
+
+.crawlableItemTitle {
+  margin: 0 0 6px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--sl-espresso);
+  font-family: var(--font-recoleta), serif;
+}
+
+.crawlableItemAddress {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--sl-cocoa);
+}
+
+/* FAQ Section */
+.faqSection {
+  margin-top: 48px;
+  padding: clamp(28px, 4vw, 44px) clamp(20px, 3vw, 36px);
+  background: transparent;
+  /* border: 1.5px solid var(--sl-sand); */
+  border-radius: 24px;
+}
+
+.faqHeading {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-family: var(--font-shrikhand), serif;
+  color: var(--sl-purple);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  padding: 20px 24px;
+  border: 1.5px solid var(--sl-sand);
+  border-radius: 18px;
+  background: #FFFDF8;
+}
+
+.faqQuestion {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--sl-orange);
+  font-family: var(--font-recoleta), serif;
+}
+
+.faqAnswer {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--sl-cocoa);
+}
+
+/* ==========================================================================
+   Mobile Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .filterGrid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
 }
 
 @media (max-width: 900px) {
-  .hero,
-  .cards {
+  .filterBar {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .filterGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .filterGrid .filterField:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .twoColumnLayout {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .mapColumn {
+    order: 1;
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+    height: 380px;
+    min-height: 380px;
+    margin-bottom: 8px;
+  }
+
+  .mapContainer,
+  .mapSkeleton {
+    min-height: 380px;
+  }
+
+  .listColumn {
+    order: 2;
+  }
+
+  .storeCardsScrollContainer {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  .crawlableGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px 14px 60px;
+  }
+
+  .filterBar {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .filterGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .filterMetaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .resetButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .badgeRow {
+    gap: 8px;
+  }
+
+  .accentBadge {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+
+  .cardActionsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .selectOnMapBtn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .googleDirectionsLink {
+    justify-content: center;
+  }
+
+  .crawlableSection,
+  .faqSection {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .faqItem {
+    padding: 16px 18px;
   }
 }

@@ -1,4 +1,5 @@
 import { ContactForm } from './ContactForm';
+import { ContactLocationCard } from './ContactLocationCard';
 import { WHATSAPP_NUMBER } from './contact.config';
 import styles from './ContactPage.module.css';
 
@@ -19,8 +20,6 @@ export default function ContactPage() {
         <div className={styles.contentLayout}>
           {/* Left Column: Context, Illustration & Minimal Contact Channels */}
           <aside className={styles.sidebarColumn}>
-
-
             <div className={styles.sidebarInfoCard}>
               <h2 className={styles.sidebarTitle}>Direct Communication</h2>
               <p className={styles.sidebarDesc}>
@@ -44,9 +43,11 @@ export default function ContactPage() {
                   <span className={styles.pointLabel}>Headquarters:</span>
                   <span className={styles.pointValue}>Surat, Gujarat, India</span>
                 </div>
-
               </div>
             </div>
+
+            {/* Headquarters Location Map directly below Direct Communication */}
+            <ContactLocationCard />
           </aside>
 
           {/* Right Column: Premium Contact Form */}
